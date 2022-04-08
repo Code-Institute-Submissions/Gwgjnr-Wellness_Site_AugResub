@@ -2,5 +2,20 @@
 {% load static %}
 
 {% block content %}
-
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 logo-font text-black">
+                Find the the perfect sessions for you today
+            </h1>
+            {% if not request.user.is_authenticated %}
+            <div class="my-5">
+                <h4>
+                    <a href="{% url 'account_signup' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Sign up today</a>
+                </h4>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
