@@ -9,10 +9,11 @@ body {
 .background-container {
     background: url('/media/harli-marten-n7a2OJDSZns-unsplash.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 464px);
+    height: 50vh;
     color: #555;
     filter: blur(4px);
     -webkit-filter: blur(4px);
+    z-index: -1;
 }
 
 .intro-header {
@@ -21,16 +22,14 @@ body {
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
     width: 80%;
 }
 
 .intro-signup {
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
     width: 80%;
 }
 
@@ -58,3 +57,49 @@ footer {
      text-decoration: none !important;
      color: #555;
  }
+
+ .search-button {
+     margin-left: 0.5rem;
+ }
+
+.navbar {
+    z-index: 2;
+}
+
+ /* Media queries used to ensure responsiveness for intro header across different screen widths */
+
+
+ @media screen and (max-width: 1400px) {
+    .intro-header {
+        color: oldlace;
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        font-size: 40px;
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .intro-header {
+        color: oldlace;
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        font-size: 35px;
+
+    }
+    .intro-signup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+    }
+}
+
+

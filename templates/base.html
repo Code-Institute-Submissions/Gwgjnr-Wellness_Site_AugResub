@@ -53,37 +53,31 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Sessions</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Account
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% if request.user.is_authenticated %}
-                            <li><a href="" class="dropdown-item">My Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                            {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </ul>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Donate</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Sign up</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Donate</a>
                     </li>
                 </ul>
 
                 <form class="d-flex" method="GET" action="">
-                    <div class="input-group w-100">
+                    <div class="input-group w-90">
                         <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site" aria-label="Search">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <button class="btn btn-outline-success search-button" type="submit">Search</button>
                             </button>
                         </div>
                     </div>
