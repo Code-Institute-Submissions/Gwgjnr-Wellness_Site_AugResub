@@ -51,7 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sessions</a>
+                        <a class="nav-link" href="#">Seminars</a>
                     </li>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item">
@@ -75,7 +75,8 @@
 
                 <form class="d-flex" method="GET" action="">
                     <div class="input-group w-90">
-                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site" aria-label="Search">
+                        <input class="form-control border border-black rounded-0" type="text" name="q"
+                            placeholder="Search our site" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-outline-success search-button" type="submit">Search</button>
                             </button>
@@ -90,24 +91,32 @@
     <div class="message-container"></div>
     {% endif %}
 
-    {% block content %}
-    {% endblock %}
+    <div class="background-container">
+    </div>
+
+        {% block content %}
+        {% endblock %}
+
     <footer class="footer mt-auto py-3">
         <div class="row">
             <div class="col-3 text-center social-media">
-                <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook (Opens in a new tab)"><i class="fab fa-facebook-square ms-3"></i></a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener"
+                    aria-label="Facebook (Opens in a new tab)"><i class="fab fa-facebook-square ms-3"></i></a>
             </div>
             <div class="col-3 text-center social-media">
-                <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter (Opens in a new tab)"><i class="fab fa-twitter-square ms-3"></i></a>
+                <a href="https://www.twitter.com" target="_blank" rel="noopener"
+                    aria-label="Twitter (Opens in a new tab)"><i class="fab fa-twitter-square ms-3"></i></a>
             </div>
             <div class="col-3 text-center social-media">
-                <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Youtube (Opens in a new tab)"><i class="fab fa-youtube-square ms-3"></i></a>
+                <a href="https://www.youtube.com" target="_blank" rel="noopener"
+                    aria-label="Youtube (Opens in a new tab)"><i class="fab fa-youtube-square ms-3"></i></a>
             </div>
             <div class="col-3 text-center social-media">
-                <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram (Opens in a new tab)"><i class="fab fa-instagram ms-3"></i></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener"
+                    aria-label="Instagram (Opens in a new tab)"><i class="fab fa-instagram ms-3"></i></a>
             </div>
         </div>
-</footer>
+    </footer>
     {% block postload_js %}
     {% endblock %}
 
