@@ -17,7 +17,7 @@ class Category(models.Model):
 
     def __str__(self):
 
-        return self.type
+        return f"{self.type}"
 
 
 class Session(models.Model):
@@ -50,7 +50,7 @@ class Session(models.Model):
         User, related_name='attending_sessions', blank=True)
 
     def __str__(self):
-        return self.title
+        return f"{self.title}"
 
     def number_signed_up(self):
         return self.signed_up.count()
