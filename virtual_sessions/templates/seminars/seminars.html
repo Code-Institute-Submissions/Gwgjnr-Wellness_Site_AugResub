@@ -10,6 +10,7 @@
                 <h3 class="card_header">{{ seminar.title }}</h3>
                 <div class="row">
                     <div class="col">
+                        <p class="card_header"><strong>Category: </strong>{{ seminar.category }}</p>
                         {% if seminar.featured_image %}
                         <img class="card-img-top img-fluid card_image" src="{{ seminar.featured_image.url }}"
                             alt="{{ seminar.title }}">
@@ -20,7 +21,11 @@
                         <p class="card_text"><strong>Details: </strong>{{ seminar.summary }}</p>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-info"><strong>Details</strong></button>
+                    </div>
+                </div>
             </div>
         </div>
         {% endfor %}

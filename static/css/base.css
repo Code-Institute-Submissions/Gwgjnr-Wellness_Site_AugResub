@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=PT+Sans&display=swap');
+
 body {
     margin:0;
     padding:0;
     height:100%;
 }
+
+ p {
+    font-family: 'Inconsolata', monospace;
+}
+ 
 
 #page-container {
     min-height:100%;
@@ -93,6 +100,7 @@ a {
     min-width: 300px;
     min-height: 200px;
     background-color: #f7f7f7;
+    border-radius: 2%;
     margin: 1rem;
 }
 
@@ -102,10 +110,16 @@ a {
 
 .card_image {
     padding: 0.5rem;
+    border-radius: 8%;
 }
 
 .card_text {
     padding-right: 1rem;
+}
+
+.btn-outline-info {
+    margin: 0.5rem;
+    float: right;
 }
 
  /* Media queries used to ensure responsiveness for intro header across different screen widths */
