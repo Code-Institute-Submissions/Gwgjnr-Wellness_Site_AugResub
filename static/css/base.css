@@ -1,40 +1,63 @@
-html {
-    height: 100%;
+body {
+    margin:0;
+    padding:0;
+    height:100%;
 }
 
-body {
-    background-color: #7f7f7f;
+#page-container {
+    min-height:100%;
+    position:relative;
 }
 
 .background-container {
-    background: url('/media/harli-marten-n7a2OJDSZns-unsplash.jpg') no-repeat center center fixed;
+    background-image: url('/media/harli-marten-n7a2OJDSZns-unsplash.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
     background-size: cover;
-    height: 50vh;
-    color: #555;
-    filter: blur(4px);
-    -webkit-filter: blur(4px);
+    height: 100vh;
+    width: 100%;
     z-index: -1;
-}
+  }
 
-.intro-header {
+
+.blur {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+  }
+
+.intro {
+    padding-top: 8%;
+    padding-left: 10%;
     color: oldlace;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
 }
 
-.intro-signup {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-}
-
-.intro-signup a {
+.intro-invite {
+    padding-top: 1%;
+    padding-left: 10%;
     color: oldlace;
+}
+
+.featured-header {
+    padding-left: 10%;
+    color: oldlace;
+    padding-top: 5%;
+}
+
+.intro-invite a {
+    color: oldlace;
+}
+
+.overlay {
+    background: #f7f7f7;
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 
 hr {
@@ -53,17 +76,22 @@ footer {
     
 }
 
- a {
-     text-decoration: none !important;
-     color: #555;
+a {
+    text-decoration: none !important;
+    color: #555;
  }
 
- .search-button {
-     margin-left: 0.5rem;
+.search-button {
+    margin-left: 0.5rem;
  }
 
 .navbar {
     z-index: 2;
+}
+
+.card {
+min-width: 300px;
+background-color: #555;
 }
 
  /* Media queries used to ensure responsiveness for intro header across different screen widths */

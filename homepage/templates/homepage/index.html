@@ -2,37 +2,37 @@
 {% load static %}
 
 {% block content %}
-<div class="container-flex h-100">
+<div class="container-flex">
     <div class="background-container">
-    </div>
-    <div class="row h-100">
-        <div class="col my-auto intro">
-            <h2 class="display-3 intro-header">
-                Find the the perfect seminar to ensure your health and wellbeing flourishs today!
-            </h2>
-            {% if not request.user.is_authenticated %}
+        <div class="blur">
+            <div class="row">
+                <div class="col my-auto">
+                    <h2 class="display-4 intro">
+                        Find the the perfect seminar to ensure your health and wellbeing flourishs today!
+                    </h2>
+                    {% if not request.user.is_authenticated %}
 
-            <h4 class="intro-signup">
-                <a href="{% url 'account_signup' %}" class="shop-now-button btn btn-lg rounded-0">Sign up
-                    today</a>
-            </h4>
+                    <h3 class="intro-invite">
+                        <a href="{% url 'account_signup' %}" class="shop-now-button btn btn-lg rounded-0">Sign up
+                            today</a>
+                    </h4>
 
-            {% else %}
+                    {% else %}
 
-            <h4 class="intro-signup">
-                <a href="#" class="shop-now-button btn btn-lg rounded-0">Search our seminars</a>
-            </h4>
+                    <h4 class="intro-invite">
+                        <a href="#" class="shop-now-button btn btn-lg rounded-0">Search our seminars</a>
+                    </h4>
 
-            {% endif %}
-        </div>
-    </div>
+                    {% endif %}
 
-</div>
-<div class="container-flex h-100">
-    <div class="row h-100">
-        <div class="col my-auto intro">
-            <h2 class="intro-text">Featured Sessions</h2>
-            <hr>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col my-auto">
+                    <h2 class="featured-header">Featured Sessions</h2>
+                </div>
+            </div>
         </div>
     </div>
 </div>
