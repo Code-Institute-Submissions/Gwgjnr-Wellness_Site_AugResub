@@ -7,10 +7,10 @@ def seminar_search_page(request):
     A view to return all the seminars
     """
 
-    semniars = Session.objects.all()
+    seminars = Session.objects.all()
 
     context = {
-        'semniars': semniars,
+        'seminars': seminars,
     }
 
-    return render(request, 'seminars/seminars.html')
+    return render(request, 'seminars/seminars.html', context)
