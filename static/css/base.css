@@ -90,9 +90,22 @@ a {
 }
 
 .card {
-min-width: 300px;
-background-color: #f7f7f7;
-margin: 1rem;
+    min-width: 300px;
+    min-height: 200px;
+    background-color: #f7f7f7;
+    margin: 1rem;
+}
+
+.card_header {
+    padding-left: 1rem;
+}
+
+.card_image {
+    padding: 0.5rem;
+}
+
+.card_text {
+    padding-right: 1rem;
 }
 
  /* Media queries used to ensure responsiveness for intro header across different screen widths */

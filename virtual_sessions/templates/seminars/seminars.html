@@ -6,17 +6,18 @@
     <div class="row">
         {% for seminar in seminars %}
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-            <div class="card border-0">
-                <h3>{{ seminar.title }}</h3>
+            <div class="card">
+                <h3 class="card_header">{{ seminar.title }}</h3>
                 <div class="row">
                     <div class="col">
                         {% if seminar.featured_image %}
-                        <img class="card-img-top img-fluid" src="{{ seminar.featured_image.url }}"
+                        <img class="card-img-top img-fluid card_image" src="{{ seminar.featured_image.url }}"
                             alt="{{ seminar.title }}">
                         {% endif %}
                     </div>
                     <div class="col">
-                        {{ seminar.event_time }} {{ seminar.event_day }}
+                        <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }} {{ seminar.get_event_day_display }}</p>
+                        <p class="card_text"><strong>Details: </strong>{{ seminar.summary }}</p>
                     </div>
                 </div>
 
