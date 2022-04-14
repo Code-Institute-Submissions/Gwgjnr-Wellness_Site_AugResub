@@ -9,6 +9,8 @@ body {
     position:relative;
 }
 
+/* Styles used to create and blur background image */
+
 .background-container {
     background-image: url('/media/harli-marten-n7a2OJDSZns-unsplash.jpg');
     background-position: top;
@@ -19,29 +21,32 @@ body {
     z-index: -1;
   }
 
-
 .blur {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     height: 100vh;
     width: 100%;
     z-index: -1;
   }
 
+/* Styles used to customise text on homepage */
+
 .intro {
-    padding-top: 8%;
+    padding-top: 10%;
     padding-left: 10%;
+    padding-right: 5%;
     color: oldlace;
+    font-weight: 800;
 }
 
 .intro-invite {
-    padding-top: 1%;
+    padding-top: 2%;
     padding-left: 10%;
     color: oldlace;
 }
 
 .featured-header {
-    padding-left: 10%;
+    padding-left: 15%;
     color: oldlace;
     padding-top: 5%;
 }
@@ -50,22 +55,23 @@ body {
     color: oldlace;
 }
 
-.overlay {
-    background: #f7f7f7;
-    top: 0;
-    left: 0;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-}
-
 hr {
     border: 5px solid white;
     border-radius: 5px;
-    width:50%;
+    width:70%;
     margin-left: 10%;
-  }
+}
+
+/* Styles used to customise nav bar */
+
+.search-button {
+    margin-left: 0.5rem;
+}
+
+.navbar {
+    z-index: 2;
+}
+
 
 footer {
     position: absolute;
@@ -79,14 +85,6 @@ footer {
 a {
     text-decoration: none !important;
     color: #555;
- }
-
-.search-button {
-    margin-left: 0.5rem;
- }
-
-.navbar {
-    z-index: 2;
 }
 
 .card {
@@ -100,11 +98,6 @@ background-color: #555;
  @media screen and (max-width: 1400px) {
     .intro-header {
         color: oldlace;
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
         font-size: 40px;
 
     }
@@ -113,11 +106,6 @@ background-color: #555;
 @media screen and (max-width: 480px) {
     .intro-header {
         color: oldlace;
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
         font-size: 35px;
 
     }

@@ -2,24 +2,21 @@
 {% load static %}
 
 {% block content %}
-<div class="container-flex">
+<div class="container">
     <div class="row">
-            <div class="overlay">    
-            </div>
-            {% for seminar in seminars %}
-            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                <div class="card h-100 border-0">
+        {% for seminar in seminars %}
+        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+            <div class="card border-0">
 
-                    <h2>{{ seminar.title }}</h2>
-                    {% if seminar.image %}
-                    <a href="">
-                        <img class="card-img-top img-fluid" src="{{ seminar.image.url }}" alt="{{ seminar.title }}">
-                    </a>
-                    {% endif %}
-                </div>
+                <h2>{{ seminar.title }}</h2>
+                {% if seminar.image %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ seminar.image.url }}" alt="{{ seminar.title }}">
+                </a>
+                {% endif %}
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
