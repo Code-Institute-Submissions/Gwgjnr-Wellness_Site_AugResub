@@ -17,7 +17,8 @@
                         {% endif %}
                     </div>
                     <div class="col">
-                        <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }} {{ seminar.get_event_day_display }}</p>
+                        <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }}
+                            {{ seminar.get_event_day_display }}</p>
                         <p class="card_text"><strong>Details: </strong>{{ seminar.summary }}</p>
                     </div>
                 </div>
@@ -30,5 +31,6 @@
         </div>
         {% endfor %}
     </div>
+
 </div>
 {% endblock %}

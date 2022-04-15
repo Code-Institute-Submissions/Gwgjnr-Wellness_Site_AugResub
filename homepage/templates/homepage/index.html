@@ -3,31 +3,36 @@
 
 {% block content %}
 <div class="container-flex">
-    <div class="row">
-        <div class="col my-auto">
-            <h2 class="display-4 intro">
-                Find the the perfect seminar to ensure your health and wellbeing flourishs today!
-            </h2>
-            {% if not request.user.is_authenticated %}
+    <div class="background-container">
+        <div class="blur">
+            <div class="row">
+                <div class="col my-auto">
+                    <h2 class="display-4 intro">
+                        Find the the perfect seminar to ensure your health and wellbeing flourishs today!
+                    </h2>
+                    {% if not request.user.is_authenticated %}
 
-            <h3 class="intro-invite">
-                <a href="{% url 'account_signup' %}" class="shop-now-button btn btn-lg rounded-0">Sign up
-                    today</a>
-            </h3>
+                    <h3 class="intro-invite">
+                        <a href="{% url 'account_signup' %}" class="shop-now-button btn btn-lg rounded-0">Sign up
+                            today</a>
+                    </h3>
 
-            {% else %}
+                    {% else %}
 
-            <h3 class="intro-invite">
-                <a href="{% url 'seminars' %}" class="shop-now-button btn btn-lg rounded-0">Search our seminars</a>
-            </h3>
+                    <h3 class="intro-invite">
+                        <a href="{% url 'seminars' %}" class="shop-now-button btn btn-lg rounded-0">Search our
+                            seminars</a>
+                    </h3>
 
-            {% endif %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col my-auto">
-            <h2 class="featured-header">Featured Sessions</h2>
-            <hr>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col my-auto">
+                    <h2 class="featured-header">Featured Sessions</h2>
+                    <hr>
+                </div>
+            </div>
         </div>
     </div>
 </div>
