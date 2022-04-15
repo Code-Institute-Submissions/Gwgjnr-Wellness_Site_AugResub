@@ -2,21 +2,21 @@
 {% load static %}
 
 {% block content %}
-<div class="container-flex">
+<div class="container">
     <div class="row">
         {% for seminar in seminars %}
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="card">
-                <h3 class="card_header">{{ seminar.title }}</h3>
                 <div class="row">
+                    <h1 class="card_header">{{ seminar.title }}</h1>
                     <div class="col">
-                        <p class="card_header"><strong>Category: </strong>{{ seminar.category }}</p>
                         {% if seminar.featured_image %}
                         <img class="card-img-top img-fluid card_image" src="{{ seminar.featured_image.url }}"
                             alt="{{ seminar.title }}">
                         {% endif %}
                     </div>
                     <div class="col">
+                        <p class="card_text"><strong>Category: </strong>{{ seminar.category }}</p>
                         <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }}
                             {{ seminar.get_event_day_display }}</p>
                         <p class="card_text"><strong>Details: </strong>{{ seminar.summary }}</p>
@@ -24,7 +24,9 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button type="button" class="btn btn-outline-info"><strong>Details</strong></button>
+                        <a href="{% url 'seminar_detail' seminar.id %}">
+                            <button type="button" class="btn btn-outline-info"><strong>Details</strong></button>
+                        </a>
                     </div>
                 </div>
             </div>

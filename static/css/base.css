@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Roboto:wght@300&display=swap');
 
 html, body {
     margin:0;
@@ -6,8 +6,14 @@ html, body {
     height:100%;
 }
 
+
+h2, h3, h4, h5 {
+    font-family: 'Roboto Slab', serif;
+
+}
+
  p {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Roboto', sans-serif;
 }
  
 
@@ -81,7 +87,6 @@ hr {
     z-index: 2;
 }
 
-
 footer {
     height: 3rem;
     background-color: #f7f7f7;
@@ -93,7 +98,6 @@ footer {
     position: fixed;
     bottom: 0pt;
     left: 0pt;
-    
 }
 
 a {
@@ -107,10 +111,11 @@ a {
     background-color: #f7f7f7;
     border-radius: 2%;
     margin: 1rem;
+    margin-bottom: 3rem;
 }
 
 .card_header {
-    padding-left: 1rem;
+    padding: 1rem;
 }
 
 .card_image {
@@ -131,6 +136,12 @@ a {
     background: #f7f7f7;
 }
 
+.details_header {
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
  /* Media queries used to ensure responsiveness for intro header across different screen widths */
 
 
@@ -139,21 +150,6 @@ a {
         color: oldlace;
         font-size: 40px;
 
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .intro-header {
-        color: oldlace;
-        font-size: 35px;
-
-    }
-    .intro-signup {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
     }
 }
 
