@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
+from django.db.models import Q
 from .models import Session
 
 
@@ -8,9 +10,21 @@ def seminar_search_page(request):
     """
 
     seminars = Session.objects.all()
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "Please enter a search query!")
+                return redirect(reverse('seminars'))
+
+            queries = Q(title__icontains=query) | Q(summary__icontains=query) | Q(details__icontains=query)
+            seminars = seminars.filter(queries)
 
     context = {
         'seminars': seminars,
+        'search_term': query,
     }
 
     return render(request, 'seminars/seminars.html', context)
