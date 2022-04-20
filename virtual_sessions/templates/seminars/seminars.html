@@ -8,7 +8,7 @@
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="card">
                 <div class="row">
-                    <h1 class="card_header">{{ seminar.title }}</h1>
+                    <h2 class="card_header">{{ seminar.title }}</h2>
                     <div class="col">
                         {% if seminar.featured_image %}
                         <img class="card-img-top img-fluid card_image" src="{{ seminar.featured_image.url }}"
@@ -16,7 +16,7 @@
                         {% endif %}
                     </div>
                     <div class="col">
-                        <p class="card_text"><strong>Category: </strong>{{ seminar.category }}</p>
+                        <p class="card_text"><strong>Category: </strong>{{ seminar.get_category_display }}</p>
                         <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }}
                             {{ seminar.get_event_day_display }}</p>
                         <p class="card_text"><strong>Details: </strong>{{ seminar.summary }}</p>

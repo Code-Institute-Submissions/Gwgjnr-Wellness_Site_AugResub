@@ -3,39 +3,40 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-class Category(models.Model):
-    '''
-    This class is used for generating my model for the session categories.
-    '''
-    TYPES = (
-        ('P', 'Physical'),
-        ('M', 'Mental'),
-        ('N', 'Nutritional'),
-    )
-    
-    type = models.CharField(max_length=1, choices=TYPES)
-
-    def __str__(self):
-
-        return f"{self.type}"
-
-
 class Session(models.Model):
     '''
     This class is used for generating my model for the virtual sessions.
     '''
 
-    DAYS = (
-        ('S', 'Sunday'),
-        ('M', 'Monday'),
-        ('T', 'Tuesday'),
-        ('W', 'Wednesday'),
-        ('H', 'Thursday'),
-        ('F', 'Friday'),
-        ('A', 'Saturday'),
-    )
+    PHYSICAL = 'PH'
+    MENTAL = 'ME'
+    NUTRTIONAL = 'NU'
 
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    TYPES = [
+        (PHYSICAL, 'Physical'),
+        (MENTAL, 'Mental'),
+        (NUTRTIONAL, 'Nutritional'),
+    ]
+
+    SUNDAY = 'SU'
+    MONDAY = 'MO'
+    TUESDAY = 'TU'
+    WEDNESDAY = 'WE'
+    THURSDAY = 'TH'
+    FRIDAY = 'FR'
+    SATURDAY = 'SA'
+
+    DAYS = [
+        (SUNDAY, 'Sunday'),
+        (MONDAY, 'Monday'),
+        (TUESDAY, 'Tuesday'),
+        (WEDNESDAY, 'Wednesday'),
+        (THURSDAY, 'Thursday'),
+        (FRIDAY, 'Friday'),
+        (SATURDAY, 'Saturday'),
+    ]
+
+    category = models.CharField(max_length=50, choices=TYPES)
     title = models.CharField(max_length=200, unique=True)
     host = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="hosted_sessions"
@@ -44,7 +45,7 @@ class Session(models.Model):
     details = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     created_date = models.DateTimeField(auto_now_add=True)
-    event_day = models.CharField(max_length=1, choices=DAYS)
+    event_day = models.CharField(max_length=50, choices=DAYS)
     event_time = models.TimeField()
     signed_up = models.ManyToManyField(
         User, related_name='attending_sessions', blank=True)

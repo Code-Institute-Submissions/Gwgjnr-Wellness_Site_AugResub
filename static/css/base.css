@@ -116,6 +116,7 @@ a {
 
 .card_header {
     padding: 1rem;
+    text-align: center;
 }
 
 .card_image {
