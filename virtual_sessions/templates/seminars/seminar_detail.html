@@ -4,16 +4,16 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <h1 class="details_header display-4"> {{ seminar.title }} </h1>
+        <h1 class="details_header"> {{ seminar.title }} </h1>
         <div class="col">
             {% if seminar.featured_image %}
-            <img class="card-img-top img-fluid card_image" src="{{ seminar.featured_image.url }}"
+            <img class="card-img-top img-fluid detail_image" src="{{ seminar.featured_image.url }}"
                 alt="{{ seminar.title }}">
             {% endif %}
 
         </div>
-        <div class="col">
-            <p class="card_text"><strong>Category: </strong>{{ seminar.category }}</p>
+        <div class="col-md-8">
+            <p class="card_text"><strong>Category: </strong>{{ seminar.get_category_display }}</p>
             <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }}
                 {{ seminar.get_event_day_display }}</p>
             <p class="card_text"><strong>Summary: </strong>{{ seminar.summary }}</p>

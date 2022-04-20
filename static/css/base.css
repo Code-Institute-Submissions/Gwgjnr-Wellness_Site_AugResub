@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Roboto+Slab:wght@500&family=Roboto:wght@300&display=swap');
 
 html, body {
     margin:0;
@@ -6,16 +6,17 @@ html, body {
     height:100%;
 }
 
-
 h2, h3, h4, h5 {
     font-family: 'Roboto Slab', serif;
-
 }
 
  p {
     font-family: 'Roboto', sans-serif;
 }
- 
+
+.navbar-brand {
+    font-family: 'Kanit', sans-serif;
+}
 
 .page-container {
     min-height:100%;
@@ -145,10 +146,32 @@ a {
     text-align: center;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    font-size: xx-large;
 }
+
+.detail_image {
+    padding: 0.5rem;
+    border-radius: 8%;
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    float: right;
+}
+
 
  /* Media queries used to ensure responsiveness for images on seminars search page */
 
+
+@media screen and (max-width: 767px) {
+    .detail_image {
+        padding: 0.5rem;
+        border-radius: 8%;
+        width: 780px;
+        height: 200px;
+        object-fit: cover;
+        float: left;
+    }
+}
 
  @media screen and (max-width: 580px) {
     .card_image {
