@@ -6,37 +6,33 @@
     <div class="row">
         <hr class="invisible">
         {% for seminar in seminars %}
-        <div class="col">
-            <!-- <div class="card"> -->
-                <div class="row">
-                    <div class="col">
-                        {% if seminar.featured_image %}
-                        <img class="card-img-top img-fluid card_image" src="{{ seminar.featured_image.url }}"
-                            alt="{{ seminar.title }}">
-                        {% endif %}
-                    </div>
-                    <div class="col-8">
-                        <h4>{{ seminar.event_time }}
-                            {{ seminar.get_event_day_display }}</h4>
-                        <h2 class="card_header">{{ seminar.title }}</h2>
-                        <p class="card_text"><strong>Category: </strong>{{ seminar.get_category_display }}</p>
-                        <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }}
-                            {{ seminar.get_event_day_display }}</p>
-                        <p class="card_text"><strong>Details: </strong>{{ seminar.summary }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a href="{% url 'seminar_detail' seminar.id %}">
-                            <button type="button" class="btn btn-outline-info"><strong>Details</strong></button>
-                        </a>
-                    </div>
-                </div>
-            <!-- </div> -->
+        <div class="row">
+            <div class="col">
+                {% if seminar.featured_image %}
+                <img class="card-img-top img-fluid card_image" src="{{ seminar.featured_image.url }}"
+                    alt="{{ seminar.title }}">
+                {% endif %}
+            </div>
+            <div class="col-sm-8">
+                <h4>{{ seminar.event_time }}
+                    {{ seminar.get_event_day_display }}</h4>
+                <h2 class="card_header">{{ seminar.title }}</h2>
+                <p class="card_text"><strong>Category: </strong>{{ seminar.get_category_display }}</p>
+                <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }}
+                    {{ seminar.get_event_day_display }}</p>
+                <p class="card_text"><strong>Details: </strong>{{ seminar.summary }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'seminar_detail' seminar.id %}">
+                    <button type="button" class="btn btn-outline-info"><strong>Details</strong></button>
+                </a>
+            </div>
         </div>
         <hr class="seminars_hr">
         {% endfor %}
+        <hr class="invisible">
     </div>
-
 </div>
 {% endblock %}

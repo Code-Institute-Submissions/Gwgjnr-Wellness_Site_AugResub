@@ -48,26 +48,26 @@ h2, h3, h4, h5 {
     padding-top: 5%;
     padding-left: 10%;
     padding-right: 5%;
-    color: oldlace;
+    color: white;
     font-weight: 800;
 }
 
 .intro-invite {
     padding-top: 2%;
     padding-left: 10%;
-    color: oldlace;
+    color: white;
     font-weight: 800;
 }
 
 .featured-header {
     padding-left: 15%;
-    color: oldlace;
+    color: white;
     padding-top: 5%;
     font-weight: 700;
 }
 
 .intro-invite a {
-    color: oldlace;
+    color: white;
 }
 
 .intro-hr {
@@ -147,15 +147,27 @@ a {
     padding-bottom: 1.5rem;
 }
 
- /* Media queries used to ensure responsiveness for intro header across different screen widths */
+ /* Media queries used to ensure responsiveness for images on seminars search page */
 
 
- @media screen and (max-width: 1400px) {
-    .intro-header {
-        color: oldlace;
-        font-size: 40px;
-
+ @media screen and (max-width: 580px) {
+    .card_image {
+        padding: 0.5rem;
+        border-radius: 8%;
+        width: 580px;
+        height: 200px;
+        object-fit: cover;
+        float: right;
     }
 }
 
-
+@media screen and (max-width: 280px) {
+    .card_image {
+        padding: 0.5rem;
+        border-radius: 8%;
+        width: 580px;
+        height: 150px;
+        object-fit: cover;
+        float: right;
+    }
+}
