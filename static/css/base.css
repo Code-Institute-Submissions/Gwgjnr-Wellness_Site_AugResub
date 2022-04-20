@@ -45,7 +45,7 @@ h2, h3, h4, h5 {
 /* Styles used to customise text on homepage */
 
 .intro {
-    padding-top: 10%;
+    padding-top: 5%;
     padding-left: 10%;
     padding-right: 5%;
     color: oldlace;
@@ -70,7 +70,7 @@ h2, h3, h4, h5 {
     color: oldlace;
 }
 
-hr {
+.intro-hr {
     border: 5px solid white;
     border-radius: 5px;
     width:70%;
@@ -105,6 +105,10 @@ a {
     color: #555;
 }
 
+.invisible {
+    padding: 1%;
+}
+
 .card {
     min-width: 300px;
     min-height: 200px;
@@ -112,16 +116,16 @@ a {
     border-radius: 2%;
     margin: 1rem;
     margin-bottom: 3rem;
-}
 
-.card_header {
-    padding: 1rem;
-    text-align: center;
 }
 
 .card_image {
     padding: 0.5rem;
     border-radius: 8%;
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    float: right;
 }
 
 .card_text {
