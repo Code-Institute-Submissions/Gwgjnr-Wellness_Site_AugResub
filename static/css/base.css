@@ -159,8 +159,11 @@ a {
 }
 
 
+.detail-text {
+    padding: 1rem;
+    font-size: large;
+}
  /* Media queries used to ensure responsiveness for images on seminars search page */
-
 
 @media screen and (max-width: 767px) {
     .detail_image {
@@ -181,6 +184,11 @@ a {
         height: 200px;
         object-fit: cover;
         float: right;
+    }
+
+    .detail-text {
+        padding: 0.2rem;
+        font-size: medium;
     }
 }
 
