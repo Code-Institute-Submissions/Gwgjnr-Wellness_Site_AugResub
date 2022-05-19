@@ -26,7 +26,13 @@
         <div class="row">
             <div class="col">
                 <a href="{% url 'seminar_detail' seminar.id %}">
-                    <button type="button" class="btn btn-outline-info"><strong>Details</strong></button>
+                    <button type="button" class="btn seminar-btn btn-outline-info"><strong>Details</strong></button>
+                </a>
+                <a href="{% url 'seminar_detail' seminar.id %}">
+                    <button type="button" class="btn seminar-btn btn-outline-warning"><strong>Cancel</strong></button>
+                </a>
+                <a href="{% url 'seminar_detail' seminar.id %}">
+                    <button type="button" class="btn seminar-btn btn-outline-success"><strong>Join</strong></button>
                 </a>
             </div>
         </div>

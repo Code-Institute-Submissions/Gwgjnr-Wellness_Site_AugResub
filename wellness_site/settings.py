@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'virtual_sessions',
     'homepage',
+    'profiles',
 ]
 
 MIDDLEWARE = [
