@@ -47,7 +47,7 @@ def seminar_detail(request, session_id):
 
 class JoinSeminar(View):
     '''
-    A view for joining or cancelling your spot at an seminar.
+    A view for joining or cancelling your spot at a seminar.
     '''
     def post(self, request, title, *args, **kwargs):
         seminar = get_object_or_404(Session, title=title)
@@ -57,4 +57,14 @@ class JoinSeminar(View):
         else:
             seminar.signed_up.add(request.user)
             seminar.save()
-        return redirect('/')
+        return redirect(reverse('seminars'))
+
+
+class DeleteSeminar(View):
+    '''
+    A view for deleting a seminar.
+    '''
+    def post(self, request, title, *args, **kwargs):
+        seminar = get_object_or_404(Session, title=title)
+        seminar.delete()
+        return redirect(reverse('seminars'))
