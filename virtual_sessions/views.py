@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.views import View
 from django.contrib import messages
 from django.db.models import Q
 from .models import Session
@@ -42,3 +43,18 @@ def seminar_detail(request, session_id):
     }
 
     return render(request, 'seminars/seminar_detail.html', context)
+
+
+class JoinSeminar(View):
+    '''
+    A view for joining or cancelling your spot at an seminar.
+    '''
+    def post(self, request, title, *args, **kwargs):
+        seminar = get_object_or_404(Session, title=title)
+        if request.user in seminar.signed_up.all():
+            seminar.signed_up.remove(request.user)
+            seminar.save()
+        else:
+            seminar.signed_up.add(request.user)
+            seminar.save()
+        return redirect('/')

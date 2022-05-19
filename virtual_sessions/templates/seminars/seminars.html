@@ -28,12 +28,27 @@
                 <a href="{% url 'seminar_detail' seminar.id %}">
                     <button type="button" class="btn seminar-btn btn-outline-info"><strong>Details</strong></button>
                 </a>
-                <a href="{% url 'seminar_detail' seminar.id %}">
+                {% if user.is_authenticated %}
+                {% if request.user != seminar.host %}
+                <form action="{% url 'join_seminar' seminar.title %}" method="POST">
+                    {% csrf_token %}
+
+                    {% if request.user in seminar.signed_up.all %}
+                    <button type="submit" value="{{ seminar.title }}"
+                        class="btn seminar-btn btn-outline-warning">Cancel</button>
+                    {% else %}
+                    <button type="submit" value="{{ seminar.title }}"
+                        class="btn seminar-btn btn-outline-success">Join</button>
+                    {% endif %}
+                </form>
+                {% endif %}
+                {% endif %}
+                <!-- <a href="{% url 'seminar_detail' seminar.id %}">
                     <button type="button" class="btn seminar-btn btn-outline-warning"><strong>Cancel</strong></button>
                 </a>
                 <a href="{% url 'seminar_detail' seminar.id %}">
                     <button type="button" class="btn seminar-btn btn-outline-success"><strong>Join</strong></button>
-                </a>
+                </a> -->
             </div>
         </div>
         <hr class="seminars_hr">
