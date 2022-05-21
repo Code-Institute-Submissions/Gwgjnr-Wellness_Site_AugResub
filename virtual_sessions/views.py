@@ -54,9 +54,11 @@ class JoinSeminar(View):
         if request.user in seminar.signed_up.all():
             seminar.signed_up.remove(request.user)
             seminar.save()
+
         else:
             seminar.signed_up.add(request.user)
             seminar.save()
+            messages.success(request, f'You signed up for {seminar.title}')
         return redirect(reverse('seminars'))
 
 
