@@ -170,7 +170,7 @@ seminar-detail-btn {
 .message-container {
     position: fixed;
     top: 72px;
-    left: 15px;
+    right: 15px;
     z-index: 9999999;
 }
 
@@ -183,7 +183,11 @@ seminar-detail-btn {
 }
 
 .toast-header-text {
-    padding-left: 92px;
+    padding-left: 112px;
+}
+
+.toast-body {
+    text-align: center;
 }
 
  /* Media queries used to ensure responsiveness for images on seminars search page */

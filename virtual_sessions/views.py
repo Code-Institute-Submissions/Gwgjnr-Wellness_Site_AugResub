@@ -17,7 +17,7 @@ def seminar_search_page(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "Please enter a search query!")
+                messages.error(request, "Please enter a search query")
                 return redirect(reverse('seminars'))
 
             queries = Q(title__icontains=query) | Q(summary__icontains=query) | Q(details__icontains=query)
@@ -70,4 +70,5 @@ class DeleteSeminar(View):
     def post(self, request, title, *args, **kwargs):
         seminar = get_object_or_404(Session, title=title)
         seminar.delete()
+        messages.error(request, f'You have deleted {seminar.title}')
         return redirect(reverse('seminars'))
