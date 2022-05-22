@@ -70,5 +70,5 @@ class DeleteSeminar(View):
     def post(self, request, title, *args, **kwargs):
         seminar = get_object_or_404(Session, title=title)
         seminar.delete()
-        messages.error(request, f'You have deleted {seminar.title}')
+        messages.info(request, f'You have deleted {seminar.title}')
         return redirect(reverse('seminars'))

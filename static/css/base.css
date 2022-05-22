@@ -18,9 +18,13 @@ h2, h3, h4, h5 {
     font-family: 'Kanit', sans-serif;
 }
 
-.page-container {
-    min-height:100%;
-    position:relative;
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
 }
 
 /* Styles used to create and blur background image */
@@ -90,13 +94,8 @@ footer {
     height: 3rem;
     background-color: #f7f7f7;
     width: 100%;
-    background-image: none;
-    background-repeat: repeat;
-    background-attachment: scroll;
-    background-position: 0% 0%;
-    position: fixed;
+    position: absolute;
     bottom: 0pt;
-    left: 0pt;
 }
 
 a {
