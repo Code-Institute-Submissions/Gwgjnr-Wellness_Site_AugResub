@@ -44,10 +44,12 @@
                         <div class="carousel-inner">
                             {% for seminar in seminars|slice:":3" %}
                             <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-                                <img src="{{ seminar.featured_image.url }}" class="d-block w-100" alt="...">
+                                <a href="{% url 'seminar_detail' seminar.id %}">
+                                    <img src="{{ seminar.featured_image.url }}" class="d-block w-100 carousel-image" alt="...">
+                                </a>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>{{ seminar.title }}</h5>
-                                    <p>Some representative placeholder content for the second slide.</p>
+                                    <h5><strong>{{ seminar.title }}</strong></h5>
+                                    <p>{{ seminar.summary }}</p>
                                 </div>
                             </div>
                             {% endfor %}
