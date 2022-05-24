@@ -65,10 +65,10 @@ h2, h3, h4, h5 {
 }
 
 .featured-header {
-    padding-left: 15%;
     color: white;
     padding-top: 5%;
     font-weight: 700;
+    text-align: center;
 }
 
 .intro-invite a {
@@ -76,8 +76,13 @@ h2, h3, h4, h5 {
 }
 
 .intro-hr {
-    width:70%;
+    color: #f7f7f7;
+    height: 8px !important;
+    width:80%;
     margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 8px;
+    border-radius: 5px;
 }
 
 /* Styles used to customise nav bar */
@@ -95,7 +100,7 @@ footer {
     background-color: #f7f7f7;
     width: 100%;
     position: absolute;
-    bottom: 0pt;
+    bottom: 0px;
 }
 
 a {
