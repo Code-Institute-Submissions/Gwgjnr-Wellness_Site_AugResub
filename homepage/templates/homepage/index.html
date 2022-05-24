@@ -31,40 +31,43 @@
                 <div class="col my-auto">
                     <h2 class="featured-header">Featured Sessions</h2>
                     <hr class="intro-hr">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
-                        </div>
-
-                        <div class="carousel-inner">
-                            {% for seminar in seminars|slice:":3" %}
-                            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-                                <a href="{% url 'seminar_detail' seminar.id %}">
-                                    <img src="{{ seminar.featured_image.url }}" class="d-block w-100 carousel-image" alt="...">
-                                </a>
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5><strong>{{ seminar.title }}</strong></h5>
-                                    <p>{{ seminar.summary }}</p>
-                                </div>
+                    <div id="carousel-container">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
                             </div>
-                            {% endfor %}
-                        </div>
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                            <div class="carousel-inner">
+                                {% for seminar in seminars|slice:":3" %}
+                                <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                    <a href="{% url 'seminar_detail' seminar.id %}">
+                                        <img src="{{ seminar.featured_image.url }}" class="d-block w-100 carousel-image"
+                                            alt="...">
+                                    </a>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5><strong>{{ seminar.get_event_day_display }} {{ seminar.event_time }}</strong></h5>
+                                        <h3><strong>{{ seminar.title }}</strong></h3>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
