@@ -35,7 +35,7 @@ a {
 /* Styles used to create and blur background image */
 
 .background-container {
-    background-image: url('/media/harli-marten-n7a2OJDSZns-unsplash.jpg');
+    background-image: url('https://res.cloudinary.com/djcwwiiid/image/upload/v1649964000/d2egjlnccl0pbsbmt6so.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: stretch;
