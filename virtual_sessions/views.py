@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import View
 from django.contrib import messages
 from django.db.models import Q
+from django.http import HttpResponseRedirect
 from .models import Session
 
 
@@ -51,6 +52,7 @@ class JoinSeminar(View):
     '''
     def post(self, request, title, *args, **kwargs):
         seminar = get_object_or_404(Session, title=title)
+        next = request.POST.get('next', '/')
         if request.user in seminar.signed_up.all():
             seminar.signed_up.remove(request.user)
             messages.warning(request, f'You cancelled your place at {seminar.title}')
@@ -60,7 +62,7 @@ class JoinSeminar(View):
             seminar.signed_up.add(request.user)
             seminar.save()
             messages.success(request, f'You signed up for {seminar.title}')
-        return redirect(reverse('seminars'))
+        return HttpResponseRedirect(next)
 
 
 class DeleteSeminar(View):

@@ -16,7 +16,7 @@
             {% if request.user != seminar.host %}
             <form action="{% url 'join_seminar' seminar.title %}" method="POST">
                 {% csrf_token %}
-        
+                <input type="hidden" name="next" value="{{ request.path }}">
                 {% if request.user in seminar.signed_up.all %}
                 <button type="submit" value="{{ seminar.title }}"
                     class="btn seminar-detail-btn btn-outline-warning"><strong>Cancel</strong></button>

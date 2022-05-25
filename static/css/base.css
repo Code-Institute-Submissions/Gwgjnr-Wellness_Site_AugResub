@@ -221,7 +221,7 @@ footer {
     }
 }
 
- @media screen and (max-width: 580px) {
+ @media screen and (max-width: 600px) {
     .card_image {
         padding: 0.5rem;
         border-radius: 3%;
