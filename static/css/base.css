@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Roboto+Slab:wght@500&family=Roboto:wght@300&display=swap');
 
-html, body {
-    margin:0;
-    padding:0;
-    height:100%;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
     font-family: 'Roboto Slab', san-serif;
 }
 
@@ -42,7 +46,7 @@ a {
     height: 100vh;
     width: 100%;
     z-index: -1;
-  }
+}
 
 .blur {
     background: rgba(255, 255, 255, 0.1);
@@ -50,13 +54,13 @@ a {
     height: 100vh;
     width: 100%;
     z-index: -1;
-  }
+}
 
-  
+
 /* Styles used to customise text on homepage */
 
 .intro {
-    padding-top: 5%;
+    padding-top: 1rem;
     padding-left: 10%;
     padding-right: 5%;
     color: white;
@@ -72,7 +76,7 @@ a {
 
 .featured-header {
     color: white;
-    padding-top: 5%;
+    padding-top: 1rem;
     font-weight: 700;
     text-align: center;
 }
@@ -83,25 +87,22 @@ a {
 
 .intro-hr {
     color: #f7f7f7;
-    height: 8px !important;
-    width:80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    height: 4px !important;
+    width: 100%;
     margin-top: 8px;
-    border-radius: 5px;
+    margin: 1px;
 }
 
 #carousel-container {
-    margin-left: 3%;
-    margin-right: 3%;
+    margin-left: 0%;
+    margin-right: 0%;
 }
 
 .carousel-image {
-    height: 270px;
+    height: 50vh;
     width: 100%;
     object-fit: cover;
     filter: brightness(60%);
-    border-radius: 5px;
 }
 
 /* Styles used to customise nav bar */
@@ -166,10 +167,12 @@ footer {
 }
 
 .detail_image {
+    margin-top: 1rem;
     padding: 0.5rem;
     border-radius: 45% 0 45% 45%;
     width: auto;
     height: auto;
+    min-height: 300px;
     object-fit: cover;
 }
 
@@ -210,7 +213,53 @@ footer {
     text-align: center;
 }
 
- /* Media queries used to ensure responsiveness for images on seminars search page */
+/* Button styling from getcssscan.com */
+
+.info-button {
+    float: right;
+    background-color: #e1ecf4;
+    border-radius: 3px;
+    border: 1px solid #7aa7c7;
+    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #39739d;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 10px 1em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.button-8:hover,
+.button-8:focus {
+    background-color: #b3d3ea;
+    color: #2c5777;
+}
+
+.button-8:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-8:active {
+    background-color: #a0c7e4;
+    box-shadow: none;
+    color: #2c5777;
+}
+
+/* Media queries used to ensure responsiveness for images on seminars search page */
 
 @media screen and (max-width: 767px) {
     .detail_image {
@@ -223,10 +272,10 @@ footer {
     }
 }
 
- @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .card_image {
         padding: 0.5rem;
-        border-radius: 3%;
+        border-radius: 6%;
         width: 580px;
         height: 200px;
         object-fit: cover;
@@ -236,6 +285,15 @@ footer {
     .detail-text {
         padding: 0.2rem;
         font-size: medium;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .carousel-image {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        filter: brightness(80%);
     }
 }
 

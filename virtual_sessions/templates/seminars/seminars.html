@@ -20,13 +20,13 @@
                 <p class="card_text"><strong>Category: </strong>{{ seminar.get_category_display }}</p>
                 <p class="card_text"><strong>Start Time: </strong>{{ seminar.event_time }}
                     {{ seminar.get_event_day_display }}</p>
-                <p class="card_text"><strong>Details: </strong>{{ seminar.summary }}</p>
+                <p class="card_text"><strong>Intro: </strong>{{ seminar.summary }}</p>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <a href="{% url 'seminar_detail' seminar.id %}">
-                    <button type="button" class="btn seminar-btn btn-outline-primary"><strong>Details</strong></button>
+                    <button type="button" class="info-button"><strong>Details</strong></button>
                 </a>
                 {% if user.is_authenticated %}
                 {% if request.user != seminar.host %}
