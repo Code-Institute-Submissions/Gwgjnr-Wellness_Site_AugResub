@@ -3,8 +3,19 @@
 
 {% block content %}
 {% load crispy_forms_tags %}
+<div class="container">
+    <div>
+        <h2>Contact Form</h2>
+        <p>Signed in: <strong>{{ user.username }}</strong></p>
+        <p>Email Address: <strong>{{ user.email }}</strong></p>
+    </div>
+    <form method="post">
 
-{{ contact_form | crispy }}
-{% csrf_token %}
+        {{ contact_form | crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+</div>
+
 
 {% endblock %}
