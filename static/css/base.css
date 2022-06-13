@@ -39,10 +39,12 @@ a {
 /* Styles used to create and blur background image */
 
 .background-container {
-    background-image: url('https://res.cloudinary.com/djcwwiiid/image/upload/v1649964000/d2egjlnccl0pbsbmt6so.jpg');
+    background-image: linear-gradient(to right, #fc7787, #bfe9ff);
+
+    /* background-image: url('https://res.cloudinary.com/djcwwiiid/image/upload/v1649964000/d2egjlnccl0pbsbmt6so.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: stretch;
+    background-size: auto; */
     height: 100vh;
     width: 100%;
     z-index: -1;

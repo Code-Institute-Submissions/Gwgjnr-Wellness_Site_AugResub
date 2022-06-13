@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col">
                 <a href="{% url 'seminar_detail' seminar.id %}">
-                    <button type="button" class="info-button"><strong>Details</strong></button>
+                    <button type="button" class="btn seminar-btn btn-outline-info"><strong>Details</strong></button>
                 </a>
                 {% if user.is_authenticated %}
                 {% if request.user != seminar.host %}
