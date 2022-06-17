@@ -1,4 +1,6 @@
+from datetime import date
 from django.shortcuts import render
+from django.contrib import messages
 from django.views import View
 from .forms import ContactForm
 
@@ -21,8 +23,13 @@ class Contact(View):
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
             contact_form.instance.email = request.user.email
-            contact_form.instance.author = request.user
-        
+            contact_form.instance.name = request.user.username
+            contact_form.instance.created_date = date.today()
+            contact_form.save()
+            messages.success(request, 'Thank you for your feedback!')
+        else:
+            contact_form = ContactForm()
+
         context = {
             'contact_form': ContactForm(),
         }

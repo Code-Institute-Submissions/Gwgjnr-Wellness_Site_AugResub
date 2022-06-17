@@ -2,12 +2,15 @@ from django.contrib import admin
 from .models import Contact
 
 
-class SessionAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     '''
     Class to organise Sessions in Admin panel
     '''
-    ordering = ('created_date',)
+    list_display = (
+        'name',
+        'email',
+        'created_date',
+    )
 
 
-admin.site.register(Contact)
-
+admin.site.register(Contact, ContactAdmin)
