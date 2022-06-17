@@ -261,6 +261,29 @@ footer {
     color: #2c5777;
 }
 
+/* Styles for Contact Page */
+
+.contact-btn {
+    float: right;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.contact-header {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-text {
+    font-size: large;
+}
+
+.contact-form {
+    margin-bottom: 5rem;
+}
+
+
 /* Media queries used to ensure responsiveness for images on seminars search page */
 
 @media screen and (max-width: 767px) {
@@ -296,6 +319,10 @@ footer {
         width: 100%;
         object-fit: cover;
         filter: brightness(80%);
+    }
+    
+    .contact-text {
+        font-size: medium;
     }
 }
 
