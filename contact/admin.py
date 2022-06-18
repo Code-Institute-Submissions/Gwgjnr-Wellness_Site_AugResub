@@ -8,8 +8,10 @@ class ContactAdmin(admin.ModelAdmin):
     '''
     list_display = (
         'name',
+        'subject',
         'email',
         'created_date',
+        'responded',
     )
 
 

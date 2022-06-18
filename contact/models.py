@@ -7,6 +7,7 @@ class Contact(models.Model):
     subject = models.CharField(max_length=250)
     message = models.TextField()
     created_date = models.DateField(null=True)
+    responded = models.BooleanField(default=False)
 
     def __str__(self):
         return self.email

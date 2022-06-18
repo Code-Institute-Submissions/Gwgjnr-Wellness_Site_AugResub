@@ -10,66 +10,103 @@
                     <h2 class="display-4 intro">
                         Find the the perfect seminar to ensure your health and wellbeing flourishes today!
                     </h2>
-                    {% if not request.user.is_authenticated %}
+                    <div class="intro-invite-bar">
+                        {% if not request.user.is_authenticated %}
 
-                    <h3 class="intro-invite">
-                        <a href="{% url 'account_signup' %}" class="shop-now-button btn btn-lg rounded-0">Sign up
-                            today</a>
-                    </h3>
+                        <h3 class="intro-invite">
+                            <a href="{% url 'account_signup' %}" class="btn btn-lg rounded-0">Sign up
+                                today</a>
+                        </h3>
 
-                    {% else %}
+                        {% else %}
 
-                    <h3 class="intro-invite">
-                        <a href="{% url 'seminars' %}" class="shop-now-button btn btn-lg rounded-0">Search our
-                            seminars</a>
-                    </h3>
+                        <h3 class="intro-invite">
+                            <a href="{% url 'seminars' %}" class="btn btn-lg rounded-0">Search our
+                                seminars</a>
+                        </h3>
 
-                    {% endif %}
+                        {% endif %}
+
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col my-auto">
-                    <h2 class="featured-header">Featured Sessions</h2>
-                    <hr class="intro-hr">
-                    <div id="carousel-container">
-                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                            </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card intro-card">
+                        <div class="card-body">
+                            <h4 class="intro-card-title">Subscribe for unlimited access</h4>
+                            <p class="intro-card-text">We are currently offering free accounts the option to sign up for
+                                2 different seminars completely free of charge.
+                            </p>
+                            <p class="intro-card-text">
+                                For €10 a month you can access as many classes as you want and
+                                take the first step to unlocking your protential!
+                            </p>
 
-                            <div class="carousel-inner">
-                                {% for seminar in seminars|slice:":3" %}
-                                <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-                                    <a href="{% url 'seminar_detail' seminar.id %}">
-                                        <img src="{{ seminar.featured_image.url }}" class="d-block w-100 carousel-image"
-                                            alt="...">
-                                    </a>
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5><strong>{{ seminar.get_event_day_display }} {{ seminar.event_time }}</strong></h5>
-                                        <h3><strong>{{ seminar.title }}</strong></h3>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
-
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         </div>
                     </div>
                 </div>
+                <!-- Cards holding main features -->
+                <div class="col-12 col-lg-4">
+                    <div class="card intro-card">
+                        <div class="card-body">
+                            <div id="carousel-container">
+                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#carouselExampleCaptions"
+                                            data-bs-slide-to="0" class="active" aria-current="true"
+                                            aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions"
+                                            data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions"
+                                            data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+
+                                    <div class="carousel-inner">
+                                        {% for seminar in seminars|slice:":3" %}
+                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                            <a href="{% url 'seminar_detail' seminar.id %}">
+                                                <img src="{{ seminar.featured_image.url }}"
+                                                    class="d-block w-100 carousel-image" alt="...">
+                                            </a>
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5><strong>{{ seminar.get_event_day_display }}
+                                                        {{ seminar.event_time }}</strong></h5>
+                                                <h3><strong>{{ seminar.title }}</strong></h3>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card intro-card">
+                        <div class="card-body">
+                            <h4 class="intro-card-title">Tell us how we can improve</h4>
+                            <p class="intro-card-text">We are constantly looking for ways to improve our service, so we
+                                would
+                                <strong>love</strong> your feedback. If think of something that would improve your
+                                experience, then
+                                please let us know!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
