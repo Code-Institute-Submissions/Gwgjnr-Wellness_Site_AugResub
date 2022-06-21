@@ -51,7 +51,7 @@ a {
 
 .blur {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(18px);
     width: 100%;
     z-index: -1;
 }
@@ -70,12 +70,50 @@ a {
 
 .intro-invite {
     text-align: center;
-    color: white;
-    font-weight: 600;
+
 }
 
+.intro-invite-button {
+    font-size: xx-large;
+    background-image: linear-gradient(
+      to right,
+      #E5E6E4,
+      #F2F3F2  50%,
+      #FFFFFF 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .intro-invite-button:before{
+    content: '';
+    background: #E5E6E4;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .intro-invite-button:hover {
+   background-position: 0;
+  }
+  
+  .intro-invite-button:hover::before{
+    width: 100%;
+  }
+  
+
 .intro-invite-bar {
-    background-image: linear-gradient(to right, #141e30, #243b55);
+    color: #f7f7f7;
     width: 100%;
     padding: 0;
     
@@ -100,9 +138,18 @@ a {
     margin: 0 1rem 1rem 1rem;
 }
 
+.intro-card-button {
+    margin-top: 2rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    float: right;
+    font-size: larger;
+    position: relative;
+}
+
 .card-body {
     flex: 1 1 auto;
-    padding: 0.5rem;
+    padding: 0.2rem;
 }
 
 .intro-hr {
@@ -120,9 +167,10 @@ a {
 }
 
 .carousel-image {
-    height: 50vh;
+    height: 51vh;
     width: 100%;
-    object-fit: cover;
+    border-radius: 5px;
+    object-fit: fill;
     filter: brightness(60%);
 }
 
@@ -319,6 +367,18 @@ footer {
         object-fit: cover;
         filter: brightness(60%);
     }
+
+    .intro-card-button {
+        margin-bottom: 2rem;
+        margin-right: 1rem;
+        float: right;
+        font-size: larger;
+        position: absolute;
+        right:    0;
+        bottom:   0;
+        white-space: nowrap;
+    }
+    
 }
 
 @media screen and (max-width: 767px) {

@@ -14,15 +14,17 @@
                         {% if not request.user.is_authenticated %}
 
                         <h3 class="intro-invite">
-                            <a href="{% url 'account_signup' %}" class="btn btn-lg rounded-0">Sign up
-                                today</a>
+                            <a href="{% url 'account_signup' %}"
+                                class="btn btn-lg rounded-0 intro-invite-button"><strong>Sign up
+                                    today</strong></a>
                         </h3>
 
                         {% else %}
 
                         <h3 class="intro-invite">
-                            <a href="{% url 'seminars' %}" class="btn btn-lg rounded-0">Search our
-                                seminars</a>
+                            <a href="{% url 'seminars' %}"
+                                class="btn btn-lg rounded-0 intro-invite-button"><strong>Search our
+                                    seminars</strong></a>
                         </h3>
 
                         {% endif %}
@@ -32,6 +34,9 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-4">
+
+                    <!-- Cards holding main features -->
+
                     <div class="card intro-card">
                         <div class="card-body">
                             <h4 class="intro-card-title">Subscribe for unlimited access</h4>
@@ -42,11 +47,12 @@
                                 For €10 a month you can access as many classes as you want and
                                 take the first step to unlocking your protential!
                             </p>
+                            <button type="button" class="btn btn-outline-success intro-card-button">Subscribe</button>
 
                         </div>
                     </div>
                 </div>
-                <!-- Cards holding main features -->
+
                 <div class="col-12 col-lg-4">
                     <div class="card intro-card">
                         <div class="card-body">
@@ -69,7 +75,7 @@
                                                 <img src="{{ seminar.featured_image.url }}"
                                                     class="d-block w-100 carousel-image" alt="...">
                                             </a>
-                                            <div class="carousel-caption d-none d-md-block">
+                                            <div class="carousel-caption d-block">
                                                 <h5><strong>{{ seminar.get_event_day_display }}
                                                         {{ seminar.event_time }}</strong></h5>
                                                 <h3><strong>{{ seminar.title }}</strong></h3>
@@ -103,6 +109,7 @@
                                 experience, then
                                 please let us know!
                             </p>
+                            <button type="button" class="btn btn-outline-success intro-card-button">Contact us</button>
                         </div>
                     </div>
                 </div>
