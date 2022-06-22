@@ -40,11 +40,7 @@ a {
 
 .background-container {
     background-image: linear-gradient(to right, #fc7787, #bfe9ff);
-
-    /* background-image: url('https://res.cloudinary.com/djcwwiiid/image/upload/v1649964000/d2egjlnccl0pbsbmt6so.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: auto; */
+    background-size: auto;
     width: 100%;
     z-index: -1;
 }
@@ -86,9 +82,11 @@ a {
     display: inline-block;
     padding: 5px 0;
     position: relative;
+    background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;
+    outline:none;
   }
   
   .intro-invite-button:before{
@@ -109,6 +107,11 @@ a {
   
   .intro-invite-button:hover::before{
     width: 100%;
+  }
+
+  .intro-invite-button:focus {
+    outline:none;
+    box-shadow: none;
   }
   
 
@@ -149,7 +152,7 @@ a {
 
 .card-body {
     flex: 1 1 auto;
-    padding: 0.2rem;
+    padding: 0.5rem;
 }
 
 .intro-hr {
@@ -167,7 +170,7 @@ a {
 }
 
 .carousel-image {
-    height: 51vh;
+    height: ;
     width: 100%;
     border-radius: 5px;
     object-fit: fill;
@@ -296,7 +299,6 @@ footer {
     box-sizing: border-box;
     color: #39739d;
     cursor: pointer;
-    display: inline-block;
     font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -356,6 +358,18 @@ footer {
 
 /*----------------- Media queries used to ensure responsiveness across screen sizes -----------------*/
 
+@media screen and (min-width: 1115px) {
+    .intro-card-button {
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        font-size: larger;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 92%;
+    }
+}
+
 @media screen and (min-width: 991px) {
     .intro-card {
         min-height: 28rem;
@@ -370,13 +384,12 @@ footer {
 
     .intro-card-button {
         margin-bottom: 2rem;
-        margin-right: 1rem;
-        float: right;
+        margin-left: 1rem;
         font-size: larger;
         position: absolute;
-        right:    0;
-        bottom:   0;
-        white-space: nowrap;
+        left: 0;
+        bottom: 0;
+        width: 88%;
     }
     
 }
