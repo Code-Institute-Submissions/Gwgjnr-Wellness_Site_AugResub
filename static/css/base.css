@@ -29,11 +29,12 @@ a {
 
 #page-container {
     position: relative;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 #content-wrap {
     padding-bottom: 2.5rem;
+    min-height: 100%;
 }
 
 /*----------------- Styles used to create and blur background image -----------------*/
@@ -42,8 +43,6 @@ a {
     background-image: linear-gradient(to right, #fc7787, #bfe9ff);
     background-size: auto;
     width: 100%;
-
-    /* z-index: -1; */
 }
 
 .blur {
@@ -72,12 +71,10 @@ a {
 
 .intro-invite-button {
     font-size: xx-large;
-    background-image: linear-gradient(
-      to right,
-      #E5E6E4,
-      #F2F3F2  50%,
-      #FFFFFF 50%
-    );
+    background-image: linear-gradient(to right,
+            #E5E6E4,
+            #F2F3F2 50%,
+            #FFFFFF 50%);
     background-size: 200% 100%;
     background-position: -100%;
     display: inline-block;
@@ -87,10 +84,10 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;
-    outline:none;
-  }
-  
-  .intro-invite-button:before{
+    outline: none;
+}
+
+.intro-invite-button:before {
     content: '';
     background: #E5E6E4;
     display: block;
@@ -100,27 +97,27 @@ a {
     width: 0;
     height: 3px;
     transition: all 0.3s ease-in-out;
-  }
-  
-  .intro-invite-button:hover {
-   background-position: 0;
-  }
-  
-  .intro-invite-button:hover::before{
-    width: 100%;
-  }
+}
 
-  .intro-invite-button:focus {
-    outline:none;
+.intro-invite-button:hover {
+    background-position: 0;
+}
+
+.intro-invite-button:hover::before {
+    width: 100%;
+}
+
+.intro-invite-button:focus {
+    outline: none;
     box-shadow: none;
-  }
-  
+}
+
 
 .intro-invite-bar {
     color: #f7f7f7;
     width: 100%;
     padding: 0;
-    
+
 }
 
 .featured-header {
@@ -154,7 +151,7 @@ a {
     position: relative;
 }
 
-a-card-intro-button{
+a-card-intro-button {
     float: right;
 }
 
@@ -363,6 +360,43 @@ footer {
     margin-bottom: 5rem;
 }
 
+/*----------------- Styles used on Accounts pages -----------------*/
+
+
+
+
+.account-title {
+    margin: 2rem 0;
+}
+
+.account-text {
+    margin: 1rem
+}
+
+.account-card {
+    margin-top: 20vh;
+    margin-bottom: 25vh;
+    height: 45vh;
+    max-width: fit-content;
+    text-align: center;
+}
+
+.account-logout-card {
+    margin-top: 30vh;
+    margin-bottom: 35vh;
+    height: 25vh;
+    max-width: fit-content;
+    text-align: center;
+}
+
+.account-signup-card {
+    margin-top: 15vh;
+    margin-bottom: 20vh;
+    height: 65vh;
+    max-width: fit-content;
+    text-align: center;
+}
+
 
 /*----------------- Media queries used to ensure responsiveness across screen sizes -----------------*/
 
@@ -387,7 +421,7 @@ footer {
         bottom: 0;
         width: 88%;
     }
-    
+
 }
 
 @media screen and (min-width: 1315px) {
@@ -416,11 +450,21 @@ footer {
 
 @media screen and (min-width: 1800px) {
     .intro-card {
-        min-height: 38rem;
+        min-height: 34rem;
+    }
+
+    .intro-card-button {
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        font-size: larger;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 94%;
     }
 
     .carousel-image {
-        height: 37rem;
+        height: 33rem;
         width: 100%;
         object-fit: cover;
         filter: brightness(60%);
@@ -461,9 +505,25 @@ footer {
         object-fit: cover;
         filter: brightness(80%);
     }
-    
+
     .contact-text {
         font-size: medium;
+    }
+
+    .account-card {
+        margin-top: 20vh;
+        margin-bottom: 15vh;
+        height: 55vh;
+        max-width: fit-content;
+        text-align: center;
+    }
+
+    .account-signup-card {
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        height: 80vh;
+        max-width: fit-content;
+        text-align: center;
     }
 }
 
