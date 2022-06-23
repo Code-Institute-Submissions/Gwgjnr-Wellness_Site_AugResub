@@ -105,14 +105,27 @@
                             <h4 class="intro-card-title">Tell us how we can improve</h4>
                             <p class="intro-card-text">We are constantly looking for ways to improve our service, so we
                                 would
-                                <strong>love</strong> your feedback. If think of something that would improve your
+                                <strong>love</strong> your feedback.
+                            </p>
+                            <p class="intro-card-text">
+                                If think of something that would improve your
                                 experience, then
                                 please let us know!
                             </p>
-                            <a class="btn" href="{% url 'contact' %}">
-                                <button type="button" class="btn btn-outline-success intro-card-button">Contact us</button>
+                            {% if not request.user.is_authenticated %}
+
+                            <a class="a-card-intro-button" href="{% url 'account_signup' %}">
+                                <button type="button" class="btn btn-outline-success intro-card-button">Sign up</button>
                             </a>
-                            
+
+                            {% else %}
+
+                            <a class="a-card-intro-button" href="{% url 'contact' %}">
+                                <button type="button" class="btn btn-outline-success intro-card-button">Contact
+                                    us</button>
+                            </a>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>

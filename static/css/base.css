@@ -42,7 +42,8 @@ a {
     background-image: linear-gradient(to right, #fc7787, #bfe9ff);
     background-size: auto;
     width: 100%;
-    z-index: -1;
+
+    /* z-index: -1; */
 }
 
 .blur {
@@ -135,10 +136,13 @@ a {
 
 .intro-card-title {
     margin: 2rem 1rem;
+    text-align: center;
+
 }
 
 .intro-card-text {
     margin: 0 1rem 1rem 1rem;
+    font-size: 1rem;
 }
 
 .intro-card-button {
@@ -148,6 +152,10 @@ a {
     float: right;
     font-size: larger;
     position: relative;
+}
+
+a-card-intro-button{
+    float: right;
 }
 
 .card-body {
@@ -358,18 +366,6 @@ footer {
 
 /*----------------- Media queries used to ensure responsiveness across screen sizes -----------------*/
 
-@media screen and (min-width: 1115px) {
-    .intro-card-button {
-        margin-bottom: 2rem;
-        margin-left: 1rem;
-        font-size: larger;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 92%;
-    }
-}
-
 @media screen and (min-width: 991px) {
     .intro-card {
         min-height: 28rem;
@@ -392,6 +388,43 @@ footer {
         width: 88%;
     }
     
+}
+
+@media screen and (min-width: 1315px) {
+    .intro-card-button {
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        font-size: larger;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 90%;
+    }
+
+    .intro-card {
+        min-height: 34rem;
+    }
+
+    .carousel-image {
+        height: 33rem;
+        width: 100%;
+        object-fit: cover;
+        filter: brightness(60%);
+    }
+}
+
+
+@media screen and (min-width: 1800px) {
+    .intro-card {
+        min-height: 38rem;
+    }
+
+    .carousel-image {
+        height: 37rem;
+        width: 100%;
+        object-fit: cover;
+        filter: brightness(60%);
+    }
 }
 
 @media screen and (max-width: 767px) {
