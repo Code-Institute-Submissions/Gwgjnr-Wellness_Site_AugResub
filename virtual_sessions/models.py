@@ -47,6 +47,8 @@ class Session(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     event_day = models.CharField(max_length=50, choices=DAYS)
     event_time = models.TimeField()
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    number_of_sessions = models.IntegerField(null=True)
     signed_up = models.ManyToManyField(
         User, related_name='attending_sessions', blank=True)
 

@@ -103,9 +103,6 @@ a {
     background-position: 0;
 }
 
-.intro-invite-button:hover::before {
-    width: 100%;
-}
 
 .intro-invite-button:focus {
     outline: none;
@@ -175,7 +172,6 @@ a-card-intro-button {
 }
 
 .carousel-image {
-    height: ;
     width: 100%;
     border-radius: 5px;
     object-fit: fill;
@@ -451,6 +447,7 @@ footer {
 @media screen and (min-width: 1800px) {
     .intro-card {
         min-height: 34rem;
+        margin-bottom: 6rem;
     }
 
     .intro-card-button {
