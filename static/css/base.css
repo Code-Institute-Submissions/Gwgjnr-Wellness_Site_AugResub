@@ -18,7 +18,8 @@ h5 {
     font-family: 'Roboto Slab', san-serif;
 }
 
-p {
+p,
+span {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -237,14 +238,38 @@ footer {
 
 .details_header {
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     padding-left: 0.5rem;
     font-size: xx-large;
+    text-align: center;
+}
+
+/* .details-bg {
+    background-image: linear-gradient(to right, #fc7787, #bfe9ff);
+    background-size: auto;
+    width: 100%;
+} */
+
+.comments_header {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: x-large;
+    text-align: center;
+}
+
+.detail-time {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 5rem;
+    font-size: large;
+    text-align: center;
+
 }
 
 .detail_image {
-    margin-top: 1rem;
-    padding: 0.5rem;
+    padding: 0.2rem;
     border-radius: 5%;
     width: auto;
     height: auto;
@@ -253,14 +278,14 @@ footer {
 }
 
 .seminar-detail-btn {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     margin-left: 0.5rem;
 }
 
 .detail-text {
     padding-top: 0.5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     padding-left: 0.5rem;
     padding-right: 5rem;
     font-size: large;
@@ -469,9 +494,9 @@ footer {
 @media screen and (max-width: 767px) {
     .detail_image {
         padding: 0.5rem;
-        border-radius: 3%;
+        border-radius: 2%;
         width: 780px;
-        height: 200px;
+        height: 250px;
         object-fit: cover;
         float: left;
     }

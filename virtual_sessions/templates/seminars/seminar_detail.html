@@ -2,16 +2,23 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col">
-            {% if seminar.featured_image %}
-            <img class="card-img-top img-fluid detail_image" src="{{ seminar.featured_image.url }}"
-                alt="{{ seminar.title }}">
-            {% endif %}
-        </div>
-        <div class="col-md-8">
             <h1 class="details_header"> {{ seminar.title }} </h1>
+
+                <p class="detail-time"><strong>Start Time: </strong>{{ seminar.event_time }}
+                    {{ seminar.get_event_day_display }}</p>
+       
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
+            <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
+            <h3 class="comments_header">Comments & Replies</h2>
+        </div>
+        <div class="col">
             {% if user.is_authenticated %}
             {% if request.user != seminar.host %}
             <form action="{% url 'join_seminar' seminar.title %}" method="POST">
@@ -25,7 +32,7 @@
                     class="btn seminar-detail-btn btn-outline-success"><strong>Join</strong></button>
                 {% endif %}
             </form>
-        
+
             {% else %}
             <form action="{% url 'delete_seminar' seminar.title %}" method="POST">
                 {% csrf_token %}
@@ -34,12 +41,12 @@
             </form>
             {% endif %}
             {% endif %}
-            <p class="detail-text"><strong>Category: </strong>{{ seminar.get_category_display }}</p>
-            <p class="detail-text"><strong>Start Time: </strong>{{ seminar.event_time }}
-                {{ seminar.get_event_day_display }}</p>
-            <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
-            <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
+            {% if seminar.featured_image %}
+            <img class="card-img-top img-fluid detail_image" src="{{ seminar.featured_image.url }}"
+                alt="{{ seminar.title }}">
+            {% endif %}
             <p class="detail-text"><strong>Created: </strong>{{ seminar.created_date }}</p>
+
         </div>
     </div>
 </div>
