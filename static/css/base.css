@@ -245,7 +245,7 @@ footer {
 .detail_image {
     margin-top: 1rem;
     padding: 0.5rem;
-    border-radius: 45% 0 45% 45%;
+    border-radius: 5%;
     width: auto;
     height: auto;
     min-height: 300px;
@@ -338,6 +338,7 @@ footer {
 
 .contact-btn {
     float: right;
+    margin-right: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 
@@ -358,9 +359,6 @@ footer {
 
 /*----------------- Styles used on Accounts pages -----------------*/
 
-
-
-
 .account-title {
     margin: 2rem 0;
 }
@@ -372,7 +370,7 @@ footer {
 .account-card {
     margin-top: 20vh;
     margin-bottom: 25vh;
-    height: 45vh;
+    height: 55vh;
     max-width: fit-content;
     text-align: center;
 }

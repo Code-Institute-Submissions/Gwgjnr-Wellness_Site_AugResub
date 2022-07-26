@@ -47,7 +47,12 @@
                                 For €10 a month you can access as many classes as you want and
                                 take the first step to unlocking your protential!
                             </p>
-                            <button type="button" class="btn btn-outline-success intro-card-button">Subscribe</button>
+                            <div class="button-container">
+                                <div class="button-vertical-center">
+                                    <button type="button"
+                                        class="btn btn-outline-success intro-card-button">Subscribe</button>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -112,6 +117,9 @@
                                 experience, then
                                 please let us know!
                             </p>
+                            <p class="intro-card-text">
+                                An account is required.
+                            </p>
                             {% if not request.user.is_authenticated %}
 
                             <a class="a-card-intro-button" href="{% url 'account_signup' %}">
@@ -119,11 +127,15 @@
                             </a>
 
                             {% else %}
+                            <div class="button-container">
+                                <div class="button-vertical-center">
+                                    <a class="a-card-intro-button" href="{% url 'contact' %}">
+                                        <button type="button" class="btn btn-outline-success intro-card-button">Contact
+                                            us</button>
+                                    </a>
+                                </div>
+                            </div>
 
-                            <a class="a-card-intro-button" href="{% url 'contact' %}">
-                                <button type="button" class="btn btn-outline-success intro-card-button">Contact
-                                    us</button>
-                            </a>
                             {% endif %}
 
                         </div>
