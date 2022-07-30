@@ -7,7 +7,6 @@ class SessionAdmin(admin.ModelAdmin):
     Class to organise Sessions in Admin panel
     '''
     list_display = (
-        'category',
         'title',
         'host',
         'created_date',
@@ -16,6 +15,7 @@ class SessionAdmin(admin.ModelAdmin):
     )
 
     ordering = ('created_date',)
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Session, SessionAdmin)

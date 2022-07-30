@@ -8,16 +8,6 @@ class Session(models.Model):
     This class is used for generating my model for the virtual sessions.
     '''
 
-    PHYSICAL = 'PH'
-    MENTAL = 'ME'
-    NUTRTIONAL = 'NU'
-
-    TYPES = [
-        (PHYSICAL, 'Physical'),
-        (MENTAL, 'Mental'),
-        (NUTRTIONAL, 'Nutritional'),
-    ]
-
     SUNDAY = 'SU'
     MONDAY = 'MO'
     TUESDAY = 'TU'
@@ -36,8 +26,8 @@ class Session(models.Model):
         (SATURDAY, 'Saturday'),
     ]
 
-    category = models.CharField(max_length=50, choices=TYPES)
     title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, null=True)
     host = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="hosted_sessions"
     )
@@ -47,13 +37,37 @@ class Session(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     event_day = models.CharField(max_length=50, choices=DAYS)
     event_time = models.TimeField()
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
-    number_of_sessions = models.IntegerField(null=True)
     signed_up = models.ManyToManyField(
         User, related_name='attending_sessions', blank=True)
+
+    class Meta:
+        ordering = ["-created_date"]
 
     def __str__(self):
         return f"{self.title}"
 
     def number_signed_up(self):
         return self.signed_up.count()
+
+    def number_of_likes(self):
+        return self.likes.count()
+
+
+class Comment(models.Model):
+    '''
+    This class is used for generating my model for the comments and replies.
+    '''
+    session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name="comments")
+    name = models.CharField(max_length=100)
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    approved = models.BooleanField(default=True)
+    reply = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='replies')
+
+
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.name}"
