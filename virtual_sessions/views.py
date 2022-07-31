@@ -32,12 +32,12 @@ def seminar_search_page(request):
     return render(request, 'seminars/seminars.html', context)
 
 
-def seminar_detail(request, session_id):
+def seminar_detail(request, slug):
     """
     A view to details for selected seminar
     """
 
-    seminar = get_object_or_404(Session, pk=session_id)
+    seminar = get_object_or_404(Session, slug=slug)
 
     context = {
         'seminar': seminar,

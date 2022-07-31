@@ -76,7 +76,7 @@
                                     <div class="carousel-inner">
                                         {% for seminar in seminars|slice:":3" %}
                                         <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-                                            <a href="{% url 'seminar_detail' seminar.id %}">
+                                            <a href="{% url 'seminar_detail' seminar.slug %}">
                                                 <img src="{{ seminar.featured_image.url }}"
                                                     class="d-block w-100 carousel-image" alt="...">
                                             </a>
