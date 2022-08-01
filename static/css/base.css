@@ -295,6 +295,17 @@ footer {
     display: none;
 }
 
+.reply_btn {
+    margin: 1rem;
+}
+
+.comment_btn {
+    float: right;
+    margin: 1rem;
+}
+
+/*----------------- Styling for custom toasts -----------------*/
+
 .message-container {
     position: fixed;
     top: 72px;
@@ -316,51 +327,6 @@ footer {
 
 .toast-body {
     text-align: center;
-}
-
-/*----------------- Button styling from getcssscan.com -----------------*/
-
-.info-button {
-    float: right;
-    background-color: #e1ecf4;
-    border-radius: 3px;
-    border: 1px solid #7aa7c7;
-    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-    box-sizing: border-box;
-    color: #39739d;
-    cursor: pointer;
-    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.15385;
-    margin: 0;
-    margin-bottom: 1rem;
-    outline: none;
-    padding: 10px 1em;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: baseline;
-    white-space: nowrap;
-}
-
-.button-8:hover,
-.button-8:focus {
-    background-color: #b3d3ea;
-    color: #2c5777;
-}
-
-.button-8:focus {
-    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
-}
-
-.button-8:active {
-    background-color: #a0c7e4;
-    box-shadow: none;
-    color: #2c5777;
 }
 
 /*----------------- Styles for Contact Page -----------------*/

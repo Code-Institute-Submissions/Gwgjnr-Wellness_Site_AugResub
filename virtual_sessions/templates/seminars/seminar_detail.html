@@ -5,16 +5,12 @@
 {% load crispy_forms_tags %}
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-md-8">
             <h1 class="details_header"> {{ seminar.title }} </h1>
 
             <p class="detail-time"><strong>Start Time: </strong>{{ seminar.event_time }}
                 {{ seminar.get_event_day_display }}</p>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
             <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
             <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
             <h3 class="comments_header">Comments & Replies</h2>
@@ -32,7 +28,7 @@
                     </p>
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
-                    <button onclick="myFunction()">Reply</button>
+                    <button class="btn btn-outline-primary" onclick="myFunction()">Reply</button>
 
                     {% for reply in comment.replies.all %}
                     <p class="info">{{ reply.name }} | {{ reply.created }}</p>
@@ -41,13 +37,12 @@
                     {% endfor %}
                     
                     <div class="reply_box">
-                        <h5>Reply</h5>
                         <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
-                            {{ comment_form.as_p }}
+                            {{ comment_form|crispy }}
                             {% csrf_token %}
                             <!-- input for parent comment.id -->
                             <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                            <input class="btn btn-primary" type="submit" value="Reply">
+                            <input class="btn btn-success reply_btn" type="submit" value="Submit">
                         </form>
                     </div>
 
@@ -62,9 +57,9 @@
 
 
                 <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
-                    {{ comment_form.as_p }}
+                    {{ comment_form|crispy }}
                     {% csrf_token %}
-                    <button class="btn btn-primary" type="submit">Add comment</button>
+                    <button class="btn btn-btn btn-success comment_btn" type="submit">Add comment</button>
                 </form>
 
                 <!-- Comment with nested comments -->

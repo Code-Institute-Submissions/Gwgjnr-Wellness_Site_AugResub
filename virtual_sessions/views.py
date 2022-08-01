@@ -49,6 +49,7 @@ def seminar_detail(request, slug):
             comment = comment_form.save(commit=False)
             comment.session = seminar
             comment.save()
+            return HttpResponseRedirect(request.path_info)
     else:
         comment_form = CommentForm()
 
