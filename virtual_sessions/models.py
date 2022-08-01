@@ -58,7 +58,7 @@ class Comment(models.Model):
     This class is used for generating my model for the comments and replies.
     '''
     session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name="comments")
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=80)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

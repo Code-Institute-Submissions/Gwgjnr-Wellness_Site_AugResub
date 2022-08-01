@@ -3,7 +3,8 @@ from django.views import View
 from django.contrib import messages
 from django.db.models import Q
 from django.http import HttpResponseRedirect
-from .models import Session
+from .models import Session, Comment
+from .forms import CommentForm
 
 
 def seminar_search_page(request):
@@ -38,9 +39,23 @@ def seminar_detail(request, slug):
     """
 
     seminar = get_object_or_404(Session, slug=slug)
+    comments = seminar.comments.filter(approved=True, reply__isnull=True)
+
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            # Reply code to be added here
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.session = seminar
+            comment.save()
+    else:
+        comment_form = CommentForm()
 
     context = {
         'seminar': seminar,
+        'comments': comments,
+        'comment_form': comment_form
     }
 
     return render(request, 'seminars/seminar_detail.html', context)
