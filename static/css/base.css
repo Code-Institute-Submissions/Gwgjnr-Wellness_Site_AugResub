@@ -291,6 +291,10 @@ footer {
     font-size: large;
 }
 
+.reply_box {
+    display: none;
+}
+
 .message-container {
     position: fixed;
     top: 72px;

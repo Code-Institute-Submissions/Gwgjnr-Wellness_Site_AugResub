@@ -18,7 +18,49 @@
             <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
             <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
             <h3 class="comments_header">Comments & Replies</h2>
+
                 <!-- Comments Form -->
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                            <!-- The comment's created date goes here -->
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    <!-- The body of the comment goes before the | -->
+                    {{ comment.body | linebreaks }}
+                    <button onclick="myFunction()">Reply</button>
+
+                    {% for reply in comment.replies.all %}
+                    <p class="info">{{ reply.name }} | {{ reply.created }}</p>
+                    <li>{{ reply.body }}</li>
+                    
+                    {% endfor %}
+                    
+                    <div class="reply_box">
+                        <h5>Reply</h5>
+                        <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
+                            {{ comment_form.as_p }}
+                            {% csrf_token %}
+                            <!-- input for parent comment.id -->
+                            <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                            <input class="btn btn-primary" type="submit" value="Reply">
+                        </form>
+                    </div>
+
+                </div>
+                {% empty %}
+                <h4>There are no comments yet.</h4>
+                {% endfor %}
+
+
+
+
+
+
                 <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
                     {{ comment_form.as_p }}
                     {% csrf_token %}
@@ -26,28 +68,7 @@
                 </form>
 
                 <!-- Comment with nested comments -->
-                {% for comment in comments %}
-                <div class="comment">
-                    <p class="info">{{ comment.name }} | {{ comment.created }}</p>
-                    {{ comment.body|linebreaks }}
 
-                    {% for reply in comment.replies.all %}
-                    <p class="info">{{ reply.name }} | {{ reply.created }}</p>
-                    <li>{{ reply.body }}</li>
-                    {% endfor %}
-
-                    <h5>Reply</h5>
-                    <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
-                        {{ comment_form.as_p }}
-                        {% csrf_token %}
-                        <!-- input for parent comment.id -->
-                        <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                        <input class="btn btn-primary" type="submit" value="Reply">
-                    </form>
-                </div>
-                {% empty %}
-                <h4>There are no comments yet.</h4>
-                {% endfor %}
 
         </div>
         <div class="col">
@@ -82,4 +103,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    function myFunction() {
+        var reply_boxes = document.getElementsByClassName("reply_box");
+        for (var i = 0; i < reply_boxes.length; i++) {
+
+            if (reply_boxes[i].style.display === "none") {
+                reply_boxes[i].style.display = "block";
+            } else {
+                reply_boxes[i].style.display = "none";
+            }
+        }
+    }
+</script>
 {% endblock %}
