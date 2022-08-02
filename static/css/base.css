@@ -244,12 +244,6 @@ footer {
     text-align: center;
 }
 
-/* .details-bg {
-    background-image: linear-gradient(to right, #fc7787, #bfe9ff);
-    background-size: auto;
-    width: 100%;
-} */
-
 .comments_header {
     padding-top: 1rem;
     padding-bottom: 0.5rem;
@@ -291,12 +285,12 @@ footer {
     font-size: large;
 }
 
-.reply_box {
+.reply_form {
     display: none;
 }
 
 .reply_btn {
-    margin: 1rem;
+    margin: 0.5rem;
 }
 
 .comment_btn {

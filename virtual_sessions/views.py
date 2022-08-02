@@ -44,7 +44,23 @@ def seminar_detail(request, slug):
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
-            # Reply code to be added here
+            parent_obj = None
+            # get parent comment id from input
+            try:
+                # id integer e.g. 15
+                parent_id = int(request.POST.get('parent_id'))
+            except:
+                parent_id = None
+            # if parent_id has been submitted get parent_obj id
+            if parent_id:
+                parent_obj = Comment.objects.get(id=parent_id)
+                # if parent object exist
+                if parent_obj:
+                    # create replay comment object
+                    reply_comment = comment_form.save(commit=False)
+                    # assign parent_obj to replay comment
+                    reply_comment.reply = parent_obj
+            # normal comment
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.session = seminar

@@ -19,16 +19,14 @@
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                         {{ comment.name }}
                         <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
-                    <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
-                    <button class="btn btn-outline-primary" onclick="myFunction()">Reply</button>
+                    
+                    <button class="btn btn-outline-primary reply_btn" onclick="myFunction()">Reply</button>
 
                     {% for reply in comment.replies.all %}
                     <p class="info">{{ reply.name }} | {{ reply.created }}</p>
@@ -36,7 +34,7 @@
                     
                     {% endfor %}
                     
-                    <div class="reply_box">
+                    <div class="reply_form">
                         <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
                             {{ comment_form|crispy }}
                             {% csrf_token %}
@@ -48,7 +46,7 @@
 
                 </div>
                 {% empty %}
-                <h4>There are no comments yet.</h4>
+                <h4>There are no comments yet. Why not be the first?</h4>
                 {% endfor %}
 
 
@@ -101,7 +99,7 @@
 
 <script>
     function myFunction() {
-        var reply_boxes = document.getElementsByClassName("reply_box");
+        var reply_boxes = document.getElementsByClassName("reply_form");
         for (var i = 0; i < reply_boxes.length; i++) {
 
             if (reply_boxes[i].style.display === "none") {
