@@ -4,119 +4,131 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="background-container">
+    <div class="blur">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card detail_card">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card detail_card">
+                        <h1 class="details_header"> {{ seminar.title }} </h1>
 
-                    <h1 class="details_header"> {{ seminar.title }} </h1>
-
-                    <p class="detail-time"><strong>Start Time: </strong>{{ seminar.event_time }}
-                        {{ seminar.get_event_day_display }}</p>
-
-                    <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
-                    <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
-                </div>
-                <div class="button_holder">
-                    {% if user.is_authenticated %}
-                {% if request.user != seminar.host %}
-                <form action="{% url 'join_seminar' seminar.title %}" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ request.path }}">
-                    {% if request.user in seminar.signed_up.all %}
-                    <button type="submit" value="{{ seminar.title }}"
-                        class="btn seminar-detail-btn btn-warning"><strong>Cancel</strong></button>
-                    {% else %}
-                    <button type="submit" value="{{ seminar.title }}"
-                        class="btn seminar-detail-btn btn-success"><strong>Join</strong></button>
-                    {% endif %}
-                </form>
-
-                {% else %}
-                <form action="{% url 'delete_seminar' seminar.title %}" method="POST">
-                    {% csrf_token %}
-                    <button type="submit" value="{{ seminar.title }}"
-                        class="btn seminar-detail-btn btn-danger"><strong>Delete</strong></button>
-                </form>
-                {% endif %}
-                {% endif %}
-                </div>
-
-                <div class="card detail_card">
-
-                    <h3 class="comments_header">Comments & Replies</h2>
+                        <p class="detail-time"><strong>Start Time: </strong>{{ seminar.event_time }}
+                            {{ seminar.get_event_day_display }}</p>
                         <hr class="comment_hr">
 
-                        <!-- Comments Form -->
-                        {% for comment in comments %}
-                        <div class="comments">
-                            <p class="font-weight-bold">
-                                {{ comment.name }}
-                                <span class=" text-muted font-weight-normal">
-                                    {{ comment.created_on }}
-                                </span> commented:
-                            </p>
-                            <p class="comment_text">
-                                {{ comment.body }}
+                        <p class="detail-text"><strong>Host: </strong>{{ seminar.host }}</p>
+                        <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
+                        <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
+                        <p class="detail-text"><strong>Attending: </strong>{{ seminar.number_signed_up }}</p>
+                        <hr class="comment_hr">
+                        <div class="button_holder">
 
-                            </p>
+                            {% if user.is_authenticated %}
+                            {% if request.user != seminar.host %}
+                            <form action="{% url 'join_seminar' seminar.title %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                {% if request.user in seminar.signed_up.all %}
+                                <button type="submit" value="{{ seminar.title }}"
+                                    class="btn seminar-detail-btn btn-warning"><strong>Cancel spot</strong></button>
+                                {% else %}
+                                <button type="submit" value="{{ seminar.title }}"
+                                    class="btn seminar-detail-btn btn-success"><strong>Attend</strong></button>
+                                {% endif %}
+                            </form>
 
-                            {% for reply in comment.replies.all %}
-                            <div class="replies">
-                                <p class="font-weight-bold">- {{ reply.name }}
-                                    <span class=" text-muted font-weight-normal">
-                                        {{ reply.created_on }}
-                                    </span> replied:
-                                    <p class="reply_text">
-                                        {{ reply.body }}</p>
-
-                            </div>
-
-                            {% endfor %}
-
-                            <button class="btn btn-outline-primary reply_btn" onclick="myFunction()">Reply</button>
-
-                            <div class="reply_form">
-                                <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
-                                    {{ comment_form|crispy }}
-                                    {% csrf_token %}
-                                    <!-- input for parent comment.id -->
-                                    <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                                    <input class="btn btn-success reply_btn" type="submit" value="Submit">
-                                </form>
-                            </div>
-
+                            {% else %}
+                            <form action="{% url 'delete_seminar' seminar.title %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" value="{{ seminar.title }}"
+                                    class="btn seminar-detail-btn btn-danger"><strong>Delete</strong></button>
+                            </form>
+                            {% endif %}
+                            {% endif %}
                         </div>
-                        <hr class="comment_hr">
-                        {% empty %}
-                        <h4>There are no comments yet. Why not be the first?</h4>
-                        {% endfor %}
-                </div>
-
-
-
-
-
-                <div class="card detail_card">
-                    <div class="comment_form">
-                        <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
-                            {{ comment_form|crispy }}
-                            {% csrf_token %}
-                            <button class="btn btn-btn btn-success comment_btn" type="submit">Add comment</button>
-                        </form>
                     </div>
+
+
+                    <div class="card detail_card">
+
+                        <h3 class="comments_header">Comments & Replies</h2>
+                            <hr class="comment_hr">
+
+                            <!-- Comments Form -->
+                            {% for comment in comments %}
+                            <div class="comments">
+                                <p class="font-weight-bold">
+                                    {{ comment.name }}
+                                    <span class=" text-muted font-weight-normal">
+                                        {{ comment.created_on }}
+                                    </span> commented:
+                                </p>
+                                <p class="comment_text">
+                                    {{ comment.body }}
+
+                                </p>
+
+                                {% for reply in comment.replies.all %}
+                                <div class="replies">
+                                    <p class="font-weight-bold">- {{ reply.name }}
+                                        <span class=" text-muted font-weight-normal">
+                                            {{ reply.created_on }}
+                                        </span> replied:
+                                        <p class="reply_text">
+                                            {{ reply.body }}</p>
+
+                                </div>
+
+                                {% endfor %}
+                                {% if user.is_authenticated %}
+                                <button class="btn btn-outline-primary reply_btn" onclick="myFunction()">Reply</button>
+
+                                <div class="reply_form">
+                                    <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
+                                        {{ comment_form|crispy }}
+                                        {% csrf_token %}
+                                        <!-- input for parent comment.id -->
+                                        <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                                        <input class="btn btn-success reply_btn" type="submit" value="Submit">
+                                    </form>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                            <hr class="comment_hr">
+                            {% empty %}
+                            <h4>There are no comments yet. Why not be the first?</h4>
+                            {% endfor %}
+                    </div>
+
+
+
+
+
+
+                    <!-- Comment with nested comments -->
+
+
                 </div>
-                <!-- Comment with nested comments -->
+                <div class="col">
+                    <div class="card detail_card">
 
+                        {% if seminar.featured_image %}
+                        <img class="card-img-top img-fluid detail_image" src="{{ seminar.featured_image.url }}"
+                            alt="{{ seminar.title }}">
+                        {% endif %}
+                    </div>
+                    {% if user.is_authenticated %}
 
-            </div>
-            <div class="col">
-                <div class="card detail_card">
-
-                    {% if seminar.featured_image %}
-                    <img class="card-img-top img-fluid detail_image" src="{{ seminar.featured_image.url }}"
-                        alt="{{ seminar.title }}">
+                    <div class="card detail_card">
+                        <div class="comment_form">
+                            <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
+                                {{ comment_form|crispy }}
+                                {% csrf_token %}
+                                <button class="btn btn-btn btn-success comment_btn" type="submit">Add comment</button>
+                            </form>
+                        </div>
+                    </div>
                     {% endif %}
                 </div>
             </div>

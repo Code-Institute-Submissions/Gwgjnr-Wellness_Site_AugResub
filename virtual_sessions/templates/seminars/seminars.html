@@ -37,10 +37,10 @@
 
                     {% if request.user in seminar.signed_up.all %}
                     <button type="submit" value="{{ seminar.title }}"
-                        class="btn seminar-btn btn-outline-warning"><strong>Cancel</strong></button>
+                        class="btn seminar-btn btn-outline-warning"><strong>Cancel spot</strong></button>
                     {% else %}
                     <button type="submit" value="{{ seminar.title }}"
-                        class="btn seminar-btn btn-outline-success"><strong><strong>€ </strong>{{ seminar.price }}</strong></button>
+                        class="btn seminar-btn btn-outline-success"><strong>Attend</strong></button>
                     {% endif %}
                 </form>
 

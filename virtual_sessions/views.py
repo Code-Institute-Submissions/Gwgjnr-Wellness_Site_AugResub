@@ -88,7 +88,7 @@ class JoinSeminar(View):
         next = request.POST.get('next', '/')
         if request.user in seminar.signed_up.all():
             seminar.signed_up.remove(request.user)
-            messages.warning(request, f'You cancelled your place at {seminar.title}')
+            messages.success(request, f'You cancelled your place at {seminar.title}')
             seminar.save()
 
         else:
