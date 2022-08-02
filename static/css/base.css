@@ -285,8 +285,17 @@ footer {
     font-size: large;
 }
 
+.replies {
+    padding-left: 0.5rem;
+}
+
+.comments {
+    padding-left: 0.5rem;
+}
+
 .reply_form {
     display: none;
+    margin-right: 0.5rem;
 }
 
 .reply_btn {
@@ -297,6 +306,13 @@ footer {
     float: right;
     margin: 1rem;
 }
+
+.comment_hr {
+    width: 90%;
+    margin-left: 5% !important; 
+    }
+
+
 
 /*----------------- Styling for custom toasts -----------------*/
 

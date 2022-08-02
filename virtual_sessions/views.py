@@ -65,6 +65,7 @@ def seminar_detail(request, slug):
             comment = comment_form.save(commit=False)
             comment.session = seminar
             comment.save()
+            messages.success(request, 'Thank you for commenting!')
             return HttpResponseRedirect(request.path_info)
     else:
         comment_form = CommentForm()

@@ -3,51 +3,69 @@
 
 {% block content %}
 {% load crispy_forms_tags %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <h1 class="details_header"> {{ seminar.title }} </h1>
+<div class="background-container">
 
-            <p class="detail-time"><strong>Start Time: </strong>{{ seminar.event_time }}
-                {{ seminar.get_event_day_display }}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
 
-            <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
-            <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
-            <h3 class="comments_header">Comments & Replies</h2>
+                    <h1 class="details_header"> {{ seminar.title }} </h1>
 
-                <!-- Comments Form -->
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    {{ comment.body | linebreaks }}
-                    
-                    <button class="btn btn-outline-primary reply_btn" onclick="myFunction()">Reply</button>
+                    <p class="detail-time"><strong>Start Time: </strong>{{ seminar.event_time }}
+                        {{ seminar.get_event_day_display }}</p>
 
-                    {% for reply in comment.replies.all %}
-                    <p class="info">{{ reply.name }} | {{ reply.created }}</p>
-                    <li>{{ reply.body }}</li>
-                    
-                    {% endfor %}
-                    
-                    <div class="reply_form">
-                        <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
-                            {{ comment_form|crispy }}
-                            {% csrf_token %}
-                            <!-- input for parent comment.id -->
-                            <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                            <input class="btn btn-success reply_btn" type="submit" value="Submit">
-                        </form>
-                    </div>
-
+                    <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
+                    <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
                 </div>
-                {% empty %}
-                <h4>There are no comments yet. Why not be the first?</h4>
-                {% endfor %}
+
+                <div class="card">
+
+                    <h3 class="comments_header">Comments & Replies</h2>
+                        <hr class="comment_hr">
+
+                        <!-- Comments Form -->
+                        {% for comment in comments %}
+                        <div class="comments">
+                            <p class="font-weight-bold">
+                                {{ comment.name }}
+                                <span class=" text-muted font-weight-normal">
+                                    {{ comment.created_on }}
+                                </span> commented:
+                            </p>
+                            {{ comment.body | linebreaks }}
+
+                            {% for reply in comment.replies.all %}
+                            <div class="replies">
+                                <p class="font-weight-bold">- {{ reply.name }}
+                                    <span class=" text-muted font-weight-normal">
+                                        {{ reply.created_on }}
+                                    </span> replied:
+                                    <p>
+                                        {{ reply.body }}</p>
+
+                            </div>
+
+                            {% endfor %}
+
+                            <button class="btn btn-outline-primary reply_btn" onclick="myFunction()">Reply</button>
+
+                            <div class="reply_form">
+                                <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
+                                    {{ comment_form|crispy }}
+                                    {% csrf_token %}
+                                    <!-- input for parent comment.id -->
+                                    <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                                    <input class="btn btn-success reply_btn" type="submit" value="Submit">
+                                </form>
+                            </div>
+
+                        </div>
+                        <hr class="comment_hr">
+                        {% empty %}
+                        <h4>There are no comments yet. Why not be the first?</h4>
+                        {% endfor %}
+                </div>
 
 
 
@@ -63,36 +81,37 @@
                 <!-- Comment with nested comments -->
 
 
-        </div>
-        <div class="col">
-            {% if user.is_authenticated %}
-            {% if request.user != seminar.host %}
-            <form action="{% url 'join_seminar' seminar.title %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="next" value="{{ request.path }}">
-                {% if request.user in seminar.signed_up.all %}
-                <button type="submit" value="{{ seminar.title }}"
-                    class="btn seminar-detail-btn btn-outline-warning"><strong>Cancel</strong></button>
+            </div>
+            <div class="col">
+                {% if user.is_authenticated %}
+                {% if request.user != seminar.host %}
+                <form action="{% url 'join_seminar' seminar.title %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    {% if request.user in seminar.signed_up.all %}
+                    <button type="submit" value="{{ seminar.title }}"
+                        class="btn seminar-detail-btn btn-warning"><strong>Cancel</strong></button>
+                    {% else %}
+                    <button type="submit" value="{{ seminar.title }}"
+                        class="btn seminar-detail-btn btn-success"><strong>Join</strong></button>
+                    {% endif %}
+                </form>
+
                 {% else %}
-                <button type="submit" value="{{ seminar.title }}"
-                    class="btn seminar-detail-btn btn-outline-success"><strong>Join</strong></button>
+                <form action="{% url 'delete_seminar' seminar.title %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" value="{{ seminar.title }}"
+                        class="btn seminar-detail-btn btn-danger"><strong>Delete</strong></button>
+                </form>
                 {% endif %}
-            </form>
+                {% endif %}
+                {% if seminar.featured_image %}
+                <img class="card-img-top img-fluid detail_image" src="{{ seminar.featured_image.url }}"
+                    alt="{{ seminar.title }}">
+                {% endif %}
+                <p class="detail-text"><strong>Created: </strong>{{ seminar.created_date }}</p>
 
-            {% else %}
-            <form action="{% url 'delete_seminar' seminar.title %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" value="{{ seminar.title }}"
-                    class="btn seminar-detail-btn btn-outline-danger"><strong>Delete</strong></button>
-            </form>
-            {% endif %}
-            {% endif %}
-            {% if seminar.featured_image %}
-            <img class="card-img-top img-fluid detail_image" src="{{ seminar.featured_image.url }}"
-                alt="{{ seminar.title }}">
-            {% endif %}
-            <p class="detail-text"><strong>Created: </strong>{{ seminar.created_date }}</p>
-
+            </div>
         </div>
     </div>
 </div>
