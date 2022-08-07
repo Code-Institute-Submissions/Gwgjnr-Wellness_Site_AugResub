@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'profiles',
     'storages',
     'contact',
+    'donations',
 ]
 
 MIDDLEWARE = [
