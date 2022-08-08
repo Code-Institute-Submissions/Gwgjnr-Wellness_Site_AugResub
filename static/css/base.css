@@ -422,6 +422,28 @@ footer {
     text-align: center;
 }
 
+/*----------------- Styles used on donation page -----------------*/
+
+.donate-header {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.donate-text {
+margin-left: 1rem;
+}
+
+.donate-card {
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    height: 55vh;
+}
+
+.donate-btn {
+    text-align: center;
+    margin-left: 4%;
+    width: 92%;
+}
 
 /*----------------- Media queries used to ensure responsiveness across screen sizes -----------------*/
 
@@ -497,6 +519,15 @@ footer {
     }
 }
 
+@media screen and (max-width: 991px) {
+    .donate-card {
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        height: 50vh;
+    }
+}
+
+
 @media screen and (max-width: 767px) {
     .detail_image {
         padding: 0.5rem;
@@ -506,6 +537,7 @@ footer {
         object-fit: cover;
         float: left;
     }
+    
 }
 
 @media screen and (max-width: 600px) {

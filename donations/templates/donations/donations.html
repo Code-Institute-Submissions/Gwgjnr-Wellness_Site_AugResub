@@ -2,20 +2,46 @@
 {% load static %}
 
 {% block content %}
-<div class="container-flex">
-    <div class="background-container">
-        <div class="blur">
+<div class="background-container">
+    <div class="blur">
+        <div class="container">
             <div class="row">
-                <div class="col my-auto">
-                    <h2 class="display-4 intro">Donate here</h2>
-                    <div class="card">
+                <div class="col-lg-6 my-auto">
+                    <div class="card donate-card">
+                        <h2 class="donate-header">Donate here</h2>
+                        <hr>
                         <form action="{% url 'donate' %}" method="POST" id="donation_form">
                             {% csrf_token %}
                             <fieldset class="rounded px-3 mb-5">
-                                {{ donation_form.donation_recipient | as_crispy_field }}
-                                {{ donation_form.donation_amount | as_crispy_field }}
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Name: <strong>{{ user.username }}</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>Email: <strong>{{ user.email }}</strong>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        {{ donation_form.donation_recipient | as_crispy_field }}
+                                    </div>
+                                    <div class="form-group col-6">
+                                        {{ donation_form.donation_amount | as_crispy_field }}
+                                    </div>
+                                </div>
                             </fieldset>
+                            <button type="submit" class="btn donate-btn btn-success"><strong>Submit
+                                    Payment</strong></button>
                         </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 my-auto">
+                    <div class="card donate-card">
+                        <h2 class="donate-header">Support our hosts!</h2>
+                        <hr>
+                        <p class="donate-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat eu lacus quis feugiat.
+                            In consectetur lorem vitae odio tempus porta. Suspendisse leo sem, elementum vel gravida
+                            dapibus, elementum vitae magna. Etiam bibendum, orci quis maximus dictum, dui nulla volutpat
+                            felis, at sagittis metus risus at est.
+                        </p>
                     </div>
                 </div>
             </div>

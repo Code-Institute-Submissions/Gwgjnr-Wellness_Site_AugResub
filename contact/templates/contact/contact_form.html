@@ -3,27 +3,30 @@
 
 {% block content %}
 {% load crispy_forms_tags %}
-<div class="container">
-    <div class="col">
-        <div>
-            <h2 class="contact-header">Contact Us</h2>
-            <p class="contact-text">We are constantly looking for ways to improve our service, so we would
-                <strong>love</strong> your feedback. If think of something that would improve your experience, then
-                please let us know!</p>
-            <p class="contact-text">Please be aware we be may email you for more information or clarification on your
-                suggestion.</p>
-            <p class="contact-text">Signed in: <strong>{{ user.username }}</strong></p>
-            <p class="contact-text">Email Address: <strong>{{ user.email }}</strong></p>
+<div class="background-container">
+    <div class="blur">
+        <div class="container">
+            <div class="col">
+                <div class="card">
+                    <h2 class="contact-header">Contact Us</h2>
+                    <p class="contact-text">We are constantly looking for ways to improve our service, so we would
+                        <strong>love</strong> your feedback. If think of something that would improve your experience,
+                        then
+                        please let us know!</p>
+                    <p class="contact-text">Please be aware we be may email you for more information or clarification on
+                        your
+                        suggestion.</p>
+                    <p class="contact-text">Signed in: <strong>{{ user.username }}</strong></p>
+                    <p class="contact-text">Email Address: <strong>{{ user.email }}</strong></p>
+                    <form class="contact-form" method="post">
+
+                        {{ contact_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success contact-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <form class="contact-form" method="post">
-
-            {{ contact_form | crispy }}
-            {% csrf_token %}
-            <button type="submit" class="btn btn-success contact-btn">Submit</button>
-        </form>
-
     </div>
-
 </div>
-
 {% endblock %}
