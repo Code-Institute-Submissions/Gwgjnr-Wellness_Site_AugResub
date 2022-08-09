@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block content %}
-{% load crispy_forms_tags %}
 <div class="background-container">
     <div class="blur">
-        <div class="container">
+        <div class="row">
             <div class="col">
-                <div class="card">
+                <div class="card contact-card">
                     <h2 class="contact-header">Contact Us</h2>
+                    <hr>
                     <p class="contact-text">We are constantly looking for ways to improve our service, so we would
                         <strong>love</strong> your feedback. If think of something that would improve your experience,
                         then
@@ -19,8 +19,12 @@
                     <p class="contact-text">Signed in: <strong>{{ user.username }}</strong></p>
                     <p class="contact-text">Email Address: <strong>{{ user.email }}</strong></p>
                     <form class="contact-form" method="post">
-
-                        {{ contact_form | crispy }}
+                        <div class="form-group col-12 contact-fields">
+                            {{ contact_form.subject | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-12 contact-fields">
+                            {{ contact_form.message | as_crispy_field }}
+                        </div>
                         {% csrf_token %}
                         <button type="submit" class="btn btn-success contact-btn">Submit</button>
                     </form>
