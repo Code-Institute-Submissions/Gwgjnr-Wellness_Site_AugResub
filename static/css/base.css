@@ -209,7 +209,6 @@ footer {
     min-width: 300px;
     min-height: 200px;
     background-color: #f7f7f7;
-    border-radius: 2%;
     margin: 1rem;
     margin-bottom: 3rem;
 }
@@ -394,7 +393,7 @@ footer {
 }
 
 .contact-form {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     width: 98%;
     margin-right: 1%;
     margin-left: 1%;
@@ -442,13 +441,13 @@ footer {
 }
 
 .donate-text {
-margin-left: 1rem;
+margin-left: 5%;
+margin-right: 1rem;
 }
 
 .donate-card {
     margin-top: 15vh;
     margin-bottom: 15vh;
-    height: 55vh;
 }
 
 .donate-btn {
@@ -456,6 +455,36 @@ margin-left: 1rem;
     margin-left: 4%;
     width: 92%;
 }
+
+.StripeElement,
+.stripe-style-input {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 24px;
+    width: 90%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 1px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+  
+  .StripeElement--focus,
+  .stripe-style-input:focus,
+  .stripe-style-input:active {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+  
+  .stripe-style-input::placeholder {
+      color: #aab7c4;
+  }
 
 /*----------------- Media queries used to ensure responsiveness across screen sizes -----------------*/
 
@@ -520,7 +549,7 @@ margin-left: 1rem;
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 94%;
+        width: 90%;
     }
 
     .carousel-image {

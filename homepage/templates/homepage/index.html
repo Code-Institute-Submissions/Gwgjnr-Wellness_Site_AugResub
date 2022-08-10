@@ -40,22 +40,23 @@
                     <div class="card intro-card">
                         <div class="card-body">
                             <h4 class="intro-card-title">Find the right seminar for you</h4>
-                            <p class="intro-card-text">Our hosts work tirelessly to bring you new and relevant information to help you go from existing to flourishing.
+                            <p class="intro-card-text">Our hosts work tirelessly to bring you new and relevant
+                                information to help you go from existing to flourishing.
                             </p>
                             <p class="intro-card-text">
-                                Our hosts give their alot of their time and energy so make sure to show your appreciation and click the button to donate if you enjoy our content.
+                                Our hosts give their alot of their time and energy so make sure to show your
+                                appreciation and click the button to donate if you enjoy our content.
                             </p>
-                            <div class="button-container">
-                                <div class="button-vertical-center">
-                                    <button type="button"
-                                        class="btn btn-outline-success intro-card-button">Subscribe</button>
-                                </div>
-                            </div>
+                            {% if request.user is is_authenticated %}
+
+                            <a class="a-card-intro-button" href="{% url 'donate' %}">
+                                <button type="button" class="btn btn-outline-success intro-card-button">Donate</button>
+                            </a>
+                            {% endif %}
 
                         </div>
                     </div>
                 </div>
-
                 <div class="col-12 col-lg-4">
                     <div class="card intro-card">
                         <div class="card-body">
@@ -125,14 +126,11 @@
                             </a>
 
                             {% else %}
-                            <div class="button-container">
-                                <div class="button-vertical-center">
-                                    <a class="a-card-intro-button" href="{% url 'contact' %}">
-                                        <button type="button" class="btn btn-outline-success intro-card-button">Contact
-                                            us</button>
-                                    </a>
-                                </div>
-                            </div>
+
+                            <a class="a-card-intro-button" href="{% url 'contact' %}">
+                                <button type="button" class="btn btn-outline-success intro-card-button">Contact
+                                    us</button>
+                            </a>
 
                             {% endif %}
 
