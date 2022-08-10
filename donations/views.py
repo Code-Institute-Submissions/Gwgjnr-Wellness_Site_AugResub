@@ -4,9 +4,11 @@ from django.conf import settings
 
 from .forms import DonationForm
 
+
 def donation(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+
     donation_form = DonationForm()
     template = 'donations/donations.html'
 

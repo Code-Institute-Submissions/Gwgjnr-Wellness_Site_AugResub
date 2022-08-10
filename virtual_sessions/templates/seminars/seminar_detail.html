@@ -5,8 +5,8 @@
 {% load crispy_forms_tags %}
 <div class="background-container">
     <div class="blur">
-        <div class="container">
-            <div class="row">
+        <div class="container g-0">
+            <div class="row g-0">
                 <div class="col-md-8">
                     <div class="card detail_card">
 
@@ -97,7 +97,7 @@
                             </div>
                             <hr class="comment_hr">
                             {% empty %}
-                            <h4>There are no comments yet. Why not be the first?</h4>
+                            <P class=" font-weight-bold comment_text">There are no comments yet. Why not be the first?</P>
                             {% endfor %}
                     </div>
 

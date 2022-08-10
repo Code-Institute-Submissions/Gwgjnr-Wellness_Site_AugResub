@@ -4,8 +4,8 @@
 {% block content %}
 <div class="background-container">
     <div class="blur">
-        <div class="container">
-            <div class="row">
+        <div class="container g-0">
+            <div class="row g-0">
                 <div class="col-lg-6 my-auto">
                     <div class="card donate-card">
                         <h2 class="donate-header">Donate here</h2>
@@ -63,4 +63,11 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'donations/js/stripe_elements.js' %}"></script>
 {% endblock %}

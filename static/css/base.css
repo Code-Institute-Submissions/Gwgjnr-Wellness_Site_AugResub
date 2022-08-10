@@ -222,8 +222,13 @@ footer {
     float: right;
 }
 
-.card_text {
+.seminar-header {
+    margin-left: 1rem;
+}
+
+.seminar-text {
     padding-right: 1rem;
+    margin-left: 1rem;
 }
 
 .seminar-btn {
@@ -447,7 +452,7 @@ footer {
 
 .donate-card {
     margin-top: 15vh;
-    margin-bottom: 15vh;
+    margin-bottom: 25vh;
 }
 
 .donate-btn {
