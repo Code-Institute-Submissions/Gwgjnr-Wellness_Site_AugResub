@@ -14,8 +14,8 @@ class DonationForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'donation_recipient': 'Select who you would like to donate margin-left: 1rem;to!',
-            'donation_amount': 'Enter the amount you would like to donate',
+            'donation_recipient': 'Select who you would like to donate to!',
+            'donation_amount': 'Enter amount here',
         }
 
         for field in self.fields:
