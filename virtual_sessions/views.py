@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import View
 from django.contrib import messages
+from django.views.generic import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from .models import Session, Comment
@@ -107,3 +109,22 @@ class DeleteSeminar(View):
         seminar.delete()
         messages.info(request, f'You have deleted {seminar.title}')
         return redirect(reverse('seminars'))
+
+
+# class EditComment(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+#     """
+#     A view to provide a Form to the user
+#     to edit a menu
+#     """
+#     form_class = CommentForm()
+#     template_name = 'menu/edit_menu.html'
+#     success_url = "/menu/managemenus"
+#     model = Comment
+
+#     def form_valid(self, form):
+#         """ Show toast on success """
+#         messages.success(
+#             self.request,
+#             'Successfully updated comment'
+#         )
+#         return super(EditComment, self).form_valid(form)
