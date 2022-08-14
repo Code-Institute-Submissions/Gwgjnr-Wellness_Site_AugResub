@@ -76,41 +76,50 @@
                                         </span> replied:
                                         <p class="reply_text">
                                             {{ reply.body }}</p>
-                                        {% if reply.name == user.username %}
-                                        <a href="{% url 'editcomment' reply.id %}"><button
-                                                class="btn btn-outline-primary reply_btn">Edit Reply</button></a>
-                                        <div class="reply_form"> </div>
+                                        {% if request.user.username == reply.name %}
+                                        <a href="{% url 'editcomment' reply.id %}"
+                                            class="btn btn-outline-primary reply_btn">Edit Reply</a>
                                         {% endif %}
-
-
-
-                                        {% endfor %}
-                                        {% if user.is_authenticated %}
-                                        <button class="btn btn-outline-primary reply_btn"
-                                            onclick="myFunction()">Reply</button>
-                                        {% if comment.name == user.username %}
-                                        <a href="{% url 'editcomment' comment.id %}"><button
-                                                class="btn btn-outline-primary reply_btn">Edit Comment</button></a>
-                                        {% endif %}
-                                        <div class="reply_form">
-                                            <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
-                                                {{ comment_form|crispy }}
-                                                {% csrf_token %}
-                                                <!-- input for parent comment.id -->
-                                                <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                                                <input class="btn btn-success reply_btn" type="submit" value="Submit">
-                                            </form>
-                                        </div>
-                                        {% endif %}
-
                                 </div>
-                                <hr class="comment_hr">
-                                {% empty %}
-                                <P class=" font-weight-bold comment_text">There are no comments yet. Why not be the
-                                    first?</P>
+
                                 {% endfor %}
+                                {% if user.is_authenticated %}
+                                <button class="btn btn-outline-primary reply_btn" onclick="myFunction()">Reply</button>
+                                {% if request.user.username == reply.name %}
+                                <a href="{% url 'editcomment' comment.id %}"
+                                    class="btn btn-outline-primary reply_btn">Edit Comment</a>
+                                {% endif %}
+                                <div class="reply_form">
+                                    <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
+                                        {{ comment_form|crispy }}
+                                        {% csrf_token %}
+                                        <!-- input for parent comment.id -->
+                                        <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                                        <input class="btn btn-success reply_btn" type="submit" value="Submit">
+                                    </form>
+                                </div>
+                                {% endif %}
+
                             </div>
+                            <hr class="comment_hr">
+                            {% empty %}
+                            <P class=" font-weight-bold comment_text">There are no comments yet. Why not be the first?
+                            </P>
+                            {% endfor %}
+
                     </div>
+                    {% if user.is_authenticated %}
+
+                    <div class="card detail_card">
+                        <div class="comment_form">
+                            <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
+                                {{ comment_form|crispy }}
+                                {% csrf_token %}
+                                <button class="btn btn-btn btn-success comment_btn" type="submit">Add comment</button>
+                            </form>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
                 <div class="col-md-4">
                     <div class="card detail_card">
@@ -120,28 +129,12 @@
                             alt="{{ seminar.title }}">
                         {% endif %}
                     </div>
-                    {% if user.is_authenticated %}
-
-                    <div class="card detail_card">
-                        <div class="comment_form">
-                            <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
-                                {{ comment_form|crispy }}
-                                {% csrf_token %}
-                                <button class="btn btn-btn btn-success comment_btn" type="submit">Add
-                                    comment</button>
-                            </form>
-                        </div>
-                    </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblock %}
 
-{% block postload_js %}
-{{ block.super }}
 <script>
     function myFunction() {
         var reply_boxes = document.getElementsByClassName("reply_form");

@@ -9,7 +9,7 @@
             <div class="col">
                 <div class="card comment-edit-card">
                     <form method="POST" action="{% url 'editcomment' comment.id %}" class="form mb-2 p-2">
-                        <h1 class="text-center">Edit Commment</h1>
+                        <h1 class="text-center">Edit Comment</h1>
                         {% csrf_token %}
                         {{ form.id }}
                         {{ form|crispy }}
