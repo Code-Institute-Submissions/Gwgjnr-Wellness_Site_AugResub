@@ -277,8 +277,8 @@ footer {
 }
 
 .seminar-detail-btn {
-    margin:0 auto;
-    display:block;
+    margin: 0 auto;
+    display: block;
     width: 10rem;
     margin-bottom: 1rem;
 }
@@ -331,7 +331,7 @@ footer {
 
 .comment_btn {
     margin: 0 auto;
-    display:block;
+    display: block;
     margin-top: 0.5rem;
     width: 50%;
 }
@@ -340,12 +340,12 @@ footer {
     width: 90%;
     margin-left: 5% !important;
     border-top: 1px dashed
-    }
+}
 
 .comment-edit-card {
     margin-top: 10vh;
     margin-bottom: 25vh;
-} 
+}
 
 
 /*----------------- Styling for custom toasts -----------------*/
@@ -465,7 +465,7 @@ footer {
 }
 
 .donate-checkout-text {
-text-align: center;
+    text-align: center;
 }
 
 .donate-btn {
@@ -491,21 +491,21 @@ text-align: center;
     box-shadow: 0 1px 3px 0 #e6ebf1;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
-  }
-  
-  .StripeElement--focus,
-  .stripe-style-input:focus,
-  .stripe-style-input:active {
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
     box-shadow: 0 1px 3px 0 #cfd7df;
-  }
-  
-  .StripeElement--webkit-autofill {
+}
+
+.StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
-  }
-  
-  .stripe-style-input::placeholder {
-      color: #aab7c4;
-  }
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
 
 /*----------------- Media queries used to ensure responsiveness across screen sizes -----------------*/
 
@@ -598,7 +598,7 @@ text-align: center;
         object-fit: cover;
         float: left;
     }
-    
+
 }
 
 @media screen and (max-width: 600px) {
