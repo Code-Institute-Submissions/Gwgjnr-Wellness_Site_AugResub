@@ -111,20 +111,25 @@ class DeleteSeminar(View):
         return redirect(reverse('seminars'))
 
 
-# class EditComment(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-#     """
-#     A view to provide a Form to the user
-#     to edit a menu
-#     """
-#     form_class = CommentForm()
-#     template_name = 'menu/edit_menu.html'
-#     success_url = "/menu/managemenus"
-#     model = Comment
+class EditComment(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    A view to provide a Form to the user
+    to edit a menu
+    """
+    form_class = CommentForm
+    template_name = 'seminars/edit_comment.html'
+    success_url = '/seminars/'
+    model = Comment
 
-#     def form_valid(self, form):
-#         """ Show toast on success """
-#         messages.success(
-#             self.request,
-#             'Successfully updated comment'
-#         )
-#         return super(EditComment, self).form_valid(form)
+    def form_valid(self, form):
+        """ Show toast on success """
+        messages.success(
+            self.request,
+            'Successfully updated comment!'
+        )
+        return super(EditComment, self).form_valid(form)
+
+    def test_func(self):
+        """ Check user is the original author else throw 403 """
+        obj = self.get_object()
+        return obj.name == self.request.user.username

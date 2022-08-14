@@ -342,6 +342,10 @@ footer {
     border-top: 1px dashed
     }
 
+.comment-edit-card {
+    margin-top: 10vh;
+    margin-bottom: 25vh;
+} 
 
 
 /*----------------- Styling for custom toasts -----------------*/
@@ -455,11 +459,21 @@ footer {
     margin-bottom: 25vh;
 }
 
+.donate-checkout-card {
+    margin-top: 25vh;
+    margin-bottom: 40vh;
+}
+
+.donate-checkout-text {
+text-align: center;
+}
+
 .donate-btn {
     text-align: center;
     margin-left: 5%;
     width: 90%;
     margin-bottom: 2rem;
+    height: 2.5rem;
 
 }
 

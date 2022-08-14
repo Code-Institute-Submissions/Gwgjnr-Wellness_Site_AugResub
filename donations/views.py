@@ -38,15 +38,21 @@ class Donation(View):
         else:
             donation_form = DonationForm()
 
-        return redirect(reverse('checkout', kwargs={'donation_amount': donation_amount}))
+        return redirect(reverse('checkout', kwargs={'donation_amount':
+                                                    donation_amount}))
 
 
 class donationCheckout(View):
 
+    def post(self, request, *args, **kwargs):
+        messages.success(request, 'Your donation was succesful')
+        return redirect('homepage')
+
     def get(self, request, *args, **kwargs):
         stripe_public_key = settings.STRIPE_PUBLIC_KEY
-        stripe_secret_key = settings.STRIPE_SECRET_KEY     
-        stripe_amount = kwargs.get('donation_amount')*100
+        stripe_secret_key = settings.STRIPE_SECRET_KEY    
+        donation_amount = kwargs.get('donation_amount')
+        stripe_amount = donation_amount*100
 
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
@@ -59,6 +65,7 @@ class donationCheckout(View):
         context = {
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
+            'donation_amount': donation_amount,
         }
 
         return render(request, template, context)
