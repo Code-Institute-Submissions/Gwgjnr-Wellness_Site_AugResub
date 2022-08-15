@@ -1,5 +1,5 @@
 from datetime import date
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import messages
 from django.views import View
 from .forms import ContactForm
@@ -27,6 +27,7 @@ class Contact(View):
             contact_form.instance.created_date = date.today()
             contact_form.save()
             messages.success(request, 'Thank you for your feedback!')
+            return HttpResponseRedirect('/')
         else:
             contact_form = ContactForm()
 

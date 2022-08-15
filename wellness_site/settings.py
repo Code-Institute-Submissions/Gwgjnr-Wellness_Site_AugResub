@@ -49,11 +49,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'virtual_sessions',
     'homepage',
-    'profiles',
     'storages',
     'contact',
     'donations',
-    'newsletter',
 ]
 
 MIDDLEWARE = [

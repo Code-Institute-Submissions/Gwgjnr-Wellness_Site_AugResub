@@ -26,6 +26,7 @@ span {
 a {
     text-decoration: none !important;
     color: #555;
+    cursor: pointer;
 }
 
 #page-container {
@@ -333,7 +334,7 @@ footer {
     margin: 0 auto;
     display: block;
     margin-top: 0.5rem;
-    width: 50%;
+    width: 10rem;
 }
 
 .comment_hr {

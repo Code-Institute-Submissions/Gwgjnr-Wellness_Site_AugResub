@@ -1,3 +1,15 @@
 from django.contrib import admin
+from .models import NewsletterSignup
 
-# Register your models here.
+
+class NewsletterAdmin(admin.ModelAdmin):
+    '''
+    Class to organise Sessions in Admin panel
+    '''
+    list_display = (
+        'name',
+        'email',
+    )
+
+
+admin.site.register(NewsletterSignup, NewsletterAdmin)

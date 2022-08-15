@@ -21,31 +21,30 @@
                         <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
                         <p class="detail-text"><strong>Attending: </strong>{{ seminar.number_signed_up }}</p>
                         <hr class="comment_hr">
-                        <div class="button_holder">
 
-                            {% if user.is_authenticated %}
-                            {% if request.user != seminar.host %}
-                            <form action="{% url 'join_seminar' seminar.title %}" method="POST">
-                                {% csrf_token %}
-                                <input type="hidden" name="next" value="{{ request.path }}">
-                                {% if request.user in seminar.signed_up.all %}
-                                <button type="submit" value="{{ seminar.title }}"
-                                    class="btn seminar-detail-btn btn-warning"><strong>Cancel spot</strong></button>
-                                {% else %}
-                                <button type="submit" value="{{ seminar.title }}"
-                                    class="btn seminar-detail-btn btn-success"><strong>Attend</strong></button>
-                                {% endif %}
-                            </form>
-
+                        {% if user.is_authenticated %}
+                        {% if request.user != seminar.host %}
+                        <form action="{% url 'join_seminar' seminar.title %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.path }}">
+                            {% if request.user in seminar.signed_up.all %}
+                            <button type="submit" value="{{ seminar.title }}"
+                                class="btn seminar-detail-btn btn-warning"><strong>Cancel spot</strong></button>
                             {% else %}
-                            <form action="{% url 'delete_seminar' seminar.title %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit" value="{{ seminar.title }}"
-                                    class="btn seminar-detail-btn btn-danger"><strong>Delete</strong></button>
-                            </form>
+                            <button type="submit" value="{{ seminar.title }}"
+                                class="btn seminar-detail-btn btn-success"><strong>Attend</strong></button>
                             {% endif %}
-                            {% endif %}
-                        </div>
+                        </form>
+
+                        {% else %}
+                        <form action="{% url 'delete_seminar' seminar.title %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" value="{{ seminar.title }}"
+                                class="btn seminar-detail-btn btn-danger"><strong>Delete</strong></button>
+                        </form>
+                        {% endif %}
+                        {% endif %}
+
                     </div>
 
 
