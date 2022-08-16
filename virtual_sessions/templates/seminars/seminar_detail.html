@@ -83,8 +83,10 @@
 
                                 {% endfor %}
                                 {% if user.is_authenticated %}
+                                {% if request.user.username != comment.name %}
                                 <button class="btn btn-outline-primary reply_btn" onclick="myFunction()">Reply</button>
-                                {% if request.user.username == reply.name %}
+                                {% endif %}
+                                {% if request.user.username == comment.name %}
                                 <a href="{% url 'editcomment' comment.id %}"
                                     class="btn btn-outline-primary reply_btn">Edit Comment</a>
                                 {% endif %}

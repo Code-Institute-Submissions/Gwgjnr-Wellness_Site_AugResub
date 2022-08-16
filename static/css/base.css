@@ -68,7 +68,10 @@ a {
 
 .intro-invite {
     text-align: center;
+}
 
+.newsletter-fields {
+    margin-top: 1rem;
 }
 
 .intro-invite-button {

@@ -13,6 +13,8 @@ class DonationForm(forms.ModelForm):
         labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
+
+        self.fields['donation_amount'] = forms.DecimalField(min_value=2, decimal_places=2,)
         placeholders = {
             'donation_recipient': 'Select who you would like to donate to!',
             'donation_amount': 'Enter amount here',

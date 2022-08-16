@@ -10,7 +10,7 @@
                     <div class="card donate-card">
                         <h2 class="donate-header">Donate here</h2>
                         <hr>
-                        <form action="{% url 'donate' %}" method="post" id="payment-form">
+                        <form action="{% url 'donate' %}" method="post">
                             {% csrf_token %}
                             <fieldset class="rounded px-3 mb-5">
                                 <div class="row">
@@ -30,20 +30,9 @@
                                     <div class="form-group col-md-6">
                                         {{ donation_form.donation_amount | as_crispy_field }}
                                     </div>
-                                    <div id="card-element">
-                                        <!-- Elements will create input elements here -->
-                                    </div>
                                 </div>
                             </fieldset>
-
-
-                            <!-- We'll put the error messages in this element -->
-                            <div id="card-errors" role="alert"></div>
-
-
-
-                            <button id="submit-button" class="btn donate-btn btn-success"><strong>Submit
-                                    Payment</strong></button>
+                            <button id="submit-button" class="btn donate-btn btn-success"><strong>Go to checkout</strong></button>
                         </form>
                     </div>
                 </div>

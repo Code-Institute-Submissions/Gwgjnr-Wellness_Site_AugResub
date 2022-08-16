@@ -6,6 +6,7 @@ from django.views import View
 from .forms import DonationForm
 
 import stripe
+import json
 
 
 class Donation(View):
@@ -26,20 +27,17 @@ class Donation(View):
         }
 
         donation_form = DonationForm(form_data)
-
-        donation_amount = None
-
         if donation_form.is_valid():
             donation_form.instance.email = request.user.email
             donation_form.instance.donater_name = request.user
             donate = donation_form.save(commit=False)
             donate.save()
-            donation_amount = int(donate.donation_amount)
+            request.session['donation_amount'] = str(donation_form.cleaned_data['donation_amount'])
+            print(request.session['donation_amount'])
         else:
             donation_form = DonationForm()
 
-        return redirect(reverse('checkout', kwargs={'donation_amount':
-                                                    donation_amount}))
+        return redirect(reverse('checkout'))
 
 
 class donationCheckout(View):
@@ -50,9 +48,9 @@ class donationCheckout(View):
 
     def get(self, request, *args, **kwargs):
         stripe_public_key = settings.STRIPE_PUBLIC_KEY
-        stripe_secret_key = settings.STRIPE_SECRET_KEY    
-        donation_amount = kwargs.get('donation_amount')
-        stripe_amount = donation_amount*100
+        stripe_secret_key = settings.STRIPE_SECRET_KEY
+        donation_amount = request.session['donation_amount']
+        stripe_amount = int(donation_amount)*100
 
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(

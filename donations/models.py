@@ -12,7 +12,7 @@ class donation(models.Model):
     email = models.EmailField(max_length=254, null=False, blank=False)
     donation_recipient = models.ForeignKey(Session, on_delete=models.SET_NULL, null=True, blank=True, related_name='recipient')
     created_date = models.DateTimeField(auto_now_add=True)
-    donation_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    donation_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=2)
 
     def _generate_donation_number(self):
         """
