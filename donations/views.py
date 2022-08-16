@@ -50,7 +50,8 @@ class donationCheckout(View):
         stripe_public_key = settings.STRIPE_PUBLIC_KEY
         stripe_secret_key = settings.STRIPE_SECRET_KEY
         donation_amount = request.session['donation_amount']
-        stripe_amount = int(donation_amount)*100
+        stripe_dec_amount = float(donation_amount)
+        stripe_amount = int(stripe_dec_amount)*100
 
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(

@@ -15,20 +15,14 @@
                             <fieldset class="rounded px-3 mb-5">
                                 <div class="row">
                                     <div class="col-12">
-                                        <p class="donate-text">Pick the seminar you would like to donate to or leave
-                                            blank if you want to show support for the website!</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="donate-text">Details: <strong>{{ user.username }}</strong>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="donate-text"><strong>{{ user.email }}</strong>
+                                        <p class="donate-text">Pick the seminar you would like to support or leave it
+                                            blank if you want to show your love for the website!</p>
                                     </div>
                                     <div class="form-group col-md-6">
                                         {{ donation_form.donation_recipient | as_crispy_field }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        {{ donation_form.donation_amount | as_crispy_field }}
+                                         {{ donation_form.donation_amount | as_crispy_field }}
                                     </div>
                                 </div>
                             </fieldset>
