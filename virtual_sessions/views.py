@@ -11,7 +11,7 @@ from .forms import CommentForm
 
 def seminar_search_page(request):
     """
-    A view to return all the seminars
+    A view to return all the seminars and provide results on searches
     """
 
     seminars = Session.objects.all()
@@ -81,10 +81,14 @@ def seminar_detail(request, slug):
     return render(request, 'seminars/seminar_detail.html', context)
 
 
-class JoinSeminar(View):
+class JoinSeminar(LoginRequiredMixin, View):
     '''
     A view for joining or cancelling your spot at a seminar.
     '''
+
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
+
     def post(self, request, title, *args, **kwargs):
         seminar = get_object_or_404(Session, title=title)
         next = request.POST.get('next', '/')
@@ -100,22 +104,15 @@ class JoinSeminar(View):
         return HttpResponseRedirect(next)
 
 
-class DeleteSeminar(View):
-    '''
-    A view for deleting a seminar.
-    '''
-    def post(self, request, title, *args, **kwargs):
-        seminar = get_object_or_404(Session, title=title)
-        seminar.delete()
-        messages.info(request, f'You have deleted {seminar.title}')
-        return redirect(reverse('seminars'))
-
-
 class EditComment(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    
     """
     A view to provide a Form to the user
     to edit a menu
     """
+    
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
     form_class = CommentForm
     template_name = 'seminars/edit_comment.html'
     success_url = '/seminars/'
@@ -136,8 +133,13 @@ class EditComment(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class DeleteOwnComment(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    """ A view to delete a Comment """
-
+    """ 
+    A view to delete a Comment 
+    
+    """
+    
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
     model = Comment
     template_name = 'seminars/delete_comment.html'
     success_url = "/seminars/"

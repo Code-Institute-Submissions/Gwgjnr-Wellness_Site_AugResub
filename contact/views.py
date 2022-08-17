@@ -1,17 +1,24 @@
 from datetime import date
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from .forms import ContactForm
 
 
-class Contact(View):
+class Contact(LoginRequiredMixin, View):
+    '''
+    A view for submitting a contact form to the database.
+    '''
 
-    """
-    A view to return the contact form page
-    """
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
+
     def get(self, request, *args, **kwargs):
-            
+        """
+        A view to return the contact form page
+        """    
+        
         context = {
             'contact_form': ContactForm(),
         }
@@ -19,6 +26,9 @@ class Contact(View):
         return render(request, 'contact/contact_form.html', context)
     
     def post(self, request, *args, **kwargs):
+        """
+        A view to post the contact form to the database
+        """   
 
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():

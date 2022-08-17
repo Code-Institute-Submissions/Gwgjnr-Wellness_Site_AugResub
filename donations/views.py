@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.conf import settings
 from django.views import View
 
@@ -9,7 +10,9 @@ import stripe
 import json
 
 
-class Donation(View):
+class Donation(LoginRequiredMixin, View):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
 
     def get(self, request, *args, **kwargs):
            
@@ -39,7 +42,9 @@ class Donation(View):
         return redirect(reverse('checkout'))
 
 
-class donationCheckout(View):
+class donationCheckout(LoginRequiredMixin, View):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
 
     def post(self, request, *args, **kwargs):
 

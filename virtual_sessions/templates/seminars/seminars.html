@@ -27,7 +27,6 @@
                 <button type="button" class="btn seminar-btn btn-outline-primary"><strong>Details</strong></button>
             </a>
             {% if user.is_authenticated %}
-            {% if request.user != seminar.host %}
             <form action="{% url 'join_seminar' seminar.title %}" method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ request.path }}">
@@ -40,14 +39,6 @@
                     class="btn seminar-btn btn-outline-success"><strong>Attend</strong></button>
                 {% endif %}
             </form>
-
-            {% else %}
-            <form action="{% url 'delete_seminar' seminar.title %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" value="{{ seminar.title }}"
-                    class="btn seminar-btn btn-outline-danger"><strong>Delete</strong></button>
-            </form>
-            {% endif %}
             {% endif %}
         </div>
     </div>
