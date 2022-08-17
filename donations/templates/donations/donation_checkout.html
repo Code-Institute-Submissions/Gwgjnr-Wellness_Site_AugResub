@@ -11,7 +11,8 @@
                         <h2 class="donate-header">Checkout Page</h2>
                         <hr>
                         <h2 class="donate-checkout-text">Total: €{{ donation_amount }}</h2>
-                        <form  id="payment-form">
+                        <form action="{% url 'checkout' %}" method="post" id="payment-form">
+                            {% csrf_token %}
                             <div id="card-element">
                               <!-- Elements will create input elements here -->
                             </div>
@@ -19,7 +20,7 @@
                             <!-- We'll put the error messages in this element -->
                             <div id="card-errors" role="alert"></div>
                           
-                            <button class="donate-btn btn-outline-success" id="submit">Submit Payment</button>
+                            <button class="donate-btn btn btn-outline-success" id="submit">Submit Payment</button>
                           </form>
                     </div>
                 </div>

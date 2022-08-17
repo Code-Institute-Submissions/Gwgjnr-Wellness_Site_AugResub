@@ -348,8 +348,8 @@ footer {
 }
 
 .comment-edit-card {
-    margin-top: 10vh;
-    margin-bottom: 25vh;
+    margin-top: 15vh;
+    margin-bottom: 35vh;
 }
 
 .delete-card {
@@ -451,9 +451,8 @@ footer {
 }
 
 .account-logout-card {
-    margin-top: 30vh;
-    margin-bottom: 35vh;
-    height: 35vh;
+    margin-top: 25vh;
+    margin-bottom: 45vh;
     max-width: fit-content;
     text-align: center;
 }

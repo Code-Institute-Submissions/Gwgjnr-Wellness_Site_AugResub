@@ -33,7 +33,6 @@ class Donation(View):
             donate = donation_form.save(commit=False)
             donate.save()
             request.session['donation_amount'] = str(donation_form.cleaned_data['donation_amount'])
-            print(request.session['donation_amount'])
         else:
             donation_form = DonationForm()
 
@@ -43,8 +42,11 @@ class Donation(View):
 class donationCheckout(View):
 
     def post(self, request, *args, **kwargs):
+
+        print('Were in business')
+
         messages.success(request, 'Your donation was succesful')
-        return redirect('homepage')
+        return redirect(reverse('homepage'))
 
     def get(self, request, *args, **kwargs):
         stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -52,6 +54,11 @@ class donationCheckout(View):
         donation_amount = request.session['donation_amount']
         stripe_dec_amount = float(donation_amount)
         stripe_amount = int(stripe_dec_amount)*100
+
+        if stripe_amount is False:
+            messages.error(request,
+                           "Please fill out the donation form first")
+            return redirect(reverse('donate'))
 
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(

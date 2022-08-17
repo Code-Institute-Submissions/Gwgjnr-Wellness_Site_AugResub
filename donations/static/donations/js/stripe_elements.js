@@ -37,32 +37,36 @@ form.addEventListener('submit', function(ev) {
   $('#submit-button').attr('disabled', true);
   $('#payment-form').fadeToggle(100);
   $('#loading-overlay').fadeToggle(100);
-  // If the client secret was rendered server-side as a data-secret attribute
-  // on the <form> element, you can retrieve it here by calling `form.dataset.secret`
+
+  // From using {% csrf_token %} in the form
+  var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+
+  var postData = {
+    'csrfmiddlewaretoken': csrfToken,
+    'client_secret': clientSecret,
+  };
+  var url = '/donate/checkout/';
+
+  $.post(url, postData).done(function () {
   stripe.confirmCardPayment(clientSecret, {
     payment_method: {
       card: card,
     }
-  }).then(function(result) {
-    if (result.error) {
-      var errorDiv = document.getElementById('card-errors');
-      var html = `<p class='donate-text'>${result.error.message}</p>`;
-      $(errorDiv).html(html);
-      $('#payment-form').fadeToggle(100);
-      $('#loading-overlay').fadeToggle(100);
-      card.update({ 'disabled': false});
-      $('#submit-button').attr('disabled', false);
-      console.log(result.error.message);
-    } else {
-      // The payment has been processed!
-      if (result.paymentIntent.status === 'succeeded') {
-        console.log('succcess');
-        // Show a success message to your customer
-        // There's a risk of the customer closing the window before callback
-        // execution. Set up a webhook or plugin to listen for the
-        // payment_intent.succeeded event that handles any business critical
-        // post-payment actions.
+    }).then(function(result) {
+      if (result.error) {
+        var errorDiv = document.getElementById('card-errors');
+        var html = `<p class='donate-text'>${result.error.message}</p>`;
+        $(errorDiv).html(html);
+        $('#payment-form').fadeToggle(100);
+        $('#loading-overlay').fadeToggle(100);
+        card.update({ 'disabled': false});
+        $('#submit-button').attr('disabled', false);
+      } else {
+        // The payment has been processed, redirect to homepage and trigger message to confirm donation
+        if (result.paymentIntent.status === 'succeeded') {
+          location.replace('/?paymentComplete=true');
+        }
       }
-    }
+    });
   });
 });

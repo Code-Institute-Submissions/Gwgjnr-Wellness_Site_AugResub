@@ -28,6 +28,9 @@ def index(request):
             messages.warning(request, 'There was an error with your sign up, you may have already registered')
             return HttpResponseRedirect('/')
 
+    if request.GET.get('paymentComplete'):
+        messages.success(request, 'Your donation was succesful')
+
     context = {
         'seminars': seminars,
         'newsletter_form': NewsletterForm(),
