@@ -78,14 +78,13 @@
                     <div class="card intro-card">
                         <div class="card-body">
                             <h4 class="intro-card-title">Find the right seminar for you</h4>
-                            <p class="intro-card-text">Our hosts work tirelessly to bring you new and relevant
-                                information to help you go from existing to flourishing.
+                            <p class="intro-card-text">Once you have signed up to the seminar, you will receive a Zoom link via email before the start-time. 
                             </p>
                             <p class="intro-card-text">
                                 Our hosts give their alot of their time and energy so make sure to show your
                                 appreciation and click the button to donate if you enjoy our content.
                             </p>
-                            {% if request.user is is_authenticated %}
+                            {% if request.user.is_authenticated %}
 
                             <a class="a-card-intro-button" href="{% url 'donate' %}">
                                 <button type="button" class="btn btn-outline-success intro-card-button">Donate</button>
@@ -152,11 +151,9 @@
                             <p class="intro-card-text">
                                 If think of something that would improve your
                                 experience, then
-                                please let us know!
+                                please let us know! An account is required.
                             </p>
-                            <p class="intro-card-text">
-                                An account is required.
-                            </p>
+                            
                             {% if not request.user.is_authenticated %}
 
                             <a class="a-card-intro-button" href="{% url 'account_signup' %}">

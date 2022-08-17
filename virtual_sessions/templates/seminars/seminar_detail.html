@@ -76,7 +76,7 @@
                                         <p class="reply_text">
                                             {{ reply.body }}</p>
                                         {% if request.user.username == reply.name %}
-                                        <a href="{% url 'editcomment' reply.id %}"
+                                        <a href="{% url 'edit_comment' reply.id %}"
                                             class="btn btn-outline-primary reply_btn">Edit Reply</a>
                                         {% endif %}
                                 </div>
@@ -89,6 +89,8 @@
                                 {% if request.user.username == comment.name %}
                                 <a href="{% url 'editcomment' comment.id %}"
                                     class="btn btn-outline-primary reply_btn">Edit Comment</a>
+                                <a href="{% url 'delete_comment' comment.id %}"
+                                    class="btn btn-outline-danger reply_btn">Delete Comment</a>
                                 {% endif %}
                                 <div class="reply_form">
                                     <form action="{% url 'seminar_detail' seminar.slug %}" method="post">

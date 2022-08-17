@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import View
 from django.contrib import messages
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.http import HttpResponseRedirect
@@ -131,5 +131,23 @@ class EditComment(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         """ Check user is the original author else throw 403 """
+        obj = self.get_object()
+        return obj.name == self.request.user.username
+
+
+class DeleteOwnComment(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """ A view to delete a Comment """
+
+    model = Comment
+    template_name = 'seminars/delete_comment.html'
+    success_url = "/seminars/"
+    success_message = "Comment was deleted successfully"
+        
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DeleteOwnComment, self).delete(request, *args, **kwargs)
+
+    def test_func(self):
+        """ Test user is author else throw 403 """
         obj = self.get_object()
         return obj.name == self.request.user.username

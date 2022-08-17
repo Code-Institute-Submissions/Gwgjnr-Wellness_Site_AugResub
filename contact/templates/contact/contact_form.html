@@ -10,7 +10,8 @@
                     <h2 class="contact-header">Contact Us</h2>
                     <hr>
                     <p class="contact-text">We are constantly looking for ways to improve our service, so we would
-                        <strong>love</strong> your feedback. If think of something that would improve your experience,
+                        <strong>love</strong> your feedback. If think of something that would improve your experience or
+                        are interested in joining us a host,
                         then
                         please let us know!</p>
                     <p class="contact-text">Please be aware we be may email you for more information or clarification on
@@ -19,10 +20,10 @@
                     <p class="contact-text">Signed in: <strong>{{ user.username }}</strong></p>
                     <p class="contact-text">Email Address: <strong>{{ user.email }}</strong></p>
                     <form class="contact-form" method="post">
-                        <div class="form-group col-12 contact-fields">
+                        <div class="form-group col-12 newsletter-fields-">
                             {{ contact_form.subject | as_crispy_field }}
                         </div>
-                        <div class="form-group col-12 contact-fields">
+                        <div class="form-group col-12 newsletter-fields">
                             {{ contact_form.message | as_crispy_field }}
                         </div>
                         {% csrf_token %}

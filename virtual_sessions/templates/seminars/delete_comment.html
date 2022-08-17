@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{{ form.media }}
+
+{% block content %}
+<div class="background-container">
+    <div class="container">
+        <div class="row">
+            <div class="col my-auto">
+                <div class="card delete-card mx-auto">
+                    <div class="card-body">
+                        <!-- Menu confirm delete form -->
+                        <div class="form-style text-center p-3 m-3">
+                            <h1 class="delete-header">Confirm Menu Deletion</h1>
+                            <hr>
+                            <form method="post">
+                                {% csrf_token %}
+                                <p class="delete-text">Are you sure you want to delete:</p>
+                                <h5 class="delete-text">{{ comment.body }} ?</h5>
+                                <input type="submit" value="Confirm" class="delete-btn btn btn-outline-success">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

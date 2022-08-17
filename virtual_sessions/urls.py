@@ -7,4 +7,5 @@ urlpatterns = [
     path('join/<str:title>', views.JoinSeminar.as_view(), name='join_seminar'),
     path('delete/<str:title>', views.DeleteSeminar.as_view(), name='delete_seminar'),
     path('EditComment/<slug:pk>/', views.EditComment.as_view(), name='editcomment'),
+    path('deleteComment/<slug:pk>/', views.DeleteOwnComment.as_view(), name='delete_comment'),
 ]

@@ -352,6 +352,25 @@ footer {
     margin-bottom: 25vh;
 }
 
+.delete-card {
+    margin-top: 15vh;
+    margin-bottom: 35vh;
+}
+
+.delete-header {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    text-align: center;
+}
+
+.delete-text {
+    margin: 3rem;
+}
+
+.delete-btn {
+    width: 10rem;
+}
 
 /*----------------- Styling for custom toasts -----------------*/
 
@@ -460,13 +479,13 @@ footer {
 }
 
 .donate-card {
-    margin-top: 15vh;
-    margin-bottom: 25vh;
+    margin-top: 20vh;
+    margin-bottom: 32vh;
 }
 
 .donate-checkout-card {
     margin-top: 25vh;
-    margin-bottom: 40vh;
+    margin-bottom: 43vh;
 }
 
 .donate-checkout-text {
@@ -575,7 +594,7 @@ footer {
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 90%;
+        width: 93%;
     }
 
     .carousel-image {
@@ -585,6 +604,19 @@ footer {
         filter: brightness(60%);
     }
 }
+
+/* @media screen and (min-width: 2000px) {
+
+    .intro-card-button {
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        font-size: larger;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 95%;
+    }
+} */
 
 @media screen and (max-width: 991px) {
     .donate-card {
