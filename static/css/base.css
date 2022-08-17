@@ -473,6 +473,7 @@ footer {
 }
 
 .donate-text {
+    margin-top: 2rem;
     margin-left: 5%;
     margin-right: 1rem;
 }
@@ -480,6 +481,7 @@ footer {
 .donate-card {
     margin-top: 20vh;
     margin-bottom: 32vh;
+    min-height: 24rem;
 }
 
 .donate-checkout-card {
