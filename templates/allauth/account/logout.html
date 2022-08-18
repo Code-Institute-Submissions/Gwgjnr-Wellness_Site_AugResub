@@ -12,6 +12,7 @@
         <div class="card account-logout-card mx-auto">
           <div class="card-body">
             <h1 class="account-title">{% trans "Sign Out" %}</h1>
+            <hr>
 
             <p class="account-text">{% trans 'Are you sure you want to sign out?' %}</p>
 
@@ -20,7 +21,7 @@
               {% if redirect_field_value %}
               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
               {% endif %}
-              <button type="submit">{% trans 'Sign Out' %}</button>
+              <button class="btn btn-danger account-btn" type="submit">{% trans 'Sign Out' %}</button>
             </form>
 
           </div>

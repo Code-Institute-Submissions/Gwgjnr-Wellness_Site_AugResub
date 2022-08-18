@@ -239,7 +239,7 @@ footer {
 .seminar-btn {
     margin: 0.5rem;
     float: right;
-    width: 10rem;
+    width: 9rem;
 }
 
 .overlay {
@@ -400,8 +400,8 @@ footer {
 /*----------------- Styles for Contact Page -----------------*/
 
 .contact-card {
-    margin-top: 1rem;
-
+    margin-top: 6vh;
+    margin-bottom: 12vh;
 }
 
 .contact-btn {
@@ -445,7 +445,6 @@ footer {
 .account-card {
     margin-top: 20vh;
     margin-bottom: 25vh;
-    height: 55vh;
     max-width: fit-content;
     text-align: center;
 }
@@ -460,9 +459,18 @@ footer {
 .account-signup-card {
     margin-top: 15vh;
     margin-bottom: 20vh;
-    height: 65vh;
     max-width: fit-content;
     text-align: center;
+}
+
+.account-email-card {
+    margin-top: 25vh;
+    margin-bottom: 45vh;
+}
+
+.account-btn {
+    width: 10rem;
+    margin: 1rem    
 }
 
 /*----------------- Styles used on donation page -----------------*/
@@ -480,7 +488,7 @@ footer {
 
 .donate-card {
     margin-top: 20vh;
-    margin-bottom: 32vh;
+    margin-bottom: 34vh;
     min-height: 24rem;
 }
 

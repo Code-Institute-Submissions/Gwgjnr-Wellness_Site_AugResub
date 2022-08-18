@@ -12,11 +12,11 @@
     <div class="container">
         <div class="row">
             <div class="col my-auto">
-                <div class="card account-logout-card mx-auto">
+                <div class="card account-email-card mx-auto">
                     <div class="card-body">
 
                         <h1 class="account-title">{% trans "Confirm E-mail Address" %}</h1>
-
+                        <hr>
                         {% if confirmation %}
 
                         {% user_display confirmation.email_address.user as user_display %}
@@ -27,7 +27,7 @@
 
                         <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
                             {% csrf_token %}
-                            <button type="submit">{% trans 'Confirm' %}</button>
+                            <button class="btn btn-outline-success account-btn" type="submit">{% trans 'Confirm' %}</button>
                         </form>
 
                         {% else %}
