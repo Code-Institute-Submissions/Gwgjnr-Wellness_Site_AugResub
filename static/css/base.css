@@ -69,7 +69,6 @@ a {
 
 /*----------------- Styles used to customise footer -----------------*/
 
-
 footer {
     height: 3rem;
     background-color: #f7f7f7;
@@ -451,7 +450,7 @@ footer {
 
 .account-email-card {
     margin-top: 25vh;
-    margin-bottom: 45vh;
+    margin-bottom: 50vh;
 }
 
 .account-btn {

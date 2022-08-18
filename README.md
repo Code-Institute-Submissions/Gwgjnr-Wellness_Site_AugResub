@@ -2,141 +2,366 @@
 
 ![Mockup of live site on different devices](media/readme/project_5.JPG)
 
+HealthHub is an app designed for a person or group of people who wants to run health and wellness seminars. Its allows users an easy way to find and attend suitable virtual seminars. This allows hosts an easy way to see who is attending their seminars and also allows customers an option to donate and support their favoured host.
+
 ## Table of Contents
-1. [**UX**](#ux)
-    - [**User Stories**](#user-stories)
-    - [**Design**](#design)
-        - [**Framework**](#framework)
-        - [**Color Scheme**](#color-scheme)
-        - [**Typography**](#typography)
-        - [**Data Model**](#data-model)
-    - [**Wireframes**](#wireframes)
-
-2. [**Features**](#features)
-    - [**Existing Features**](#existing-features)
-    - [**Future Features**](#future-features)
-
-3. [**Testing**](#testing)
-    - [**Validators**](#validators)
-    - [**Responsive Testing**](#responsive-testing)
-    
-4. [**Deployment**](#deployment)
-    - [**Heroku Deployment steps**](#heroku-deployment-steps)
-    - [**Forking the GitHub Repository**](#forking-the-github-repository)
-
+* [User Experience Design (UX)](#User-Experience-Design)
+    * [The Strategy Plane](#The-Strategy-Plane)
+        * [Site Goals](#Site-Goals)
+        * [Agile Planning](#Agile-Planning)
+          * [Epics](#Epics)
+          * [User Stories](#User-Stories)
+    * [The Scope Plane](#The-Scope-Plane)
+    * [The Structure Plane](#The-Structure-Plane)
+      * [Features](#Features)
+      * [Future Features](#Features-Left-to-Implement)
+    * [The Skeleton Plane](#The-Skeleton-Plane)
+        * [Wireframes](#Wireframes)
+        * [Database Design](#Database-Design)
+    * [The Surface Plane](#The-Surface-Plane)
+        * [Design](#Design)
+            * [Colour Scheme](#Colour-Scheme)
+            * [Typography](#Typography)
+            * [Imagery](#Imagery)
+* [Technologies](#Technologies)
+* [Testing](#Testing)
+* [Deployment](#Deployment)
+    * [Version Control](#Version-Control)
+    * [Heroku Deployment](#Heroku-Deployment)
+    * [Run Locally](#Run-Locally)
+    * [Fork Project](#Fork-Project)
+* [Credits](#Credits)
+  * [Content](#Content)
+  * [Acknowledgements](#Acknowledgements)
 ---
 
-## UX
+# User-Experience-Design
 
-For this project, I decided to build a web application that allows users to join weekly virtual seminars to improve their health and wellbeing.
+## The-Strategy-Plane
 
-### User Stories
+### Site-Goals
 
-"**_As a user, I would like to_** _____________________________"
+This websites aim is to help users easily locate and attend suitable health and wellbeing seminars. It allows the user to engage with the community by commenting and replying on a seminar. It also allows user to donate and support a seminar if they felt it was worthwhile.
 
-- Navigate the site using a navbar and footer.
-- Sign into an account.
-- View seminars.
-- Comment and review seminars.
-- Register for an event.
-- Search for relevant events.
+This  website also aims to provide the hosts with an easy way to attract new attendees and grow their user base. It allows them to track who is attending so they can email out links to seminars.
 
-### Design
+### Agile Planning
 
-#### Framework
+I developed this project using Agile methodologies such as epics and user stories to create the site in small individual pieces. I have broken the user stories into 5 epics. I used a trello KanBan board to track my progress. You can [click here](https://trello.com/b/zEb1zeOL/project-5) to view the KanBan board.
 
-- [Bootstrap 5.1.3](https://www.djangoproject.com/)
+![Kanban image](media/readme/trello.JPG)
 
-- [Django 3.2](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
-  
-#### Color Scheme
+#### Epics
 
-![Colour Palette](media/readme/.JPG)
+**EPIC 1 - Ease of Use and Purpose**
 
-#### Typography 
+This epic included all user stories that are needed to layout the basic features of the website that are needed for navigation. This was the first epic delivered as it was needed for all the others.
 
-#### Data Model
+**EPIC 2 - Virtual Sessions**
 
-### Wireframes
+This epic included all user stories that are needed to allow a view, attend or cancel your spot at a seminar. This is the main purpose of the website and is what the user would visit to see in the first place so this was the second epic delivered.
 
-## Features
+**EPIC 3 - User Profile**
 
-### Existing Features
+This epic included all user stories that are needed to allow a user to sign up and log in on site. This is needed for multiple features such as commenting and donating so I decided to deliver this third before the epics that depended on it.
+
+**EPIC 4 - Comments, Replies and Contact**
+
+This epic included all user stories that are needed to allow a user to write, edit or delete their comments or replies and contact the site owner. This is the main way for users to interact with eachother and the site and ties into the seminars epic in that they are displayed on the seminar page so this was the fourth user story delivered.
+
+**EPIC 5 - Donations**
+
+This epic included all user stories that are needed to allow a user to donate an amount of their desire to a seminar that they enjoyed. As this was a standalone app, I decided to deliver this after creating the main content of the site so this was the fifth user story delivered.
+
+#### User Stories
+
+**EPIC 1 - Ease of Use and Purpose**
+
+As a user, I want easily under the purpose of the website so that I can decide whether it is something I am interested in using
+
+As a user, I want to be able to easily navigate the site so that I can find the seminars or page that I am looking for
+
+As a user, I want to be able to easily see my login status so that I can identify whether I am able to use the sites functionality
+
+As a user, I want to be able to sign up for a newsletter so that I can stay informed for new seminars or content coming to the site 
+
+As a user, I want to be notified of any actions I take on the site so that I can be sure that they have been completed correctly
+
+**EPIC 2 - Virtual Sessions**
+
+As a user, I want to be able to view all event so that I can easily content that it appealling to me
+
+As a user, I want to be able to easily browse an events details so that I decide whether it is something that I would like to attend
+
+As a user, I want to be able to seach for events so that I narrow the seminars down to events that interest me or return to a specific page
+
+As a user, I want to be able to easily register my attendance so that I be sent the links before the class starts
+
+As a user, I want to be able to easily cancel my attendance so that no longer receive links to the seminar 
+
+**EPIC 3 - User Profile**
+
+As a user, I want to be able to easily tell if I am attending a seminar, so that I can expect to receive a link to attend
+
+As a user, I want to easily register a new account so that I can register an account make use of the sites functionality
+
+As a user, I want to be able to easily sign in on site so that I can make use of the site functionality
+
+**EPIC 4 - Comments, Replies and Contact**
+
+As a user, I want to be able to leave a comment on a seminar page, so that I engage with the community and gave feedback on the event
+
+As a user, I want to be able to leave a reply on a comment on a seminar page, so that I engage with other users and response to feedback
+
+As a user, I want to be able to edit my comment/reply so that I can fix any error or update the content
+
+As a user, I want to be able to delete my comment/reply so that I can remove any comments entered in error
+
+**EPIC 5 - Donations**
+
+As a user, I want to be able to easily enter a custom donation amount so I can enter an amount that I feel this suitable
+
+As a user, I want to be able to easily enter my card details so that the payment is taken
+
+As a user, I want to receive a notification that my donation was successful so I can be sure that the payment was completed
+
+## The-Scope-Plane
+
+* Responsive Design - Website should be fully functional on all devices from 320px up
+* Ability to perform CRUD functionality on comments and replies
+* Restricted features based on login status
+* Home page with relevant information and links to other pages
+
+## The-Structure-Plane
+
+### Features
 
 **Navbar**
 
-![Navbar](media/readme/navbar.JPG)
+The Navigation was created using a bootstrap template as I found it to be very suitable for the design of my site. It contains links for Home, Seminar, Contact us, Donate and uses django templating with allauth to display options depending on the user login status. The navbar is included in base.html so it is displayed on all pages.
 
-Navbar set at top of each page to allow the user to easily navigate the site. Made collapsible with Bootstrap to allow a better format for mobile users.
+![Kanban image](media/readme/navbar.JPG)
 
-**Seminar Search Page**
+**Footer**
 
-### Future Features
+A footer has been added to the bottom of the site, this contains all social media links so that users can follow the site on social media if they want to keep up to date with new events being introduced. These icons have aria-labels added to ensure users with assistive screen reading technology know what the purpose of the links are for. They also open in new tabs as they lead users away from the site.
 
-A search bar to allow the user to narrow down the seminar list.
+![Kanban image](media/readme/footer.JPG)
+
+**Home Page**
+
+The homepage consists of a call to action with an invitation to sign up or view seminars depending on login status. There are three cards which give valuable information to the customer about the site and one includes a carasel to give the user a sample of the seminars available.
+
+![Kanban image](media/readme/homepage.JPG)
+
+**Newsletter Sign up**
+
+The newsletter invitation in inlcuded in a div at the top of the site in bright colours to attract the user to sign up. The form is included in a modal so the user can quickly and easily sign up without having to navigate to a new page.
+
+![Kanban image](media/readme/newsletter.JPG)
+
+**Seminars Page**
+
+The seminars page contains a list of the current seminars available with some information. There is a button to sign up straight away if the user has already decided and there is a button to check into the seminars detail page if you would like more information on the event.
+
+![Kanban image](media/readme/seminars.JPG)
+
+**Seminars Detail Page**
+
+The seminars details page gives a full description of the event so the user can see all the information available before deciding to attend. 
+
+![Kanban image](media/readme/seminar_detail.JPG)
+
+**Comments and Replies Section**
+
+The comments and replies section allows a user to write an original comment or reply to another comment if they are not the original author. Thers is also options to edit and delete your own comments or replies.
+
+![Kanban image](media/readme/comments_and_replies.JPG)
+
+**Donation**
+
+The donation page allows a user to select an amount to donate and also select a seminar that they would like to support. Once submitted this routes the user to the checkout page. There is a minimum donation of 2 euro as this ensures we do not encounter errors with Stripes minimum donation amount.
+
+![Kanban image](media/readme/donation.JPG)
+
+![Kanban image](media/readme/checkout.JPG)
+
+**Contact**
+
+The contact page allows the user to reach out with any suggestions to improve the site or report any inappropriate comments/replies. This includes a subject to the user can give a quick reason for why they are contacting.
+
+![Kanban image](media/readme/contact.JPG)
+
+**Toasts**
+
+The site uses custom toasts across all actions on the site so the user can be sure that their actions were completed as expected.
+
+![Kanban image](media/readme/toasts.JPG)
+
+**404 Page**
+
+The 404 page will allow the user to  navigate to the main website if they direct to a broken link / missing page, without the need  of the browsers back button.
+
+**403 Page**
+
+A 403 error page has been implemented to provide feedback to the user when they try to access unauthorized content. Users will be directed to this page if they alter the URL's and attempt to edit, delete or access pages that are restricted. 
+
+## The-Skeleton-Plane
+
+### Wireframes
+
+- Home page
+
+![Homepage Wireframe](media/readme/w_homepage.JPG)
+
+- Home page mobile
+
+![Homepage Wireframe Mobile](media/readme/w_m_homepage.JPG)
+
+- Seminars
+
+![Seminars](media/readme/w_seminars.JPG)
+
+- Seminars Mobile
+
+![Seminars Detail](media/readme/w_seminar_detail.JPG)
+
+- Seminars Mobile
+
+![Seminars Mobile](media/readme/w_m_seminars.JPG)
+
+- Accounts
+
+![Accounts](media/readme/w_accounts.JPG)
+
+- Donation
+
+![Donation](media/readme/w_donate.JPG)
+
+- Checkout
+
+![Checkout](media/readme/w_checkout.JPG)
+
+### Database-Design
+
+The database was designed to allow CRUD functionality to be available when signed in. The comments and replies model has full crud functionality. The user is able to edit the seminars models by clicking to attend and the user is able to create a model by submitting a contact.
+
+## The-Surface-Plane
+### Design
+
+### Colour-Scheme
+
+The colour scheme for this site was selected with a foucs creating a welcoming and calming design. #5bc0de (darker blue) was used for the email sign up bar. #f7f7f7 (white) was used for the background on the cards through the site. #bfe9ff (light blue) and #fc7787 (red) were used to create the background with it being blended from left (#bfe9ff) to right (#fc7787). I then used CSS to slightly blur this to soften the colour. 
+
+![Colour Palette](media/readme/colour_palette.JPG)
+
+### Typography
+
+The fonts used are Libre Baskerville for the headers and Poppins for the text throughout the site.
+
+### Imagery
+
+The imagery on site is attached to the seminars and selected to complement the events and atmosphere of the site.
+
+## Technolgies
+
+- HTML
+  - The structure of the Website was developed using HTML as the main language.
+- CSS
+  - The Website was styled using custom CSS in an external file.
+- JavaScript
+  - JavaScript was used to make the custom slider on the menu page change and the bootstrap date picker.
+- Python
+  - Python was the main programming language used for the application using the Django Framework.
+- Visual Studio Code
+  - The website was developed using Visual Studio Code IDE
+- GitHub
+  - Source code is hosted on GitHub
+- Git
+  - Used to commit and push code during the development of the Website
+- Font Awesome
+  - This was used for the icons in the footer
+- balsamiq
+  - wireframes were created using balsamiq
+- TinyPNG
+  - This was used to compress the hero image for optimal load times
+- Cloudinary
+  - Cloudinary is used to host the static files and images on a cloud server
 
 ## Testing
 
-### Validators
+Test cases and results can be found in the [TESTING.md](TESTING.md) file. This was moved due to the size of the file.
 
-I have thoroughly tested the features of Hobby Hub web application against all user stories.
+## Deployment
 
-## Deployment 
+### Version Control
 
-### Heroku Deployment steps
- 
- 1. Ensure all dependencies are listed on requirements.txt. 
- 
- Write on python terminal ` pip3 freeze > requirements.txt`, and a list with all requirements will be created to be read by Heroku. 
- 
- 2. Setting up your Heroku
+The site was created using gitpod and pushed to github to the remote repository ‘Wellness_site’.
 
-    2.1 Go to Heroku website (https://www.heroku.com/). 
-    
-    2.2 Login to Heroku and go to Create App.
-    
-    2.3 Click in New and Create a new app.
-    
-    2.4 Choose a name and set your location.
+The following git commands were used throughout development to push code to the remote repo:
 
-    2.5. Navigate to the Resources tab.
+```git add .``` - This command was used to add all changes to the staging area before they are committed.
 
-    2.6. Click on Resources and Seach for Heroku Postgres and select it on the list.
-    
-    2.7. Navigate to the deploy tab.
-    
-    2.8. Click in Connect to Github and search for 'Gwgjnr' GitHub account and 'Wellness_Site' repository.
-    
-    2.9.  Navigate to the settings tab.
-    
-    2.10.  Click on Config Vars, and add your Cloudinary, Database URL (from Heroku-Postgres) and Secret key.
+```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
 
- 3. Deployment on Heroku
+```git push``` - This command was used to push all committed code to the remote repository on github.
 
-    3.1.  Navigate to the Deploy tab.
-        
-    3.2.  Choose the main branch to deploy and enable automatic deployment to build Heroku every time any changes are pushed on the repository.
-        
-    3.3 Click on manual deploy to build the App.  When complete, click on View to redirect to the live site. 
-    
-### Forking the GitHub Repository
+### Heroku Deployment
 
-* By forking the GitHub Repository, you will be able to make a copy of the original repository on your own GitHub account, allowing you to view and/or make changes without affecting the original repository by using the following steps:
+The site was deployed to Heroku. The steps to deploy are as follows:
 
-    Log in to GitHub and locate the GitHub Repository
-    At the top of the Repository (not top of page), just above the "Settings" button on the menu, locate the "Fork" button.
-    You should now have a copy of the original repository in your GitHub account.
+- Navigate to heroku and create an account
+- Click the new button in the top right corner
+- Select create new app
+- Enter app name
+- Select region and click create app
+- Click the resources tab and search for Heroku Postgres
+- Select hobby dev and continue
+- Go to the settings tab and then click reveal config vars
+- Add the following config vars:
+  - SECRET_KEY: (Your secret key)
+  - DATABASE_URL: (This should already exist with add on of postgres)
+  - EMAIL_HOST_USER: (email address)
+  - EMAIL_HOST_PASS: (email app password)
+  - STRIPE_PUBLIC_KEY: (Public Key from Stripe)
+  - STRIPE_SECRET_KEY: (Secret Key from Stripe)
+  - CLOUNDINARY_URL: (cloudinary api url)
+- Click the deploy tab
+- Scroll down to Connect to GitHub and sign in / authorize when prompted
+- In the search box, find the repositoy you want to deploy and click connect
+- Scroll down to Manual deploy and choose the main branch
+- Click deploy
 
-* Making a Local Clone
+The app should now be deployed.
 
-    Log in to GitHub and locate the GitHub Repository
-    Under the repository name, click "Clone or download".
-    To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-    Open Git Bash
-    Change the current working directory to the location where you want the cloned directory to be made.
-    Type git clone, and then paste the URL you copied in Step 3.
+### Run Locally
 
-$ git clone https://github.com/Gwgjnr/Wellness_Site
+Navigate to the GitHub Repository you want to clone to use locally:
 
-Press Enter. Your local clone will be created.
+- Click on the code drop down button
+- Click on HTTPS
+- Copy the repository link to the clipboard
+- Open your IDE of choice (git must be installed for the next steps)
+- Type git clone copied-git-url into the IDE terminal
 
+The project will now have been cloned on your local machine for use.
+
+### Fork Project
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork.
+
+- On the top right of the page under the header, click the fork button.
+
+- This will create a duplicate of the full project in your GitHub Repository.
+
+## Credits
+
+### Content
+
+- I made extensive use of the Boutique Ado walkthrough for this project, the main areas this was used was the search and stripe payment functionality 
+
+### Acknowledgements
+
+- I would like to thank my mentor, Daisy McGirr for her patience and guidance.
