@@ -4,7 +4,11 @@ from .models import donation
 
 
 class DonationAdmin(admin.ModelAdmin):
-    readonly_fields = ('donation_number', 'created_date', 'donation_amount', 'donation_recipient',)
+    '''
+    Class to organise Donations in Admin panel
+    '''
+    readonly_fields = ('donation_number', 'created_date', 'donation_amount',
+                       'donation_recipient',)
 
     fields = ('donation_number', 'created_date', 'donater_name',
               'email', 'donation_amount', 'donation_recipient',)

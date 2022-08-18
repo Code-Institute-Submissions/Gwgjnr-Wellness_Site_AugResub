@@ -2,10 +2,12 @@
 {% load static %}
 
 {% block content %}
+<!-- Div to set the background styling -->
 <div class="background-container">
     <div class="blur">
         <div class="row g-0">
             <div class="col">
+                <!-- Bootstrap card used to hold contact form with custom styling -->
                 <div class="card contact-card">
                     <h2 class="contact-header">Contact Us</h2>
                     <hr>
@@ -19,6 +21,7 @@
                         suggestion.</p>
                     <p class="contact-text">Signed in: <strong>{{ user.username }}</strong></p>
                     <p class="contact-text">Email Address: <strong>{{ user.email }}</strong></p>
+                    <!-- Form element used to hold form with custom styling -->
                     <form class="contact-form" method="post">
                         <div class="form-group col-12 newsletter-fields-">
                             {{ contact_form.subject | as_crispy_field }}

@@ -3,7 +3,13 @@ from .models import donation
 
 
 class DonationForm(forms.ModelForm):
+    """
+    Form class to create the Donation form
+    """
     class Meta:
+        """
+        Meta information for the contact form
+        """
         model = donation
         fields = ('donation_recipient', 'donation_amount',)
 

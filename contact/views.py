@@ -8,7 +8,7 @@ from .forms import ContactForm
 
 class Contact(LoginRequiredMixin, View):
     '''
-    A view for submitting a contact form to the database.
+    A view for rendering and submitting a contact form to the database.
     '''
 
     login_url = '/accounts/login/'
@@ -17,18 +17,18 @@ class Contact(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         """
         A view to return the contact form page
-        """    
-        
+        """
+
         context = {
             'contact_form': ContactForm(),
         }
 
         return render(request, 'contact/contact_form.html', context)
-    
+
     def post(self, request, *args, **kwargs):
         """
         A view to post the contact form to the database
-        """   
+        """
 
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
@@ -44,5 +44,5 @@ class Contact(LoginRequiredMixin, View):
         context = {
             'contact_form': ContactForm(),
         }
-        
+
         return render(request, 'contact/contact_form.html', context)

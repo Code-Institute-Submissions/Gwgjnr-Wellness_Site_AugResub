@@ -4,6 +4,7 @@
 {% block content %}
 <div class="container g-0">
     <hr class="invisible">
+    <!-- For loop to display list of seminars -->
     {% for seminar in seminars %}
     <div class="row g-0">
         <div class="col">
@@ -22,6 +23,7 @@
         </div>
     </div>
     <div class="row g-0">
+        <!-- Div containing buttons to attend or see more details -->
         <div class="col">
             <a href="{% url 'seminar_detail' seminar.slug %}">
                 <button type="button" class="btn seminar-btn btn-outline-primary"><strong>Details</strong></button>

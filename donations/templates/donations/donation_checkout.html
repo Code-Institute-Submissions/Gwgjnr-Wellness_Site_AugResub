@@ -2,26 +2,27 @@
 {% load static %}
 
 {% block content %}
+<!-- Div to set the background styling -->
 <div class="background-container">
     <div class="blur">
         <div class="container g-0">
             <div class="row g-0">
                 <div class="col my-auto">
+                    <!-- Bootstrap card used to hold checkout form and total with custom styling -->
                     <div class="card donate-checkout-card">
                         <h2 class="donate-header">Checkout Page</h2>
                         <hr>
                         <h2 class="donate-checkout-text">Total: €{{ donation_amount }}</h2>
+                        <!-- Form element used to hold stripe checkout -->
                         <form action="{% url 'checkout' %}" method="post" id="payment-form">
                             {% csrf_token %}
                             <div id="card-element">
-                              <!-- Elements will create input elements here -->
+                                <!-- Stripe elements will create input elements here -->
                             </div>
-                          
-                            <!-- We'll put the error messages in this element -->
+                            <!-- Error messages in this element -->
                             <div id="card-errors" role="alert"></div>
-                          
                             <button class="donate-btn btn btn-outline-success" id="submit">Submit Payment</button>
-                          </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -29,8 +30,8 @@
     </div>
 </div>
 {% endblock %}
-</div>
 
+<!-- Postload Js block to pass stripe keys to stripe_elements_js -->
 {% block postload_js %}
 {{ block.super }}
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}

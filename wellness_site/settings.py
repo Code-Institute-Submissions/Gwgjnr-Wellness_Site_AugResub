@@ -45,8 +45,12 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
+    # 3rd party apps
     'cloudinary',
     'crispy_forms',
+
+    # custom apps
     'virtual_sessions',
     'homepage',
     'storages',
@@ -81,7 +85,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'donations.contexts.donation_context',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -104,6 +107,8 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Functionality to send emails when registering
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

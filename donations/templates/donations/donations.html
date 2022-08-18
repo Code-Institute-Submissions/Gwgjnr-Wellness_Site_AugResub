@@ -2,24 +2,29 @@
 {% load static %}
 
 {% block content %}
+<!-- Div to set the background styling -->
 <div class="background-container">
     <div class="blur">
         <div class="container g-0">
             <div class="row g-0">
                 <div class="col-lg-6 my-auto">
+                    <!-- Bootstrap card used to give info on donations with custom styling -->
                     <div class="card donate-card">
                         <h2 class="donate-header">Support our hosts</h2>
                         <hr>
-                        <p class="donate-text">Our hosts work tirelessly bring relevant and informative to every seminars.
+                        <p class="donate-text">Our hosts work tirelessly bring relevant and informative to every
+                            seminars.
                             If you love our content and want to show support to your favourite event then please donate
                             to support and show encouragement!</p>
                         <p class="donate-text">*Please note there is a minimum donation of €2</p>
                     </div>
                 </div>
                 <div class="col-lg-6 my-auto">
+                    <!-- Bootstrap card used to hold a form for setting amount and picking recipient for your donation -->
                     <div class="card donate-card">
                         <h2 class="donate-header">Donate here</h2>
                         <hr>
+                        <!-- Donation form which submits to the donation -->
                         <form action="{% url 'donate' %}" method="post">
                             {% csrf_token %}
                             <fieldset class="rounded px-3 mb-5">
@@ -41,7 +46,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

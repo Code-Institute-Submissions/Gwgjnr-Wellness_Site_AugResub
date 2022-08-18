@@ -1,4 +1,4 @@
-/*----------------- Roboto and Kanit fonts imported from google fonts -----------------*/
+/*----------------- Libre and Baskerville fonts imported from google fonts -----------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@600&family=Poppins&display=swap');
 
@@ -40,7 +40,45 @@ a {
     min-height: 100%;
 }
 
-/*----------------- Styles used to create and blur background image -----------------*/
+.card-body {
+    flex: 1 1 auto;
+    padding: 0.5rem;
+}
+
+.card {
+    min-width: 300px;
+    min-height: 200px;
+    background-color: #f7f7f7;
+    margin: 1rem;
+    margin-bottom: 3rem;
+}
+
+/*----------------- Styles used to customise nav bar -----------------*/
+
+.navbar-brand {
+    font-family: 'Kanit', sans-serif;
+}
+
+.search-button {
+    margin-left: 0.5rem;
+}
+
+.navbar {
+    z-index: 2;
+}
+
+/*----------------- Styles used to customise footer -----------------*/
+
+
+footer {
+    height: 3rem;
+    background-color: #f7f7f7;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+/*----------------- Styles used to create and soften background image -----------------*/
 
 .background-container {
     background-image: linear-gradient(to right, #fc7787, #bfe9ff);
@@ -55,7 +93,7 @@ a {
     z-index: -1;
 }
 
-/*----------------- Styles used to customise text on homepage -----------------*/
+/*----------------- Styles used to customise homepage -----------------*/
 
 .intro {
     padding-top: 3rem;
@@ -109,12 +147,10 @@ a {
     background-position: 0;
 }
 
-
 .intro-invite-button:focus {
     outline: none;
     box-shadow: none;
 }
-
 
 .intro-invite-bar {
     color: #f7f7f7;
@@ -154,24 +190,6 @@ a {
     position: relative;
 }
 
-a-card-intro-button {
-    float: right;
-}
-
-.card-body {
-    flex: 1 1 auto;
-    padding: 0.5rem;
-}
-
-.intro-hr {
-    color: #f7f7f7;
-    height: 4px !important;
-    width: 100%;
-    margin-top: 8px;
-    margin: 1px;
-}
-
-
 #carousel-container {
     margin-left: 0%;
     margin-right: 0%;
@@ -184,38 +202,10 @@ a-card-intro-button {
     filter: brightness(60%);
 }
 
-/*----------------- Styles used to customise nav bar -----------------*/
-
-.navbar-brand {
-    font-family: 'Kanit', sans-serif;
-}
-
-.search-button {
-    margin-left: 0.5rem;
-}
-
-.navbar {
-    z-index: 2;
-}
-
-footer {
-    height: 3rem;
-    background-color: #f7f7f7;
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-}
+/*----------------- Styles used to customise seminars search page -----------------*/
 
 .invisible {
     padding: 1%;
-}
-
-.card {
-    min-width: 300px;
-    min-height: 200px;
-    background-color: #f7f7f7;
-    margin: 1rem;
-    margin-bottom: 3rem;
 }
 
 .card_image {
@@ -242,23 +232,13 @@ footer {
     width: 9rem;
 }
 
-.overlay {
-    background: #f7f7f7;
-}
+/*----------------- Styles used to customise seminar details page -----------------*/
 
 .details_header {
     padding-top: 1rem;
     padding-bottom: 0.5rem;
     padding-left: 0.5rem;
     font-size: xx-large;
-    text-align: center;
-}
-
-.comments_header {
-    padding-top: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
-    font-size: x-large;
     text-align: center;
 }
 
@@ -288,10 +268,6 @@ footer {
     margin-bottom: 1rem;
 }
 
-.button_holder {
-    margin-left: 5%;
-}
-
 .detail-text {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -302,6 +278,16 @@ footer {
 
 .detail_card {
     margin-bottom: 1rem;
+}
+
+/*----------------- Styles used to customise comments section on seminar details page -----------------*/
+
+.comments_header {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: x-large;
+    text-align: center;
 }
 
 .replies {
@@ -489,7 +475,7 @@ footer {
 .donate-card {
     margin-top: 20vh;
     margin-bottom: 34vh;
-    min-height: 24rem;
+    min-height: 26rem;
 }
 
 .donate-checkout-card {
@@ -613,19 +599,6 @@ footer {
         filter: brightness(60%);
     }
 }
-
-/* @media screen and (min-width: 2000px) {
-
-    .intro-card-button {
-        margin-bottom: 2rem;
-        margin-left: 1rem;
-        font-size: larger;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 95%;
-    }
-} */
 
 @media screen and (max-width: 991px) {
     .donate-card {

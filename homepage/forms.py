@@ -3,7 +3,13 @@ from .models import NewsletterSignup
 
 
 class NewsletterForm(forms.ModelForm):
+    """
+    Form class to create the newsletter form
+    """
     class Meta:
+        """
+        Meta information for the contact form
+        """
         model = NewsletterSignup
         fields = ('name', 'email',)
         widgets = {

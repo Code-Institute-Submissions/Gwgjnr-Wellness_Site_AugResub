@@ -1,7 +1,10 @@
+// Js file to handle Stripe payment when payment-form is submitted
+
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
+
 var style = {
     base: {
         color: '#000',
@@ -17,9 +20,14 @@ var style = {
         iconColor: '#dc3545'
     }
 };
+
+//Set the form and card elements to variables so they can be called throughout Payments intents process
+
 var form = document.getElementById('payment-form');
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
+
+// Add event listener for changes to the card element to show errors promptly
 
 card.addEventListener('change', function (event) {
   var errorDiv = document.getElementById('card-errors');
@@ -30,6 +38,8 @@ card.addEventListener('change', function (event) {
       errorDiv.textContent = '';
   }
 });
+
+// Add event listener for form submission to trigger attempt to collect payment
 
 form.addEventListener('submit', function(ev) {
   ev.preventDefault();
@@ -54,6 +64,7 @@ form.addEventListener('submit', function(ev) {
     }
     }).then(function(result) {
       if (result.error) {
+        // There was an error with the payment, re-display input fields so new attempt can be made
         var errorDiv = document.getElementById('card-errors');
         var html = `<p class='donate-text'>${result.error.message}</p>`;
         $(errorDiv).html(html);
@@ -62,7 +73,7 @@ form.addEventListener('submit', function(ev) {
         card.update({ 'disabled': false});
         $('#submit-button').attr('disabled', false);
       } else {
-        // The payment has been processed, redirect to homepage and trigger message to confirm donation
+        // The payment has been processed, redirect to homepage and trigger message to confirm donation completed
         if (result.paymentIntent.status === 'succeeded') {
           location.replace('/?paymentComplete=true');
         }

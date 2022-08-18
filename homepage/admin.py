@@ -4,7 +4,7 @@ from .models import NewsletterSignup
 
 class NewsletterAdmin(admin.ModelAdmin):
     '''
-    Class to organise Sessions in Admin panel
+    Class to organise newsletter sign ups in Admin panel
     '''
     list_display = (
         'name',

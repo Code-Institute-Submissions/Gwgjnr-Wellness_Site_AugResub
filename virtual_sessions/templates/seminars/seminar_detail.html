@@ -8,19 +8,16 @@
         <div class="container g-0">
             <div class="row g-0">
                 <div class="col-md-8">
+                    <!-- Card to hold details about the seminar selected -->
                     <div class="card detail_card">
-
                         <h1 class="details_header"> {{ seminar.title }} </h1>
-
                         <p class="detail-time"><strong>Start Time: </strong>{{ seminar.event_time }}
                             {{ seminar.get_event_day_display }}</p>
                         <hr class="comment_hr">
-
                         <p class="detail-text"><strong>Host: </strong>{{ seminar.host }}</p>
                         <p class="detail-text"><strong>Summary: </strong>{{ seminar.summary }}</p>
                         <p class="detail-text"><strong>Details: </strong>{{ seminar.details }}</p>
                         <p class="detail-text"><strong>Attending: </strong>{{ seminar.number_signed_up }}</p>
-
 
                         {% if user.is_authenticated %}
                         <hr class="comment_hr">
@@ -36,16 +33,14 @@
                             {% endif %}
                         </form>
                         {% endif %}
-
                     </div>
 
-
+                    <!-- Card to hold comments and replies from the seminar selected -->
                     <div class="card detail_card">
-
                         <h3 class="comments_header">Comments & Replies</h3>
                         <hr class="comment_hr">
 
-                        <!-- Comments Form -->
+                        <!-- For loop to display comments -->
                         {% for comment in comments %}
                         <div class="comments">
                             <p class="font-weight-bold">
@@ -59,6 +54,7 @@
 
                             </p>
 
+                            <!-- For loop to display replies -->
                             {% for reply in comment.replies.all %}
                             <div class="replies">
                                 <p class="font-weight-bold">- {{ reply.name }}
@@ -76,6 +72,8 @@
                             </div>
 
                             {% endfor %}
+
+                            <!-- Check if user is logged in and if they are not author of comment before showing reply -->
                             {% if user.is_authenticated %}
                             {% if request.user.username != comment.name %}
                             <button class="btn btn-primary reply_btn" onclick="myFunction()">Reply</button>
@@ -86,6 +84,7 @@
                             <a href="{% url 'delete_comment' comment.id %}"
                                 class="btn btn-outline-danger reply_btn">Delete Comment</a>
                             {% endif %}
+                            <!-- Reply Form -->
                             <div class="reply_form">
                                 <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
                                     {{ comment_form|crispy }}
@@ -109,6 +108,7 @@
 
                     <div class="card detail_card">
                         <div class="comment_form">
+                            <!-- Comment Form -->
                             <form action="{% url 'seminar_detail' seminar.slug %}" method="post">
                                 {{ comment_form|crispy }}
                                 {% csrf_token %}
@@ -119,8 +119,8 @@
                     {% endif %}
                 </div>
                 <div class="col-md-4">
+                    <!-- Card to display seminar image -->
                     <div class="card detail_card">
-
                         {% if seminar.featured_image %}
                         <img class="card-img-top img-fluid detail_image" src="{{ seminar.featured_image.url }}"
                             alt="{{ seminar.title }}">
@@ -132,6 +132,7 @@
     </div>
 </div>
 
+<!-- Script to hide and show reply form when button clicked -->
 <script>
     function myFunction() {
         var reply_boxes = document.getElementsByClassName("reply_form");
