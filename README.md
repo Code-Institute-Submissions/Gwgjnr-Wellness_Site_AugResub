@@ -2,7 +2,7 @@
 
 ![Mockup of live site on different devices](media/readme/project_5.JPG)
 
-HealthHub is an app designed for a person or group of people who wants to run health and wellness seminars. Its allows users an easy way to find and attend suitable virtual seminars. This allows hosts an easy way to see who is attending their seminars and also allows customers an option to donate and support their favoured host.
+HealthHub is an app designed for a person or group of people who want to run health and wellness seminars. This app provides users with an easy way to locate and attend suitable virtual seminars. This provides hosts with a simple way to see who is attending their seminars, and also allows customers an option to donate and support their favoured host.
 
 ## Table of Contents
 * [User Experience Design (UX)](#User-Experience-Design)
@@ -23,6 +23,9 @@ HealthHub is an app designed for a person or group of people who wants to run he
             * [Colour Scheme](#Colour-Scheme)
             * [Typography](#Typography)
             * [Imagery](#Imagery)
+* [E-Commerce](#E-Commerce)
+    * [E-Commerce Model](#E-Commerce-Model)
+    * [Facebook Business Page](#Facebook-Business-Page)
 * [Technologies](#Technologies)
 * [Testing](#Testing)
 * [Deployment](#Deployment)
@@ -41,9 +44,9 @@ HealthHub is an app designed for a person or group of people who wants to run he
 
 ### Site-Goals
 
-This websites aim is to help users easily locate and attend suitable health and wellbeing seminars. It allows the user to engage with the community by commenting and replying on a seminar. It also allows user to donate and support a seminar if they felt it was worthwhile.
+This website's aim is to help users easily locate and attend suitable health and wellbeing seminars. It allows the user to engage with the community by commenting and replying on a seminar. It also allows users to donate and support a seminar if they felt it was worthwhile.
 
-This  website also aims to provide the hosts with an easy way to attract new attendees and grow their user base. It allows them to track who is attending so they can email out links to seminars.
+This website also aims to provide the hosts with an easy way to attract new attendees and grow their user base. It allows them to track who is attending so they can email out links to seminars.
 
 ### Agile Planning
 
@@ -55,31 +58,31 @@ I developed this project using Agile methodologies such as epics and user storie
 
 **EPIC 1 - Ease of Use and Purpose**
 
-This epic included all user stories that are needed to layout the basic features of the website that are needed for navigation. This was the first epic delivered as it was needed for all the others.
+This epic includes all user stories that are needed to layout the basic features of the website which are essential for user navigation. This was the first epic delivered as it was needed for all the others.
 
 **EPIC 2 - Virtual Sessions**
 
-This epic included all user stories that are needed to allow a view, attend or cancel your spot at a seminar. This is the main purpose of the website and is what the user would visit to see in the first place so this was the second epic delivered.
+This epic includes all user stories that are needed to allow visitors to view, attend or cancel their spot at a seminar. This is the main purpose of the website and is what the user would visit to see the posts in the first place, so this was the second epic delivered.
 
 **EPIC 3 - User Profile**
 
-This epic included all user stories that are needed to allow a user to sign up and log in on site. This is needed for multiple features such as commenting and donating so I decided to deliver this third before the epics that depended on it.
+This epic includes all user stories that are needed to allow a user to sign up and log in to the site. This facilitates multiple features, such as commenting and donating, so I decided to deliver this epic third, before the epics that depended on it.
 
 **EPIC 4 - Comments, Replies and Contact**
 
-This epic included all user stories that are needed to allow a user to write, edit or delete their comments or replies and contact the site owner. This is the main way for users to interact with eachother and the site and ties into the seminars epic in that they are displayed on the seminar page so this was the fourth user story delivered.
+This epic includes all user stories that are needed to allow a user to write, edit or delete their comments or replies, and contact the site owner. This is the main way for users to interact with each other and the site. This ties into the seminar's epic in that they are displayed on the seminar page, so this was the fourth user story delivered.
 
 **EPIC 5 - Donations**
 
-This epic included all user stories that are needed to allow a user to donate an amount of their desire to a seminar that they enjoyed. As this was a standalone app, I decided to deliver this after creating the main content of the site so this was the fifth user story delivered.
+This epic includes all user stories that are needed to allow a user to donate their desired amount to a seminar that they enjoyed. As this was a standalone app, I decided to deliver this after creating the main content of the site, so this was the fifth user story delivered.
 
 #### User Stories
 
 **EPIC 1 - Ease of Use and Purpose**
 
-As a user, I want easily under the purpose of the website so that I can decide whether it is something I am interested in using
+As a user, I want to easily understand the purpose of the website so that I can decide whether it is something I am interested in using
 
-As a user, I want to be able to easily navigate the site so that I can find the seminars or page that I am looking for
+As a user, I want to be able to easily navigate the site so that I can find the seminars or pages that I am looking for
 
 As a user, I want to be able to easily see my login status so that I can identify whether I am able to use the sites functionality
 
@@ -89,13 +92,13 @@ As a user, I want to be notified of any actions I take on the site so that I can
 
 **EPIC 2 - Virtual Sessions**
 
-As a user, I want to be able to view all event so that I can easily content that it appealling to me
+As a user, I want to be able to view all events so that I can easily locate content that is appealing to me
 
-As a user, I want to be able to easily browse an events details so that I decide whether it is something that I would like to attend
+As a user, I want to be able to easily browse an events details so that I can decide whether it is something that I would like to attend
 
-As a user, I want to be able to seach for events so that I narrow the seminars down to events that interest me or return to a specific page
+As a user, I want to be able to search for events so that I narrow the seminars down to events that interest me or return to a specific page
 
-As a user, I want to be able to easily register my attendance so that I be sent the links before the class starts
+As a user, I want to be able to easily register my attendance so that I can be sent the links before the class starts
 
 As a user, I want to be able to easily cancel my attendance so that no longer receive links to the seminar 
 
@@ -105,21 +108,21 @@ As a user, I want to be able to easily tell if I am attending a seminar, so that
 
 As a user, I want to easily register a new account so that I can register an account make use of the sites functionality
 
-As a user, I want to be able to easily sign in on site so that I can make use of the site functionality
+As a user, I want to be able to easily sign in on-site so that I can make use of the site functionality
 
 **EPIC 4 - Comments, Replies and Contact**
 
-As a user, I want to be able to leave a comment on a seminar page, so that I engage with the community and gave feedback on the event
+As a user, I want to be able to leave a comment on a seminars page so that I can engage with the community and give feedback on the event
 
-As a user, I want to be able to leave a reply on a comment on a seminar page, so that I engage with other users and response to feedback
+As a user, I want to be able to leave a reply on a comment on a seminar page so that I engage with other users and can respond to feedback
 
-As a user, I want to be able to edit my comment/reply so that I can fix any error or update the content
+As a user, I want to be able to edit my comment/reply so that I can fix any errors or update the content
 
 As a user, I want to be able to delete my comment/reply so that I can remove any comments entered in error
 
 **EPIC 5 - Donations**
 
-As a user, I want to be able to easily enter a custom donation amount so I can enter an amount that I feel this suitable
+As a user, I want to be able to easily enter a custom donation amount so I can enter an amount that I feel is suitable
 
 As a user, I want to be able to easily enter my card details so that the payment is taken
 
@@ -138,31 +141,31 @@ As a user, I want to receive a notification that my donation was successful so I
 
 **Navbar**
 
-The Navigation was created using a bootstrap template as I found it to be very suitable for the design of my site. It contains links for Home, Seminar, Contact us, Donate and uses django templating with allauth to display options depending on the user login status. The navbar is included in base.html so it is displayed on all pages.
+The Navigation was created using a bootstrap template as I found it to be very suitable for the design of my site. It contains links for Home, Seminar, Contact us, Donate and uses django templating with allauth to display options, depending on the user login status. The navbar is included in base.html so it is displayed on all pages.
 
 ![Kanban image](media/readme/navbar.JPG)
 
 **Footer**
 
-A footer has been added to the bottom of the site, this contains all social media links so that users can follow the site on social media if they want to keep up to date with new events being introduced. These icons have aria-labels added to ensure users with assistive screen reading technology know what the purpose of the links are for. They also open in new tabs as they lead users away from the site.
+A footer has been added to the bottom of the site, and this contains all social media links so that users can follow the site on social media if they want to keep up to date with new events being introduced. These icons have aria-labels added to ensure users with assistive screen reading technology know the purpose of the links. They also open in new tabs as they lead users away from the site.
 
 ![Kanban image](media/readme/footer.JPG)
 
 **Home Page**
 
-The homepage consists of a call to action with an invitation to sign up or view seminars depending on login status. There are three cards which give valuable information to the customer about the site and one includes a carasel to give the user a sample of the seminars available.
+The homepage consists of a call to action with an invitation to sign up or view seminars depending on login status. There are three cards which give valuable information to the customer about the site, and one includes a carasel to  the user with a sample of the seminars available.
 
 ![Kanban image](media/readme/homepage.JPG)
 
 **Newsletter Sign up**
 
-The newsletter invitation in inlcuded in a div at the top of the site in bright colours to attract the user to sign up. The form is included in a modal so the user can quickly and easily sign up without having to navigate to a new page.
+The newsletter invitation is included in a div at the top of the site in bright colours to attract the user to sign up. The form is included in a modal so the user can quickly and easily sign up without having to navigate to a new page.
 
 ![Kanban image](media/readme/newsletter.JPG)
 
 **Seminars Page**
 
-The seminars page contains a list of the current seminars available with some information. There is a button to sign up straight away if the user has already decided and there is a button to check into the seminars detail page if you would like more information on the event.
+The seminars page contains a list of the current seminars available with some information. There is a button to sign up straight away if the user has already decided, and there is a button to check into the seminars detail page if you would like more information on the event.
 
 ![Kanban image](media/readme/seminars.JPG)
 
@@ -174,13 +177,13 @@ The seminars details page gives a full description of the event so the user can 
 
 **Comments and Replies Section**
 
-The comments and replies section allows a user to write an original comment or reply to another comment if they are not the original author. Thers is also options to edit and delete your own comments or replies.
+The comments and replies section allows a user to write an original comment or reply to another comment if they are not the original author. Thers are also options to edit and delete your own comments or replies.
 
 ![Kanban image](media/readme/comments_and_replies.JPG)
 
 **Donation**
 
-The donation page allows a user to select an amount to donate and also select a seminar that they would like to support. Once submitted this routes the user to the checkout page. There is a minimum donation of 2 euro as this ensures we do not encounter errors with Stripes minimum donation amount.
+The donation page allows a user to select an amount to donate and also select a seminar that they would like to support. Once submitted, this routes the user to the checkout page. There is a minimum donation of 2 euros as this ensures we do not encounter errors with Stripes minimum donation amount.
 
 ![Kanban image](media/readme/donation.JPG)
 
@@ -188,7 +191,7 @@ The donation page allows a user to select an amount to donate and also select a 
 
 **Contact**
 
-The contact page allows the user to reach out with any suggestions to improve the site or report any inappropriate comments/replies. This includes a subject to the user can give a quick reason for why they are contacting.
+The contact page allows the user to reach out with any suggestions to improve the site or report any inappropriate comments/replies. This includes a subject so the user can give an indication of why they are contacting.
 
 ![Kanban image](media/readme/contact.JPG)
 
@@ -261,7 +264,15 @@ The fonts used are Libre Baskerville for the headers and Poppins for the text th
 
 ### Imagery
 
-The imagery on site is attached to the seminars and selected to complement the events and atmosphere of the site.
+The imagery on site is attached and tied to each of the seminars and selected to complement the events and atmosphere of the site.
+
+# E-Commerce
+
+## E-Commerce Business Model
+
+## Facebook Business Page
+
+![Facebook Business Page](media/readme/facebook_business_page.PNG)
 
 ## Technolgies
 
