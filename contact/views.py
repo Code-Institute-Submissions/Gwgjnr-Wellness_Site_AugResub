@@ -11,7 +11,7 @@ class Contact(LoginRequiredMixin, View):
     A view for rendering and submitting a contact form to the database.
     '''
 
-    login_url = '/accounts/login/'
+    login_url = '/'
     redirect_field_name = 'redirect_to'
 
     def get(self, request, *args, **kwargs):

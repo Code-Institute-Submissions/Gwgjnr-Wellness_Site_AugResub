@@ -24,7 +24,8 @@ def seminar_search_page(request):
                 messages.error(request, "Please enter a search query")
                 return redirect(reverse('seminars'))
 
-            queries = Q(title__icontains=query) | Q(summary__icontains=query) | Q(details__icontains=query)
+            queries = Q(title__icontains=query) | Q(
+                        summary__icontains=query) | Q(details__icontains=query)
             seminars = seminars.filter(queries)
 
     context = {
@@ -67,7 +68,8 @@ def seminar_detail(request, slug):
             comment = comment_form.save(commit=False)
             comment.session = seminar
             comment.save()
-            messages.success(request, f'Thank you for commenting on {seminar.title}!')
+            messages.success(request, f'Thank you for commenting on \
+                            {seminar.title}!')
             return HttpResponseRedirect(request.path_info)
     else:
         comment_form = CommentForm()
@@ -94,7 +96,8 @@ class JoinSeminar(LoginRequiredMixin, View):
         next = request.POST.get('next', '/')
         if request.user in seminar.signed_up.all():
             seminar.signed_up.remove(request.user)
-            messages.success(request, f'You cancelled your place at {seminar.title}')
+            messages.success(request, f'You cancelled your place at \
+                            {seminar.title}')
             seminar.save()
 
         else:
@@ -105,12 +108,12 @@ class JoinSeminar(LoginRequiredMixin, View):
 
 
 class EditComment(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    
+
     """
     A view to provide a Form to the user
     to edit a menu
     """
-    
+
     login_url = '/accounts/login/'
     redirect_field_name = 'redirect_to'
     form_class = CommentForm
@@ -133,18 +136,17 @@ class EditComment(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class DeleteOwnComment(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    """ 
-    A view to delete a Comment 
-    
     """
-    
+    A view to delete a Comment
+    """
+
     login_url = '/accounts/login/'
     redirect_field_name = 'redirect_to'
     model = Comment
     template_name = 'seminars/delete_comment.html'
     success_url = "/seminars/"
     success_message = "Comment was deleted successfully"
-        
+
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super(DeleteOwnComment, self).delete(request, *args, **kwargs)

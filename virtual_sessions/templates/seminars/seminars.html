@@ -25,9 +25,7 @@
     <div class="row g-0">
         <!-- Div containing buttons to attend or see more details -->
         <div class="col">
-            <a href="{% url 'seminar_detail' seminar.slug %}">
-                <button type="button" class="btn seminar-btn btn-outline-primary"><strong>Details</strong></button>
-            </a>
+            <a class="btn seminar-btn btn-outline-primary" href="{% url 'seminar_detail' seminar.slug %}"><strong>Details</strong></a>
             {% if user.is_authenticated %}
             <form action="{% url 'join_seminar' seminar.title %}" method="POST">
                 {% csrf_token %}

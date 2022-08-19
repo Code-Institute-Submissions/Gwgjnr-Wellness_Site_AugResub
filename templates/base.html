@@ -89,7 +89,6 @@
                                     placeholder="Search our site" aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-success search-button" type="submit">Search</button>
-                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -147,9 +146,9 @@
         </footer>
     </div>
 
-    <!-- Post load Js block to display  -->
+    <!-- Post load Js block to display toasts-->
     {% block postload_js %}
-    <script type="text/javascript">
+    <script>
         var toastElList = [].slice.call(document.querySelectorAll('.toast'))
         var toastList = toastElList.map(function (toastEl) {
 

@@ -59,6 +59,13 @@ class DonationCheckout(LoginRequiredMixin, View):
     login_url = '/accounts/login/'
     redirect_field_name = 'redirect_to'
 
+    def post(self, request, *args, **kwargs):
+        '''
+        Post called when checkout form is submitted
+        '''
+        messages.success(request, 'Your donation was succesful')
+        return redirect('homepage')
+
     def get(self, request, *args, **kwargs):
         '''
         Renders checkout form and creates payment intent with amount

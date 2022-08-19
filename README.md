@@ -14,7 +14,6 @@ HealthHub is an app designed for a person or group of people who want to run hea
     * [The Scope Plane](#The-Scope-Plane)
     * [The Structure Plane](#The-Structure-Plane)
       * [Features](#Features)
-      * [Future Features](#Features-Left-to-Implement)
     * [The Skeleton Plane](#The-Skeleton-Plane)
         * [Wireframes](#Wireframes)
         * [Database Design](#Database-Design)
@@ -301,7 +300,7 @@ The imagery on site is attached and tied to each of the seminars and selected to
 
 ## Testing
 
-Test cases and results can be found in the [TESTING.md](TESTING.md) file. This was moved due to the size of the file.
+Test cases and results can be found in the [TESTING.md](TESTING.md) file.
 
 ## Deployment
 

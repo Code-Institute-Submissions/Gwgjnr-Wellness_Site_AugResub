@@ -420,16 +420,18 @@ footer {
 /*----------------- Styles used on Accounts pages -----------------*/
 
 .account-title {
-    margin: 2rem 0;
+    margin: 2rem !important;
+    text-align: center;
 }
 
 .account-text {
-    margin: 1rem
+    margin: 1rem !important;
+    text-align: center;
 }
 
 .account-card {
     margin-top: 20vh;
-    margin-bottom: 25vh;
+    margin-bottom: 34vh;
     max-width: fit-content;
     text-align: center;
 }
@@ -443,7 +445,7 @@ footer {
 
 .account-signup-card {
     margin-top: 15vh;
-    margin-bottom: 20vh;
+    margin-bottom: 28vh;
     max-width: fit-content;
     text-align: center;
 }
@@ -455,7 +457,14 @@ footer {
 
 .account-btn {
     width: 10rem;
-    margin: 1rem    
+    margin: 1rem;
+    text-align: center;    
+}
+
+.verification-btn {
+    float: right;
+    margin: 2rem;
+    width: 10rem;
 }
 
 /*----------------- Styles used on donation page -----------------*/
@@ -574,11 +583,10 @@ footer {
     }
 }
 
-
 @media screen and (min-width: 1800px) {
     .intro-card {
         min-height: 34rem;
-        margin-bottom: 6rem;
+        margin-bottom: 3rem;
     }
 
     .intro-card-button {

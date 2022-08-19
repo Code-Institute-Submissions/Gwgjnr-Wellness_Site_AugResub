@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Disallow: /admin/
+
+Sitemap: https://wellness-site.herokuapp.com/seminars/sitemap.xml
