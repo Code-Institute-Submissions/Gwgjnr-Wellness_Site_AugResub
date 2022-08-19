@@ -246,7 +246,11 @@ A 403 error page has been implemented to provide feedback to the user when they 
 
 ### Database-Design
 
-The database was designed to allow CRUD functionality to be available when signed in. The comments and replies model has full crud functionality. The user is able to edit the seminars models by clicking to attend and the user is able to create a model by submitting a contact.
+The database was designed to allow CRUD functionality to be available when signed in. The comments and replies model has full crud functionality. The user is able to edit the seminars models by clicking to attend and the user is able to create a model by submitting a contact. 
+
+The three custom models are the replies and comments model, the donations model and the Virtual seminars model.
+
+![Relational Database Diagram](media/readme/db_diagram.JPG)
 
 ## The-Surface-Plane
 ### Design
@@ -268,6 +272,8 @@ The imagery on site is attached and tied to each of the seminars and selected to
 # E-Commerce
 
 ## E-Commerce Business Model
+
+The e-commerce business model for this website for built around the idea of gaining multiple hosts who are giving relevant and informative clases which in turn attracts more users. The site notes on the donation page that it takes 10% of a the donation for upkeep so the aim is to attract more hosts who in turn attract in more donations. 
 
 ## Facebook Business Page
 
